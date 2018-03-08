@@ -1,5 +1,19 @@
 {
     "name": "itineris/sage-flbuilder",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "beaver-builder/bb-plugin",
+                "type": "wordpress-plugin",
+                "version": "2.0.4.3",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://updates.wpbeaverbuilder.com/?fl-api-method=composer_download&download=bb-plugin-pro.zip&license=78682e62702e6676657261766776407a7667"
+                }
+            }
+        }
+    ],
     "require": {
         "php": "^7.2"
     },
@@ -7,5 +21,8 @@
         "psr-4": {
             "Itineris\\SageFLBuilder\\": "src/"
         }
+    },
+    "require-dev": {
+        "beaver-builder/bb-plugin": "*"
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Itineris\SageFLBuilder\Settings;
 
+use Itineris\SageFLBuilder\FLBuilder;
+
 /**
  * Custom Post Grid for the theme builder.
  *
@@ -156,8 +158,8 @@ final class PostGrid
     {
         if ('theme' === $layout) {
             $post_type = get_post_type() ?: $settings->post_type;
-            $temp_path = FAB_FL_MODULE_DIR . "post-grid/includes/post-theme-{$post_type}.php";
-            $path      = file_exists($temp_path) ? $temp_path : FAB_FL_MODULE_DIR."post-grid/includes/post-theme.php";
+            $temp_path = FLBuilder::FAB_FL_MODULE_DIR . "post-grid/includes/post-theme-{$post_type}.php";
+            $path      = file_exists($temp_path) ? $temp_path : FLBuilder::FAB_FL_MODULE_DIR . 'post-grid/includes/post-theme.php';
         }
         return $path;
     }
@@ -182,8 +184,8 @@ final class PostGrid
                 $settings->{'tax_' . $post_type . '_' . $category} = $term_id;
             }
         }
-        $temp_path  = FAB_FL_MODULE_DIR . "post-grid/includes/filter-bar-{$post_type}.php";
-        $path       = file_exists($temp_path) ? $temp_path : FAB_FL_MODULE_DIR."post-grid/includes/filter-bar.php";
+        $temp_path  = FLBuilder::FAB_FL_MODULE_DIR . "post-grid/includes/filter-bar-{$post_type}.php";
+        $path       = file_exists($temp_path) ? $temp_path : FLBuilder::FAB_FL_MODULE_DIR . 'post-grid/includes/filter-bar.php';
         if (!empty($path) && file_exists($path)) {
             include $path;
         }

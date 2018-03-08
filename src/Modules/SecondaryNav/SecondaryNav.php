@@ -19,7 +19,7 @@ class SecondaryNav extends \FLBuilderModule
             'name'          => __('Secondary nav', 'fabric'),
             'description'   => __('Secondary nav widget', 'fabric'),
             'category'      => 'Posts',
-            'group'         => FAB_FL_MODULE_GROUP,
+            'group'         => FLBuilder::FAB_FL_MODULE_GROUP,
             'url'           => \App\asset_path(__DIR__),
             'icon'          => 'layout.svg'
         ]);

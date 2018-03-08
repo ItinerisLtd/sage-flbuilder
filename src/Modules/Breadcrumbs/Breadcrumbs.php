@@ -20,7 +20,7 @@ class Breadcrumbs extends \FLBuilderModule
             'name'          => __('Breadcrumbs', 'fabric'),
             'description'   => __('Breadcrumbs widget', 'fabric'),
             'category'      => 'Posts',
-            'group'         => FAB_FL_MODULE_GROUP,
+            'group'         => FLBuilder::FAB_FL_MODULE_GROUP,
             'url'           => \App\asset_path(__DIR__),
             'icon'          => 'layout.svg'
         ]);

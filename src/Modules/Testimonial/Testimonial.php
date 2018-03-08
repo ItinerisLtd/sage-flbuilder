@@ -15,7 +15,7 @@ class Testimonial extends \FLBuilderModule
             'name'          => __('Testimonial', 'fabric'),
             'description'   => __('Testimonial widget', 'fabric'),
             'category'      => 'Media',
-            'group'         => FAB_FL_MODULE_GROUP,
+            'group'         => FLBuilder::FAB_FL_MODULE_GROUP,
             'dir'           => __DIR__,
             'url'           => \App\asset_path(__DIR__),
             'icon'          => 'format-quote.svg'

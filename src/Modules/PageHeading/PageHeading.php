@@ -20,7 +20,7 @@ class PageHeading extends \FLBuilderModule
             'name'          => __('Page heading', 'fabric'),
             'description'   => __('Page heading module', 'fabric'),
             'category'      => 'Basic',
-            'group'         => FAB_FL_MODULE_GROUP,
+            'group'         => FLBuilder::FAB_FL_MODULE_GROUP,
             'dir'           => __DIR__,
             'url'           => \App\asset_path(__DIR__),
             'icon'          => 'text.svg'

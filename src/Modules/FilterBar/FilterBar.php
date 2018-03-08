@@ -20,7 +20,7 @@ class FilterBar extends \FLBuilderModule
             'name'          => __('Filter bar', 'fabric'),
             'description'   => __('Filter bar widget', 'fabric'),
             'category'      => 'Posts',
-            'group'         => FAB_FL_MODULE_GROUP,
+            'group'         => FLBuilder::FAB_FL_MODULE_GROUP,
             'dir'           => __DIR__,
             'url'           => \App\asset_path(__DIR__),
             'icon'          => 'layout.svg'

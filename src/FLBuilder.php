@@ -13,11 +13,10 @@ class FLBuilder
 {
     public const FAB_FL_MODULE_DIR = __DIR__ . '/Modules/';
     public const FAB_FL_MODULE_CAT = 'Custom Widgets';
+    public const FAB_FL_MODULE_GROUP = 'Itineris Standard Modules';
 
     public function __construct()
     {
-        define('FAB_FL_MODULE_GROUP', 'Itineris Standard Modules');
-
         add_action('init', [$this, 'loadWidgets'], 99);
         add_filter('fl_builder_loop_settings', [$this, 'forceEventPostType']);
 

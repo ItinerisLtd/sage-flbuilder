@@ -12,10 +12,10 @@ use Itineris\SageFLBuilder\Settings\ProductsArchive;
 class FLBuilder
 {
     public const FAB_FL_MODULE_DIR = __DIR__ . '/Modules/';
+    public const FAB_FL_MODULE_CAT = 'Custom Widgets';
 
     public function __construct()
     {
-        define('FAB_FL_MODULE_CAT', 'Custom Widgets');
         define('FAB_FL_MODULE_GROUP', 'Itineris Standard Modules');
 
         add_action('init', [$this, 'loadWidgets'], 99);

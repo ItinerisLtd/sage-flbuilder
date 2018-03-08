@@ -1,0 +1,11 @@
+{
+    "name": "itineris/sage-flbuilder",
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Itineris\\SageFLBuilder\\": "src/"
+        }
+    }
+}

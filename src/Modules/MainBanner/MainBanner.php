@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Plugins\FLBuilder\Base;
+namespace Itineris\SageFLBuilder\Modules\MainBanner;
 
 /**
- * @class MainBannerModule
+ * @class MainBanner
  */
-class MainBannerModule extends \FLBuilderModule
+class MainBanner extends \FLBuilderModule
 {
 
     /**
@@ -80,7 +80,7 @@ class MainBannerModule extends \FLBuilderModule
 /**
  * Register the module and its form settings.
  */
-\FLBuilder::register_module('\App\Plugins\FLBuilder\Base\MainBannerModule', [
+\FLBuilder::register_module('\App\Plugins\FLBuilder\Base\MainBanner', [
     'general'       => [
         'title'         => __('General', 'fabric'),
         'sections'      => [

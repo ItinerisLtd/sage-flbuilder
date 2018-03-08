@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Plugins\FLBuilder\Modules;
+namespace Itineris\SageFLBuilder\Modules\PageSlider;
 
 /**
  * @class PageSlider

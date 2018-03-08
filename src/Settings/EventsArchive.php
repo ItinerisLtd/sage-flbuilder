@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Plugins\FLBuilder\Settings;
+namespace Itineris\SageFLBuilder\Settings;
 
 /**
  * Custom Post Grid for the theme builder.

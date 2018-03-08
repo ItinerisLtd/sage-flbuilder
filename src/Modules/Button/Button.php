@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Plugins\FLBuilder;
+namespace Itineris\SageFLBuilder\Modules\Button;
 
 /**
  * Generic Bootstrap button widget
  *
- * @class FabricButtonWidget
+ * @class Button
  */
-class FabricButtonWidget extends \FLBuilderModule
+class Button extends \FLBuilderModule
 {
 
     /**
@@ -33,7 +33,7 @@ class FabricButtonWidget extends \FLBuilderModule
 /**
  * Register the module and its form settings.
  */
-\FLBuilder::register_module('\App\Plugins\FLBuilder\FabricButtonWidget', [
+\FLBuilder::register_module('\App\Plugins\FLBuilder\Button', [
     'general'       => [
         'title'         => 'Button',
         'sections'      => [

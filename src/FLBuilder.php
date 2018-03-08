@@ -1,11 +1,10 @@
 <?php
-namespace App\Plugins;
 
-use App;
-use function App\get_relative_bb_path;
-use App\Plugins\FLBuilder\Settings\EventsArchive;
-use App\Plugins\FLBuilder\Settings\PostGrid;
-use App\Plugins\FLBuilder\Settings\ProductsArchive;
+namespace Itineris\SageFLBuilder;
+
+use Itineris\SageFLBuilder\Settings\EventsArchive;
+use Itineris\SageFLBuilder\Settings\PostGrid;
+use Itineris\SageFLBuilder\Settings\ProductsArchive;
 
 /**
  * Beaver Builder extensions

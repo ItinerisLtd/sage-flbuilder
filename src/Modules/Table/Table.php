@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Plugins\FLBuilder\Module;
+namespace App\Plugins\FLBuilder\Module\Table;
 
 /**
  * Generic Bootstrap table widget

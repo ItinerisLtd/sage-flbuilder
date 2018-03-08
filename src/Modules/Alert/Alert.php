@@ -19,7 +19,7 @@ class Alert extends \FLBuilderModule
             'name'          => __('Alert', 'fabric'),
             'description'   => __('Alert widget', 'fabric'),
             'category'      => 'Actions',
-            'group'         => FLBuilder::FAB_FL_MODULE_GROUP,
+            'group'         => FLBuilder::MODULE_GROUP,
             'dir'           => __DIR__,
             'url'           => \App\asset_path(__DIR__),
             'icon'          => 'megaphone.svg'

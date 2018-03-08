@@ -15,7 +15,7 @@ class Accordion extends \FLBuilderModule
             'name'          => __('Accordion', 'fabric'),
             'description'   => __('Accordion widget', 'fabric'),
             'category'      => 'Layout',
-            'group'         => FLBuilder::FAB_FL_MODULE_GROUP,
+            'group'         => FLBuilder::MODULE_GROUP,
             'dir'           => __DIR__,
             'url'           => \App\asset_path(__DIR__),
             'icon'          => 'layout.svg'

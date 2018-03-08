@@ -19,7 +19,7 @@ class PageSlider extends \FLBuilderModule
         parent::__construct([
             'name'          => __('Page Slider', 'fabric'),
             'description'   => __('Page Slider widget', 'fabric'),
-            'category'      => FLBuilder::FAB_FL_MODULE_CAT,
+            'category'      => FLBuilder::MODULE_CAT,
             'dir'           => __DIR__,
             'url'           => \App\asset_path(__DIR__),
             'editor_export' => true, // Defaults to true and can be omitted.

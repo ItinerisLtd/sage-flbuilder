@@ -11,9 +11,9 @@ use Itineris\SageFLBuilder\Settings\ProductsArchive;
  */
 class FLBuilder
 {
-    public const FAB_FL_MODULE_DIR = __DIR__ . '/Modules/';
-    public const FAB_FL_MODULE_CAT = 'Custom Widgets';
-    public const FAB_FL_MODULE_GROUP = 'Itineris Standard Modules';
+    public const MODULE_DIR = __DIR__ . '/Modules/';
+    public const MODULE_CAT = 'Custom Widgets';
+    public const MODULE_GROUP = 'Itineris Standard Modules';
 
     public function __construct()
     {
@@ -33,7 +33,7 @@ class FLBuilder
 
     public function loadWidgets()
     {
-        foreach (new \DirectoryIterator(self::FAB_FL_MODULE_DIR) as $widgets) {
+        foreach (new \DirectoryIterator(self::MODULE_DIR) as $widgets) {
             if ($widgets->isDot()) {
                 continue;
             }
@@ -42,7 +42,7 @@ class FLBuilder
                 if ($widget->isDot() || 'post-grid' === $filename) {
                     continue;
                 }
-                require_once self::FAB_FL_MODULE_DIR . "{$filename}/{$filename}.php";
+                require_once self::MODULE_DIR . "{$filename}/{$filename}.php";
             }
         }
     }

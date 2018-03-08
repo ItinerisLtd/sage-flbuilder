@@ -22,7 +22,7 @@ class Button extends \FLBuilderModule
             'name'          => __('Button', 'fabric'),
             'description'   => __('Button widget', 'fabric'),
             'category'      => 'Actions',
-            'group'         => FLBuilder::FAB_FL_MODULE_GROUP,
+            'group'         => FLBuilder::MODULE_GROUP,
             'dir'           => __DIR__,
             'url'           => \App\asset_path(__DIR__),
             'icon'          => 'button.svg'

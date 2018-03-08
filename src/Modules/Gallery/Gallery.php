@@ -19,7 +19,7 @@ class Gallery extends \FLBuilderModule
             'name'          => __('Gallery', 'fabric'),
             'description'   => __('Gallery Widget', 'fabric'),
             'category'      => 'Media',
-            'group'         => FLBuilder::FAB_FL_MODULE_GROUP,
+            'group'         => FLBuilder::MODULE_GROUP,
             'dir'           => __DIR__,
             'url'           => \App\asset_path(__DIR__),
             'icon'          => 'format-gallery.svg'

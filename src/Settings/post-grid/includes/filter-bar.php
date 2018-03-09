@@ -33,7 +33,7 @@ if (('job_vacancy' === $post_type || 'volunteer_vacancy' === $post_type) && 'the
 } elseif ('product' === $post_type && 'theme' === $settings->layout) {
     $list_class = 'product';
 }
-$filter_count = App\Plugins\FLBuilder::flGetFilterCount($settings);
+$filter_count = Itineris\SageFLBuilder\FLBuilderBase::flGetFilterCount($settings);
 if ('post' === $post_type) {
     $authors = App\get_posts('team', '', true);
     $filter_count++;
@@ -71,7 +71,7 @@ $kw = get_query_var('kw');
                     </div>
                 <?php endif; ?>
                 <?php if ($settings->show_meta_filters) : ?>
-                    <?php $locations = App\Plugins\FLBuilder::flGetLocations($post_type); ?>
+                    <?php $locations = Itineris\SageFLBuilder\FLBuilderBase::flGetLocations($post_type); ?>
                     <?php if (! empty($locations)) : ?>
                         <?php $current = get_query_var('location'); ?>
                         <div class="col-xs-12 col-sm-<?php echo sanitize_html_class($filter_col); ?>">

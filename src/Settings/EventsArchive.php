@@ -232,10 +232,8 @@ class EventsArchive implements InitializableInterface
      *
      * @return string
      */
-    public static function postGridCSS($css, $nodes)
+    public static function postGridCSS($css, $nodes): string
     {
-        $globalIncluded = false;
-
         foreach ($nodes['modules'] as $module) {
             if (! is_object($module)) {
                 continue;
@@ -245,19 +243,19 @@ class EventsArchive implements InitializableInterface
                 continue;
             }
 
-            if (! $globalIncluded) {
-                $globalIncluded = true;
-                $css .= file_get_contents(FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'css/fl-theme-builder-post-grid-woocommerce.css');
-            }
+            $css .= file_get_contents(FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'css/fl-theme-builder-post-grid-woocommerce.css');
 
-            ob_start();
             $id = $module->node;
             $settings = $module->settings;
+
+            ob_start();
             include FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'includes/post-grid-woocommerce.css.php';
             $css .= ob_get_clean();
+
+            return $css;
         }
 
-        return $css;
+        return '';
     }
 
     /**

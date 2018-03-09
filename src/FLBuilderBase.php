@@ -158,21 +158,6 @@ class FLBuilderBase
         }
     }
 
-    public function enqueueAdminAssets()
-    {
-        if (class_exists('FLBuilderModel') && FLBuilderModel::is_builder_active()) {
-            wp_enqueue_script('fabric-admin', FAB_ADMIN_ASSETS . '/js/admin.js', ['jquery'], '1.0.0', true);
-            wp_localize_script(
-                'fabric-admin',
-                'fabric_admin',
-                [
-                    'assets' => FAB_ASSETS,
-                    'admin_assets' => FAB_ADMIN_ASSETS,
-                ]
-            );
-        }
-    }
-
     public function forceEventPostType($settings)
     {
         if ('fab_events_carousel' === $settings->type) {

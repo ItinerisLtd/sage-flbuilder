@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Modules\ContentImage;
 
 use FLBuilder;
 use FLBuilderModule;
-use Itineris\SageFLBuilder\FLBuilderPlugin;
+use Itineris\SageFLBuilder\FLBuilderBase;
 use Itineris\SageFLBuilder\RegistrableModuleInterface;
 use function App\asset_path;
 
@@ -43,7 +43,7 @@ class ContentImage extends FLBuilderModule implements RegistrableModuleInterface
             'name' => __('Content image', 'fabric'),
             'description' => __('Content image widget', 'fabric'),
             'category' => 'Media',
-            'group' => FLBuilderPlugin::MODULE_GROUP,
+            'group' => FLBuilderBase::MODULE_GROUP,
             'dir' => __DIR__,
             'url' => asset_path(__DIR__),
             'icon' => 'format-image.svg',

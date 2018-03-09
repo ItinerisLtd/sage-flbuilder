@@ -28,7 +28,7 @@ use function App\template_path;
 /**
  * Beaver Builder extensions
  */
-class FLBuilderPlugin
+class FLBuilderBase
 {
     public const MODULE_CAT = 'Custom Widgets';
     public const MODULE_GROUP = 'Itineris Standard Modules';
@@ -113,9 +113,9 @@ class FLBuilderPlugin
         return $count;
     }
 
-    public static function init(array $modules)
+    public static function init(?array $modules = null)
     {
-        $builder = new static($modules);
+        $builder = new static($modules ?? []);
 
         $builder->initializeSettings();
 
@@ -143,9 +143,9 @@ class FLBuilderPlugin
      *
      * @param string[]|null $modules Project-specific module class names. Must implements RegistrableModuleInterface.
      */
-    public function __construct(?array $modules = null)
+    public function __construct(array $modules)
     {
-        $this->modules = $modules ?? [];
+        $this->modules = $modules;
     }
 
     public function registerModules(): void

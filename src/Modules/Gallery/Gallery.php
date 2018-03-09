@@ -1,12 +1,58 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Itineris\SageFLBuilder\Modules\Gallery;
+
+use FLBuilder;
+use FLBuilderModule;
+use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\RegistrableModuleInterface;
+use function App\asset_path;
 
 /**
  * Class Gallery
  */
-class Gallery extends \FLBuilderModule
+class Gallery extends FLBuilderModule implements RegistrableModuleInterface
 {
+    public static function register(): void
+    {
+        FLBuilder::register_module(__CLASS__, [
+            'general' => [
+                'title' => __('Gallery', 'fabric'),
+                'sections' => [
+                    'general' => [
+                        'fields' => [
+                            'show_title' => [
+                                'type' => 'select',
+                                'label' => __('Show gallery title?', 'fabric'),
+                                'options' => [
+                                    '0' => __('No', 'fabric'),
+                                    '1' => __('Yes', 'fabric'),
+                                ],
+                            ],
+                            'show_summary' => [
+                                'type' => 'select',
+                                'label' => __('Show gallery summary?', 'fabric'),
+                                'options' => [
+                                    '0' => __('No', 'fabric'),
+                                    '1' => __('Yes', 'fabric'),
+                                ],
+                            ],
+                            'photo_gallery' => [
+                                'type' => 'suggest',
+                                'label' => __('Gallery', 'fabric'),
+                                'action' => 'fl_as_posts',
+                                'data' => 'photo_gallery',
+                                'limit' => 1,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+    }
+
     /**
      * Constructor function for the module. You must pass the
      * name, description, dir and url in an array to the parent class.
@@ -16,13 +62,13 @@ class Gallery extends \FLBuilderModule
     public function __construct()
     {
         parent::__construct([
-            'name'          => __('Gallery', 'fabric'),
-            'description'   => __('Gallery Widget', 'fabric'),
-            'category'      => 'Media',
-            'group'         => FLBuilder::MODULE_GROUP,
-            'dir'           => __DIR__,
-            'url'           => \App\asset_path(__DIR__),
-            'icon'          => 'format-gallery.svg'
+            'name' => __('Gallery', 'fabric'),
+            'description' => __('Gallery Widget', 'fabric'),
+            'category' => 'Media',
+            'group' => FLBuilderBase::MODULE_GROUP,
+            'dir' => __DIR__,
+            'url' => asset_path(__DIR__),
+            'icon' => 'format-gallery.svg',
         ]);
     }
 
@@ -31,41 +77,3 @@ class Gallery extends \FLBuilderModule
         return get_field('gallery_images', $this->settings->photo_gallery);
     }
 }
-
-/**
- * Register the module and its form settings.
- */
-\FLBuilder::register_module('\App\Plugins\FLBuilder\Modules\Gallery', [
-    'general'       => [
-        'title'         => __('Gallery', 'fabric'),
-        'sections'      => [
-            'general'       => [
-                'fields'        => [
-                    'show_title'    => [
-                        'type'          => 'select',
-                        'label'         => __('Show gallery title?', 'fabric'),
-                        'options'       => [
-                            '0'             => __('No', 'fabric'),
-                            '1'             => __('Yes', 'fabric')
-                        ]
-                    ],
-                    'show_summary'  => [
-                        'type'          => 'select',
-                        'label'         => __('Show gallery summary?', 'fabric'),
-                        'options'       => [
-                            '0'             => __('No', 'fabric'),
-                            '1'             => __('Yes', 'fabric')
-                        ]
-                    ],
-                    'photo_gallery'       => [
-                        'type'          => 'suggest',
-                        'label'         => __('Gallery', 'fabric'),
-                        'action'        => 'fl_as_posts',
-                        'data'          => 'photo_gallery',
-                        'limit'         => 1,
-                    ],
-                ]
-            ]
-        ]
-    ]
-]);

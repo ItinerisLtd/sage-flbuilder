@@ -17,3 +17,6 @@ composer.lock
 
 ### PhpStorm ###
 /.idea/
+
+### Sage ###
+/wp-content

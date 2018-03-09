@@ -1,12 +1,146 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Itineris\SageFLBuilder\Modules\MainBanner;
+
+use FLBuilder;
+use FLBuilderModule;
+use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\RegistrableModuleInterface;
+use function App\asset_path;
 
 /**
  * @class MainBanner
  */
-class MainBanner extends \FLBuilderModule
+class MainBanner extends FLBuilderModule implements RegistrableModuleInterface
 {
+    private const FORM_ID = 'main_banner_slides';
+
+    public static function register(): void
+    {
+        FLBuilder::register_module(__CLASS__, [
+            'general' => [
+                'title' => __('General', 'fabric'),
+                'sections' => [
+                    'slides' => [
+                        'title' => __('Slides', 'fabric'),
+                        'fields' => [
+                            'slides' => [
+                                'type' => 'form',
+                                'label' => __('Slide', 'fabric'),
+                                'form' => self::FORM_ID,
+                                'preview_text' => 'btn_text',
+                                'multiple' => true,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+
+        /**
+         * Register the slide settings form.
+         */
+        FLBuilder::register_settings_form(self::FORM_ID, [
+            'title' => __('Column settings', 'fabric'),
+            'tabs' => [
+                'general' => [
+                    'title' => __('General', 'fabric'),
+                    'sections' => [
+                        'general' => [
+                            'fields' => [
+                                'enabled' => [
+                                    'type' => 'select',
+                                    'label' => __('Status', 'fabric'),
+                                    'default' => '1',
+                                    'options' => [
+                                        '1' => __('Show / Active', 'fabric'),
+                                        '0' => __('Hide / Inactive', 'fabric'),
+                                    ],
+                                ],
+                            ],
+                        ],
+                        'content' => [
+                            'title' => __('Content Layout', 'fabric'),
+                            'fields' => [
+                                'image' => [
+                                    'type' => 'photo',
+                                    'label' => __('Slide background image', 'fabric'),
+                                ],
+                                'title' => [
+                                    'type' => 'text',
+                                    'label' => __('Slide title', 'fabric'),
+                                    'default' => 'Making the most',
+                                ],
+                                'title_second' => [
+                                    'type' => 'text',
+                                    'label' => __('Slide title second line', 'fabric'),
+                                    'default' => 'of everyday',
+                                ],
+                                'link' => [
+                                    'type' => 'link',
+                                    'label' => __('Link', 'fabric'),
+                                    'help' => __(
+                                        'The link applies to the entire slide. If choosing a call to action type below, this link will also be used for the text or button.',
+                                        'fabric'
+                                    ),
+                                ],
+                                'link_target' => [
+                                    'type' => 'select',
+                                    'label' => __('Link Target', 'fabric'),
+                                    'default' => '_self',
+                                    'options' => [
+                                        '_self' => __('Same Window', 'fabric'),
+                                        '_blank' => __('New Window', 'fabric'),
+                                    ],
+                                ],
+                                'btn_text' => [
+                                    'type' => 'text',
+                                    'label' => __('Text', 'fabric'),
+                                    'default' => 'Become a member',
+                                ],
+                                'btn_style' => [
+                                    'type' => 'select',
+                                    'label' => __('Style', 'fabric'),
+                                    'default' => 'btn-warning',
+                                    'options' => \App\button_styles(),
+                                ],
+                                'link2' => [
+                                    'type' => 'link',
+                                    'label' => __('Link', 'fabric'),
+                                    'help' => __(
+                                        'The link applies to the entire slide. If choosing a call to action type below, this link will also be used for the text or button.',
+                                        'fabric'
+                                    ),
+                                ],
+                                'link_target2' => [
+                                    'type' => 'select',
+                                    'label' => __('Link Target', 'fabric'),
+                                    'default' => '_self',
+                                    'options' => [
+                                        '_self' => __('Same Window', 'fabric'),
+                                        '_blank' => __('New Window', 'fabric'),
+                                    ],
+                                ],
+                                'btn_text2' => [
+                                    'type' => 'text',
+                                    'label' => __('Text', 'fabric'),
+                                    'default' => 'Become a member',
+                                ],
+                                'btn_style2' => [
+                                    'type' => 'select',
+                                    'label' => __('Style', 'fabric'),
+                                    'default' => 'btn-warning',
+                                    'options' => \App\button_styles(),
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ]);
+    }
 
     /**
      * Constructor function for the module. You must pass the
@@ -17,13 +151,13 @@ class MainBanner extends \FLBuilderModule
     public function __construct()
     {
         parent::__construct([
-            'name'          => __('Main banner', 'fabric'),
-            'description'   => __('Main banner widget', 'fabric'),
-            'category'      => 'Layout',
-            'group'         => FLBuilder::MODULE_GROUP,
-            'dir'           => __DIR__,
-            'url'           => \App\asset_path(__DIR__),
-            'icon'          => 'text.svg'
+            'name' => __('Main banner', 'fabric'),
+            'description' => __('Main banner widget', 'fabric'),
+            'category' => 'Layout',
+            'group' => FLBuilderBase::MODULE_GROUP,
+            'dir' => __DIR__,
+            'url' => asset_path(__DIR__),
+            'icon' => 'text.svg',
         ]);
     }
 
@@ -32,7 +166,7 @@ class MainBanner extends \FLBuilderModule
      */
     public function renderButtons()
     {
-        if (!empty($this->settings->slides)) {
+        if (! empty($this->settings->slides)) {
             foreach ($this->settings->slides as $slide) {
                 $this->renderButton($slide);
             }
@@ -44,14 +178,14 @@ class MainBanner extends \FLBuilderModule
      */
     public function renderButton($slide)
     {
-        if (!empty($slide)) {
+        if (! empty($slide)) {
             print '<div class="slide">';
-            if (!empty($slide->image)) {
+            if (! empty($slide->image)) {
                 print '<div class="img">';
-                print ' '. wp_get_attachment_image($slide->image, 'page-banner') .' ';
+                print ' ' . wp_get_attachment_image($slide->image, 'page-banner') . ' ';
                 print '</div>';
             }
-            if (!empty($slide->title)) {
+            if (! empty($slide->title)) {
                 print '<div class="container">
                 <div class="text">
                 <div class="row">
@@ -59,11 +193,11 @@ class MainBanner extends \FLBuilderModule
                 <div class="cell">
                 <h2 class="h1">' . $slide->title . ' <span> ' . $slide->title_second . '</span></h2>
                 <ul class="btn-holder hidden-xs">';
-                if (!empty($slide->link)) {
-                    print '<li><a href="' . esc_url($slide->link) . ' " class="btn '. $slide->btn_style .' waves-effect waves-ripple"> ' . $slide->btn_text . '</a></li>';
+                if (! empty($slide->link)) {
+                    print '<li><a href="' . esc_url($slide->link) . ' " class="btn ' . $slide->btn_style . ' waves-effect waves-ripple"> ' . $slide->btn_text . '</a></li>';
                 }
-                if (!empty($slide->link2)) {
-                    print '<li><a href="' . esc_url($slide->link2) . ' " class="btn '. $slide->btn_style2 .' waves-effect waves-ripple"> ' . $slide->btn_text2 . '</a></li>';
+                if (! empty($slide->link2)) {
+                    print '<li><a href="' . esc_url($slide->link2) . ' " class="btn ' . $slide->btn_style2 . ' waves-effect waves-ripple"> ' . $slide->btn_text2 . '</a></li>';
                 }
                 print '</ul>
                 </div>
@@ -72,132 +206,7 @@ class MainBanner extends \FLBuilderModule
                 </div>
                 </div>';
             }
-			print '</div><!-- / slide -->';
+            print '</div><!-- / slide -->';
         }
     }
 }
-
-/**
- * Register the module and its form settings.
- */
-\FLBuilder::register_module('\App\Plugins\FLBuilder\Base\MainBanner', [
-    'general'       => [
-        'title'         => __('General', 'fabric'),
-        'sections'      => [
-            'slides'       => [
-                'title'         => __('Slides', 'fabric'),
-                'fields'        => [
-                    'slides'         => [
-                        'type'          => 'form',
-                        'label'         => __('Slide', 'fabric'),
-                        'form'          => 'main_banner_slides',
-                        'preview_text'  => 'btn_text',
-                        'multiple'      => true,
-                    ]
-                ]
-            ]
-        ]
-    ]
-]);
-
-/**
- * Register the slide settings form.
- */
-\FLBuilder::register_settings_form('main_banner_slides', [
-    'title'         => __('Column settings', 'fabric'),
-    'tabs'          => [
-        'general'       => [
-            'title'         => __('General', 'fabric'),
-            'sections'      => [
-                'general'       => [
-                    'fields'        => [
-                        'enabled'       => [
-                            'type'          => 'select',
-                            'label'         => __('Status', 'fabric'),
-                            'default'       => '1',
-                            'options'       => [
-                                '1'             => __('Show / Active', 'fabric'),
-                                '0'             => __('Hide / Inactive', 'fabric')
-                            ]
-                        ]
-                    ]
-                ],
-                'content'       => [
-                    'title'         => __('Content Layout', 'fabric'),
-                    'fields'        => [
-                        'image'         => [
-                            'type'          => 'photo',
-                            'label'         => __('Slide background image', 'fabric')
-                        ],
-                        'title'         => [
-                            'type'          => 'text',
-                            'label'         => __('Slide title', 'fabric'),
-                            'default'       => 'Making the most'
-                        ],
-                        'title_second'  => [
-                            'type'          => 'text',
-                            'label'         => __('Slide title second line', 'fabric'),
-                            'default'       => 'of everyday',
-                        ],
-                        'link'          => [
-                            'type'          => 'link',
-                            'label'         => __('Link', 'fabric'),
-                            'help'          => __(
-                                'The link applies to the entire slide. If choosing a call to action type below, this link will also be used for the text or button.',
-                                'fabric'
-                            ),
-                        ],
-                        'link_target'   => [
-                            'type'          => 'select',
-                            'label'         => __('Link Target', 'fabric'),
-                            'default'       => '_self',
-                            'options'       => [
-                                '_self'         => __('Same Window', 'fabric'),
-                                '_blank'        => __('New Window', 'fabric')
-                            ]
-                        ],
-                        'btn_text'      => [
-                            'type'          => 'text',
-                            'label'         => __('Text', 'fabric'),
-                            'default'       => 'Become a member'
-                        ],
-                        'btn_style'     => [
-                            'type'          => 'select',
-                            'label'         => __('Style', 'fabric'),
-                            'default'       => 'btn-warning',
-                            'options'       => \App\button_styles()
-                        ],
-                        'link2'          => [
-                            'type'          => 'link',
-                            'label'         => __('Link', 'fabric'),
-                            'help'          => __(
-                                'The link applies to the entire slide. If choosing a call to action type below, this link will also be used for the text or button.',
-                                'fabric'
-                            ),
-                        ],
-                        'link_target2'   => [
-                            'type'          => 'select',
-                            'label'         => __('Link Target', 'fabric'),
-                            'default'       => '_self',
-                            'options'       => [
-                                '_self'         => __('Same Window', 'fabric'),
-                                '_blank'        => __('New Window', 'fabric')
-                            ]
-                        ],
-                        'btn_text2'      => [
-                            'type'          => 'text',
-                            'label'         => __('Text', 'fabric'),
-                            'default'       => 'Become a member'
-                        ],
-                        'btn_style2'     => [
-                            'type'          => 'select',
-                            'label'         => __('Style', 'fabric'),
-                            'default'       => 'btn-warning',
-                            'options'       => \App\button_styles()
-                        ]
-                    ]
-                ]
-            ]
-        ]
-    ]
-]);

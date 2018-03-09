@@ -1,12 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Itineris\SageFLBuilder\Modules\Breadcrumbs;
+
+use FLBuilder;
+use FLBuilderModule;
+use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\RegistrableModuleInterface;
+use function App\asset_path;
 
 /**
  * Class Breadcrumbs
  */
-class Breadcrumbs extends \FLBuilderModule
+class Breadcrumbs extends FLBuilderModule implements RegistrableModuleInterface
 {
+    public static function register(): void
+    {
+        FLBuilder::register_module(__CLASS__, []);
+    }
 
     /**
      * Constructor function for the module. You must pass the
@@ -17,17 +29,12 @@ class Breadcrumbs extends \FLBuilderModule
     public function __construct()
     {
         parent::__construct([
-            'name'          => __('Breadcrumbs', 'fabric'),
-            'description'   => __('Breadcrumbs widget', 'fabric'),
-            'category'      => 'Posts',
-            'group'         => FLBuilder::MODULE_GROUP,
-            'url'           => \App\asset_path(__DIR__),
-            'icon'          => 'layout.svg'
+            'name' => __('Breadcrumbs', 'fabric'),
+            'description' => __('Breadcrumbs widget', 'fabric'),
+            'category' => 'Posts',
+            'group' => FLBuilderBase::MODULE_GROUP,
+            'url' => asset_path(__DIR__),
+            'icon' => 'layout.svg',
         ]);
     }
 }
-
-/**
- * Register the module and its form settings.
- */
-\FLBuilder::register_module('\App\Plugins\FLBuilder\Modules\Breadcrumbs', []);

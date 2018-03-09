@@ -23,6 +23,7 @@
         }
     },
     "require-dev": {
-        "beaver-builder/bb-plugin": "*"
+        "beaver-builder/bb-plugin": "*",
+        "roots/sage": "@beta"
     }
 }

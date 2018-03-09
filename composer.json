@@ -12,6 +12,18 @@
                     "url": "https://updates.wpbeaverbuilder.com/?fl-api-method=composer_download&download=bb-plugin-pro.zip&license=78682e62702e6676657261766776407a7667"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "beaver-builder/bb-theme-builder",
+                "type": "wordpress-plugin",
+                "version": "1.1",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://updates.wpbeaverbuilder.com/?fl-api-method=composer_download&download=bb-theme-builder.zip&license=78682e62702e6676657261766776407a7667"
+                }
+            }
         }
     ],
     "require": {
@@ -24,6 +36,7 @@
     },
     "require-dev": {
         "beaver-builder/bb-plugin": "*",
+        "beaver-builder/bb-theme-builder": "*",
         "roots/sage": "@beta"
     }
 }

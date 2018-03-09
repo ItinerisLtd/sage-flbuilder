@@ -166,11 +166,11 @@ class PostGrid implements InitializableInterface
         $post_type = get_post_type() ?: $settings->post_type;
         $path = __DIR__ . "/../Modules/post-grid/includes/post-theme-{$post_type}.php";
 
-        if (file_exists($path)) {
-            return $path;
+        if (! file_exists($path)) {
+            $path = __DIR__ . '/../Modules/post-grid/includes/post-theme.php';
         }
 
-        return __DIR__ . '/../Modules/post-grid/includes/post-theme.php';
+        return $path;
     }
 
     public static function filterBar($settings): string

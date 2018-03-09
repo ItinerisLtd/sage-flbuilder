@@ -164,13 +164,13 @@ class PostGrid implements InitializableInterface
         }
 
         $post_type = get_post_type() ?: $settings->post_type;
-        $path = __DIR__ . "/post-grid/includes/post-theme-{$post_type}.php";
+        $path = __DIR__ . "/../Modules/post-grid/includes/post-theme-{$post_type}.php";
 
         if (file_exists($path)) {
             return $path;
         }
 
-        return __DIR__ . '/post-grid/includes/post-theme.php';
+        return __DIR__ . '/../Modules/post-grid/includes/post-theme.php';
     }
 
     public static function filterBar($settings): string
@@ -195,9 +195,9 @@ class PostGrid implements InitializableInterface
             }
         }
 
-        $path = __DIR__ . "post-grid/includes/filter-bar-{$post_type}.php";
+        $path = __DIR__ . "/../Modules/post-grid/includes/filter-bar-{$post_type}.php";
         if (! file_exists($path)) {
-            $path = __DIR__ . 'post-grid/includes/filter-bar.php';
+            $path = __DIR__ . '/../Modules/post-grid/includes/filter-bar.php';
         }
 
         include $path;

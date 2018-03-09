@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Modules\MainBanner;
 
 use FLBuilder;
 use FLBuilderModule;
-use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\FLBuilderPlugin;
 use Itineris\SageFLBuilder\RegistrableModuleInterface;
 use function App\asset_path;
 
@@ -154,7 +154,7 @@ class MainBanner extends FLBuilderModule implements RegistrableModuleInterface
             'name' => __('Main banner', 'fabric'),
             'description' => __('Main banner widget', 'fabric'),
             'category' => 'Layout',
-            'group' => FLBuilderBase::MODULE_GROUP,
+            'group' => FLBuilderPlugin::MODULE_GROUP,
             'dir' => __DIR__,
             'url' => asset_path(__DIR__),
             'icon' => 'text.svg',

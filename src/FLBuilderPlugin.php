@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder;
 
-use function App\template_path;
 use FLBuilderModel;
 use Itineris\SageFLBuilder\Modules\Accordion\Accordion;
 use Itineris\SageFLBuilder\Modules\Alert\Alert;
@@ -24,11 +23,12 @@ use Itineris\SageFLBuilder\Settings\EventsArchive;
 use Itineris\SageFLBuilder\Settings\PostGrid;
 use Itineris\SageFLBuilder\Settings\ProductsArchive;
 use WP_Query;
+use function App\template_path;
 
 /**
  * Beaver Builder extensions
  */
-class FLBuilderBase
+class FLBuilderPlugin
 {
     public const MODULE_CAT = 'Custom Widgets';
     public const MODULE_GROUP = 'Itineris Standard Modules';
@@ -55,6 +55,12 @@ class FLBuilderBase
         PostGrid::class,
         ProductsArchive::class,
     ];
+    /**
+     * Project-specific module class names. Must implements RegistrableModuleInterface.
+     *
+     * @var string[]
+     */
+    protected $modules;
 
     /**
      * Warning: This is a slow database query!
@@ -107,32 +113,48 @@ class FLBuilderBase
         return $count;
     }
 
-    public function __construct()
+    public static function init(array $modules)
     {
-        add_action('init', [$this, 'registerModules'], 99);
-        add_filter('fl_builder_loop_settings', [$this, 'forceEventPostType']);
+        $builder = new static($modules);
 
-        $this->initializeSettings();
+        $builder->initializeSettings();
 
-        add_filter('fl_theme_builder_template_include', [$this, 'loadPageBladeTemplate'], PHP_INT_MAX);
-        add_filter('fl_builder_module_frontend_file', [$this, 'locateTemplate'], 10, 2);
-        add_filter('fl_builder_render_module_content', [$this, 'wrapRichText'], 10, 2);
-        add_filter('fl_builder_module_frontend_custom_fab_filter_bar', [$this, 'filterBarFrontend']);
+        add_action('init', [$builder, 'registerModules'], 99);
+        add_action('fl_builder_posts_module_after_pagination', [$builder, 'noPostsFilterBar'], 10, 2);
 
-        add_action('fl_builder_posts_module_after_pagination', [$this, 'noPostsFilterBar'], 10, 2);
+        add_filter('fl_builder_loop_settings', [$builder, 'forceEventPostType']);
+        add_filter('fl_theme_builder_template_include', [$builder, 'loadPageBladeTemplate'], PHP_INT_MAX);
+        add_filter('fl_builder_module_frontend_file', [$builder, 'locateTemplate'], 10, 2);
+        add_filter('fl_builder_render_module_content', [$builder, 'wrapRichText'], 10, 2);
+        add_filter('fl_builder_module_frontend_custom_fab_filter_bar', [$builder, 'filterBarFrontend']);
+
+        return $builder;
+    }
+
+    public function initializeSettings(): void
+    {
+        foreach (self::INITIALIZABLE_SETTINGS as $setting) {
+            $setting::init();
+        }
+    }
+
+    /**
+     * FLBuilderBase constructor.
+     *
+     * @param string[]|null $modules Project-specific module class names. Must implements RegistrableModuleInterface.
+     */
+    public function __construct(?array $modules = null)
+    {
+        $this->modules = $modules ?? [];
     }
 
     public function registerModules(): void
     {
-        foreach (self::REGISTRABLE_MODULES as $module) {
-            $module::register();
-        }
-    }
+        /** @var RegistrableModuleInterface[] $modules */
+        $modules = array_merge(self::REGISTRABLE_MODULES, $this->modules);
 
-    protected function initializeSettings(): void
-    {
-        foreach (self::INITIALIZABLE_SETTINGS as $setting) {
-            $setting::init();
+        foreach ($modules as $module) {
+            $module::register();
         }
     }
 
@@ -182,11 +204,10 @@ class FLBuilderBase
      */
     public function locateTemplate($file, $module): string
     {
-        $relfilepath = \App\get_relative_bb_path($module, 'frontend', 'module');
-        $path = \App\locate_template("../{$relfilepath}");
-        $file = $path ? template_path($path) : $file;
+        $relativeBbPath = \App\get_relative_bb_path($module, 'frontend', 'module');
+        $path = \App\locate_template("../{$relativeBbPath}");
 
-        return $file;
+        return $path ? template_path($path) : $file;
     }
 
     public function wrapRichText($out, $module): string

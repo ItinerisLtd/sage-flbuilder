@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Modules\PageHeading;
 
 use FLBuilder;
 use FLBuilderModule;
-use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\FLBuilderPlugin;
 use Itineris\SageFLBuilder\RegistrableModuleInterface;
 use function App\asset_path;
 
@@ -65,7 +65,7 @@ class PageHeading extends FLBuilderModule implements RegistrableModuleInterface
             'name' => __('Page heading', 'fabric'),
             'description' => __('Page heading module', 'fabric'),
             'category' => 'Basic',
-            'group' => FLBuilderBase::MODULE_GROUP,
+            'group' => FLBuilderPlugin::MODULE_GROUP,
             'dir' => __DIR__,
             'url' => asset_path(__DIR__),
             'icon' => 'text.svg',

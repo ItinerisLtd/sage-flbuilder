@@ -1,29 +1,25 @@
 <?php
 
-namespace Itineris\SageFLBuilder\Settings;
+declare(strict_types=1);
 
-use Itineris\SageFLBuilder\FLBuilderBase;
+namespace Itineris\SageFLBuilder\Settings;
 
 /**
  * Custom Post Grid for the theme builder.
  *
  * @since 1.0
  */
-final class PostGrid
+class PostGrid
 {
-
     /**
      * @since 1.0
      * @return void
      */
-    public static function init()
+    public static function init(): void
     {
-        // Actions
-
         // Filters
         add_filter('fl_builder_register_settings_form', __CLASS__ . '::postGridSettings', 10, 2);
         add_filter('fl_builder_posts_module_layout_path', __CLASS__ . '::loadLayoutPath', 10, 3);
-        //        add_filter( 'fl_builder_render_css',                	__CLASS__ . '::postGridCSS', 10, 2 );
     }
 
     /**
@@ -36,9 +32,9 @@ final class PostGrid
      *
      * @return array
      */
-    public static function postGridSettings($form, $slug)
+    public static function postGridSettings($form, $slug): array
     {
-        if ('post-grid' != $slug) {
+        if ('post-grid' !== $slug) {
             return $form;
         }
 
@@ -135,16 +131,19 @@ final class PostGrid
      */
     public static function postGridCSS($css, $nodes)
     {
-        $global_included = false;
+        $globalIncluded = false;
 
         foreach ($nodes['modules'] as $module) {
-
             if (! is_object($module)) {
                 continue;
-            } elseif ('post-grid' != $module->settings->type) {
+            }
+
+            if ('post-grid' !== $module->settings->type) {
                 continue;
-            } elseif (! $global_included) {
-                $global_included = true;
+            }
+
+            if (! $globalIncluded) {
+                $globalIncluded = true;
                 $css .= file_get_contents(FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'css/fl-theme-builder-post-grid-woocommerce.css');
             }
 
@@ -160,18 +159,24 @@ final class PostGrid
 
     public static function loadLayoutPath($path, $layout, $settings)
     {
-        if ('theme' === $layout) {
-            $post_type = get_post_type() ?: $settings->post_type;
-            $temp_path = FLBuilderBase::MODULE_DIR . "post-grid/includes/post-theme-{$post_type}.php";
-            $path = file_exists($temp_path) ? $temp_path : FLBuilderBase::MODULE_DIR . 'post-grid/includes/post-theme.php';
+        if ('theme' !== $layout) {
+            return $path;
         }
 
-        return $path;
+        $post_type = get_post_type() ?: $settings->post_type;
+        $path = __DIR__ . "/post-grid/includes/post-theme-{$post_type}.php";
+
+        if (file_exists($path)) {
+            return $path;
+        }
+
+        return __DIR__ . '/post-grid/includes/post-theme.php';
     }
 
-    public static function filterBar($settings)
+    public static function filterBar($settings): string
     {
         ob_start();
+
         $show_filter = false;
         $tax_exists = false;
         $post_type = 'main_query' === $settings->data_source ? (get_post_type() ?: 'post') : $settings->post_type;
@@ -189,13 +194,14 @@ final class PostGrid
                 $settings->{'tax_' . $post_type . '_' . $category} = $term_id;
             }
         }
-        $temp_path = FLBuilderBase::MODULE_DIR . "post-grid/includes/filter-bar-{$post_type}.php";
-        $path = file_exists($temp_path) ? $temp_path : FLBuilderBase::MODULE_DIR . 'post-grid/includes/filter-bar.php';
-        if (! empty($path) && file_exists($path)) {
-            include $path;
-        }
-        $html = ob_get_clean();
 
-        return $html;
+        $path = __DIR__ . "post-grid/includes/filter-bar-{$post_type}.php";
+        if (! file_exists($path)) {
+            $path = __DIR__ . 'post-grid/includes/filter-bar.php';
+        }
+
+        include $path;
+
+        return ob_get_clean();
     }
 }

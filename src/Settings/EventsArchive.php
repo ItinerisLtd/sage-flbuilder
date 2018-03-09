@@ -1,20 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Itineris\SageFLBuilder\Settings;
+
+use DateTime;
+use Exception;
 
 /**
  * Custom Post Grid for the theme builder.
  *
  * @since 1.0
  */
-final class EventsArchive
+class EventsArchive
 {
-
     /**
      * @since 1.0
      * @return void
      */
-    public static function init()
+    public static function init(): void
     {
         // Actions
         add_action('fl_builder_posts_module_before_posts', __CLASS__ . '::beforePosts', 10, 2);
@@ -22,24 +26,22 @@ final class EventsArchive
         add_action('fl_builder_posts_module_after_posts', __CLASS__ . '::afterPosts', 10, 2);
         add_action('fl_builder_posts_module_after_posts', __CLASS__ . '::afterPostsItemsWrap', 11, 2);
         add_action('pre_get_posts', __CLASS__ . '::modifyQuery');
-//        add_action('pre_get_posts', __CLASS__ . '::fixInfiniteScroll');
 
         // Filters
         add_filter('fl_builder_module_custom_class', __CLASS__ . '::customClass', 10, 2);
         add_filter('fl_builder_register_settings_form', __CLASS__ . '::postGridSettings', 10, 2);
-//        add_filter( 'fl_builder_render_css',                	__CLASS__ . '::postGridCSS', 10, 2 );
         add_filter('fl_builder_render_js', __CLASS__ . '::postGridJS', 10, 2);
     }
 
-    public static function eventDate($format)
+    public static function eventDate($format): void
     {
-        if ('default' == $format) {
+        if ('default' === $format) {
             the_field('event_start');
         } else {
             $date = get_field('event_start', false, false);
             try {
-                $dateObj = new \DateTime($date);
-            } catch (\Exception $e) {
+                $dateObj = new DateTime($date);
+            } catch (Exception $e) {
                 $dateObj = false;
             }
             if ($dateObj) {
@@ -48,33 +50,33 @@ final class EventsArchive
         }
     }
 
-    public static function beforePosts($settings, $query)
+    public static function beforePosts($settings, $query): void
     {
-        if ('event' == $query->query_vars['post_type']) {
+        if ('event' === $query->query_vars['post_type'] ?? null) {
             echo '<div class="container">';
-            if (!empty($settings->section_title)) {
-                echo '<h2>'.esc_html($settings->section_title).'</h2>';
+            if (! empty($settings->section_title)) {
+                echo '<h2>' . esc_html($settings->section_title) . '</h2>';
             }
         }
     }
 
-    public static function beforePostsItemsWrap($settings, $query)
+    public static function beforePostsItemsWrap($settings, $query): void
     {
-        if ('event' == $query->query_vars['post_type']) {
+        if ('event' === $query->query_vars['post_type'] ?? null) {
             echo '<div class="events">';
         }
     }
 
-    public static function afterPosts($settings, $query)
+    public static function afterPosts($settings, $query): void
     {
-        if ('event' == $query->query_vars['post_type']) {
+        if ('event' === $query->query_vars['post_type'] ?? null) {
             echo '</div>';
         }
     }
 
-    public static function afterPostsItemsWrap($settings, $query)
+    public static function afterPostsItemsWrap($settings, $query): void
     {
-        if ('event' == $query->query_vars['post_type']) {
+        if ('event' === $query->query_vars['post_type'] ?? null) {
             echo '</div><!-- ./events -->';
             echo '<footer class="fl-builder-pagination-load-more btn-row hidden-xs">';
             echo '<a href="#" class="fl-button btn btn-sm btn-info">Load More</a>';
@@ -87,39 +89,30 @@ final class EventsArchive
         if ('post-grid' === $module->slug && 'event' === get_post_type()) {
             $class .= ' upcoming-events';
         }
+
         return $class;
     }
 
     public static function modifyQuery($query)
     {
-        if (!is_admin() &&
+        if (! is_admin() &&
             'event' === $query->get('post_type') &&
+            $query->is_archive &&
             (
                 $query->is_main_query() ||
                 (isset($query->query['fl_builder_loop']) && $query->query['fl_builder_loop'])
-            ) &&
-            $query->is_archive
+            )
         ) {
-            if (!isset($query->query['settings']->type) || 'post-grid' === $query->query['settings']->type) {
+            if (! isset($query->query['settings']->type) || 'post-grid' === $query->query['settings']->type) {
                 $query->set('posts_per_page', 2); // TODO: remove when fixed
             }
         }
+
         return $query;
     }
 
     public static function fixInfiniteScroll($query)
     {
-//        $is_events = is_event();
-//        var_dump('yeee');
-//        $query->set('post_type', 'event');
-//        $query->set('is_archive', true);
-//        $query->is_archive = true;
-//        $query->set('is_post_type_archive', true);
-//        $query->is_post_type_archive = true;
-//        $query->set('is_page', false);
-//        $query->is_page = false;
-//        $query->set('is_single', false);
-//        $query->is_single = false;
         $query->set('post_type', 'fl-theme-layout');
         $query->set('is_single', true);
         $query->is_single = true;
@@ -127,6 +120,7 @@ final class EventsArchive
         $query->is_singular = true;
         $query->set('is_page', false);
         $query->is_page = false;
+
         return $query;
     }
 
@@ -134,13 +128,15 @@ final class EventsArchive
      * Adds custom settings to the Posts module.
      *
      * @since 1.0
+     *
      * @param array  $form
      * @param string $slug
+     *
      * @return array
      */
     public static function postGridSettings($form, $slug)
     {
-        if ('post-grid' != $slug) {
+        if ('post-grid' !== $slug) {
             return $form;
         }
 
@@ -150,77 +146,77 @@ final class EventsArchive
                 'section_title',
                 'show_filter',
                 'show_cat_desc',
-            ]
+            ],
         ];
         $form['layout']['sections']['general']['fields']['section_title'] = [
-            'type'          => 'text',
-            'label'         => __('Section title', 'fabric'),
-            'default'       => 'Upcoming Events'
+            'type' => 'text',
+            'label' => __('Section title', 'fabric'),
+            'default' => 'Upcoming Events',
         ];
         $form['layout']['sections']['general']['fields']['show_filter'] = [
-            'type'          => 'select',
-            'label'         => __('Show filter bar?', 'fabric'),
-            'default'       => '1',
-            'options'       => [
-                '1'             => __('Yes', 'fl-builder'),
-                '0'             => __('No', 'fl-builder')
+            'type' => 'select',
+            'label' => __('Show filter bar?', 'fabric'),
+            'default' => '1',
+            'options' => [
+                '1' => __('Yes', 'fl-builder'),
+                '0' => __('No', 'fl-builder'),
             ],
-            'toggle'        => [
-                '0'             => [],
-                '1'             => [
-                    'sections'      => ['filter_bar']
-                ]
-            ]
+            'toggle' => [
+                '0' => [],
+                '1' => [
+                    'sections' => ['filter_bar'],
+                ],
+            ],
         ];
         $form['layout']['sections']['filter_bar'] = [
-            'title'         => __('Filter bar', 'fabric'),
-            'fields'        => [
-                'auto_filter'   => [
-                    'type'          => 'select',
-                    'label'         => __('Auto filter?', 'fabric'),
-                    'default'       => '1',
-                    'options'       => [
-                        '1'             => __('Yes', 'fl-builder'),
-                        '0'             => __('No', 'fl-builder')
-                    ]
-                ],
-                'show_button'   => [
-                    'type'          => 'select',
-                    'label'         => __('Show submit button?', 'fabric'),
-                    'default'       => '1',
-                    'options'       => [
-                        '0'             => __('No', 'fabric'),
-                        '1'             => __('Yes', 'fabric'),
+            'title' => __('Filter bar', 'fabric'),
+            'fields' => [
+                'auto_filter' => [
+                    'type' => 'select',
+                    'label' => __('Auto filter?', 'fabric'),
+                    'default' => '1',
+                    'options' => [
+                        '1' => __('Yes', 'fl-builder'),
+                        '0' => __('No', 'fl-builder'),
                     ],
                 ],
-                'show_search'   => [
-                    'type'          => 'select',
-                    'label'         => __('Show search box?', 'fabric'),
-                    'default'       => '1',
-                    'options'       => [
-                        '1'             => __('Yes', 'fl-builder'),
-                        '0'             => __('No', 'fl-builder')
-                    ]
+                'show_button' => [
+                    'type' => 'select',
+                    'label' => __('Show submit button?', 'fabric'),
+                    'default' => '1',
+                    'options' => [
+                        '0' => __('No', 'fabric'),
+                        '1' => __('Yes', 'fabric'),
+                    ],
                 ],
-                'show_meta_filters'  => [
-                    'type'                  => 'select',
-                    'label'                 => __('Show field filters?', 'fabric'),
-                    'default'               => '1',
-                    'options'               => [
-                        '1'                     => __('Yes', 'fl-builder'),
-                        '0'                     => __('No', 'fl-builder')
-                    ]
+                'show_search' => [
+                    'type' => 'select',
+                    'label' => __('Show search box?', 'fabric'),
+                    'default' => '1',
+                    'options' => [
+                        '1' => __('Yes', 'fl-builder'),
+                        '0' => __('No', 'fl-builder'),
+                    ],
+                ],
+                'show_meta_filters' => [
+                    'type' => 'select',
+                    'label' => __('Show field filters?', 'fabric'),
+                    'default' => '1',
+                    'options' => [
+                        '1' => __('Yes', 'fl-builder'),
+                        '0' => __('No', 'fl-builder'),
+                    ],
                 ],
                 'show_cat_desc' => [
-                    'type'          => 'select',
-                    'label'         => __('Show category description?', 'fabric'),
-                    'default'       => '1',
-                    'options'       => [
-                        '1'             => __('Yes', 'fl-builder'),
-                        '0'             => __('No', 'fl-builder')
-                    ]
-                ]
-            ]
+                    'type' => 'select',
+                    'label' => __('Show category description?', 'fabric'),
+                    'default' => '1',
+                    'options' => [
+                        '1' => __('Yes', 'fl-builder'),
+                        '0' => __('No', 'fl-builder'),
+                    ],
+                ],
+            ],
         ];
 
         return $form;
@@ -230,23 +226,28 @@ final class EventsArchive
      * Renders custom CSS for the post grid module.
      *
      * @since 1.0
+     *
      * @param string $css
      * @param array  $nodes
+     *
      * @return string
      */
     public static function postGridCSS($css, $nodes)
     {
-        $global_included = false;
+        $globalIncluded = false;
 
-        foreach ( $nodes['modules'] as $module ) {
+        foreach ($nodes['modules'] as $module) {
+            if (! is_object($module)) {
+                continue;
+            }
 
-            if ( ! is_object( $module ) ) {
+            if ('post-grid' !== $module->settings->type) {
                 continue;
-            } elseif ( 'post-grid' != $module->settings->type ) {
-                continue;
-            } elseif ( ! $global_included ) {
-                $global_included = true;
-                $css .= file_get_contents( FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'css/fl-theme-builder-post-grid-woocommerce.css' );
+            }
+
+            if (! $globalIncluded) {
+                $globalIncluded = true;
+                $css .= file_get_contents(FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'css/fl-theme-builder-post-grid-woocommerce.css');
             }
 
             ob_start();
@@ -263,23 +264,21 @@ final class EventsArchive
      * Renders custom JS for the post grid module.
      *
      * @since 1.0
+     *
      * @param string $js
      * @param array  $nodes
+     *
      * @return string
      */
-    public static function postGridJS($js, $nodes)
+    public static function postGridJS($js, $nodes): string
     {
-        $global_included = false;
-
         foreach ($nodes['modules'] as $module) {
+            if (! is_object($module)) {
+                continue;
+            }
 
-            if (!is_object($module)) {
+            if ('post-grid' !== $module->settings->type) {
                 continue;
-            } elseif ('post-grid' != $module->settings->type) {
-                continue;
-//            } elseif (!$global_included) {
-//                $global_included = true;
-//                $css .= file_get_contents( FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'css/fl-theme-builder-post-grid-woocommerce.css' );
             }
 
             $js = str_replace(
@@ -296,8 +295,6 @@ final class EventsArchive
                 $js
             );
         }
-
-//        var_dump($js);
 
         return $js;
     }

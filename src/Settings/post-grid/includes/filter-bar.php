@@ -21,7 +21,7 @@ if ($settings->show_filter) {
     // Get the Term ID to filter by from $_GET['cat'].
     $term_id = App\get_cat(true, $category, true);
     // Change the category if it is valid.
-    if (!empty($term_id)) {
+    if (! empty($term_id)) {
         $settings->{'tax_' . $post_type . '_' . $category} = $term_id;
     }
 }
@@ -50,48 +50,51 @@ if (1 === $filter_count) {
 $kw = get_query_var('kw');
 ?>
 <?php if ('theme' === $settings->layout && $show_filter) : ?>
-    <section id="fab-search-block" class="filter-form main-form<?php ( ! $settings->auto_filter ) || ( $settings->show_button ) && print ' no-labels'; ?>"<?php $settings->auto_filter && print ' data-filter-auto="true"'; ?>>
-        <form action="<?php echo esc_url( get_pagenum_link() ); ?>" method="get" id="searchform">
+    <section id="fab-search-block"
+             class="filter-form main-form<?php (! $settings->auto_filter) || ($settings->show_button) && print ' no-labels'; ?>"<?php $settings->auto_filter && print ' data-filter-auto="true"'; ?>>
+        <form action="<?php echo esc_url(get_pagenum_link()); ?>" method="get" id="searchform">
             <div class="row">
-                <?php if ( $settings->show_search ) : ?>
-                    <div class="col-xs-12 col-sm-<?php echo sanitize_html_class( $filter_col ); ?>">
+                <?php if ($settings->show_search) : ?>
+                    <div class="col-xs-12 col-sm-<?php echo sanitize_html_class($filter_col); ?>">
                         <div class="sfFormBox">
                             <div class="sfFieldWrap">
-                                <input type="text" name="kw" class="sfTxt" value="<?php echo ! empty( $kw ) ? esc_attr( $kw ) : ''; ?>" placeholder="Enter keywords here...">
+                                <input type="text" name="kw" class="sfTxt"
+                                       value="<?php echo ! empty($kw) ? esc_attr($kw) : ''; ?>"
+                                       placeholder="Enter keywords here...">
                             </div>
                         </div>
                     </div>
                 <?php endif; ?>
-                <?php if ( isset( $tax_exists ) && $tax_exists ) : ?>
-                    <div class="col-xs-12 col-sm-<?php echo sanitize_html_class( $filter_col ); ?>">
+                <?php if (isset($tax_exists) && $tax_exists) : ?>
+                    <div class="col-xs-12 col-sm-<?php echo sanitize_html_class($filter_col); ?>">
                         <?php App\taxonomy_dropdown($category, 'Category', $post_type); ?>
                     </div>
                 <?php endif; ?>
-                <?php if ( $settings->show_meta_filters ) : ?>
-                    <?php $locations  = App\Plugins\FLBuilder::flGetLocations($post_type); ?>
-                    <?php if ( ! empty( $locations ) ) : ?>
-                        <?php $current = get_query_var( 'location' ); ?>
-                        <div class="col-xs-12 col-sm-<?php echo sanitize_html_class( $filter_col ); ?>">
+                <?php if ($settings->show_meta_filters) : ?>
+                    <?php $locations = App\Plugins\FLBuilder::flGetLocations($post_type); ?>
+                    <?php if (! empty($locations)) : ?>
+                        <?php $current = get_query_var('location'); ?>
+                        <div class="col-xs-12 col-sm-<?php echo sanitize_html_class($filter_col); ?>">
                             <div class="form-group">
                                 <div class="input-box dropdown-box">
                                     <select name="vacancy-location" id="location-filter" class="selectpicker">
                                         <option value="" selected>-- Select location --</option>
-                                        <?php foreach ( $locations as $key => $location ) : ?>
-                                            <option value="<?php echo esc_attr( $key ); ?>"<?php $current === $key && print ' selected'; ?>><?php echo esc_html( $location ); ?></option>
+                                        <?php foreach ($locations as $key => $location) : ?>
+                                            <option value="<?php echo esc_attr($key); ?>"<?php $current === $key && print ' selected'; ?>><?php echo esc_html($location); ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
                         </div>
-                    <?php	endif; ?>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
-            <?php if ( $settings->show_button ) : ?>
-                <input type="submit" class="btn btn-primary" value="Search" />
+            <?php if ($settings->show_button) : ?>
+                <input type="submit" class="btn btn-primary" value="Search"/>
             <?php endif; ?>
         </form>
     </section>
-    <?php if ( $settings->show_cat_desc ) : ?>
-        <div class="filter-description"><?php echo term_description( $term_id, $category ); ?></div>
+    <?php if ($settings->show_cat_desc) : ?>
+        <div class="filter-description"><?php echo term_description($term_id, $category); ?></div>
     <?php endif; ?>
 <?php endif; ?>

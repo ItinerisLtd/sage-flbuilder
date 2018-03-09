@@ -29,7 +29,8 @@ $show_filter = true;
             </div>
             <div class="events-calendar hidden-xs">
                 <div class="input-date">
-                    <input readonly placeholder="view our events calendar" type="text" class="form-control" id="lbl-calendar">
+                    <input readonly placeholder="view our events calendar" type="text" class="form-control"
+                           id="lbl-calendar">
                     <label class="ico" for="lbl-calendar"><i class="fa fa-calendar"></i></label>
                 </div><!-- end input-date -->
             </div>

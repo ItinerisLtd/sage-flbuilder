@@ -12,7 +12,7 @@ use Exception;
  *
  * @since 1.0
  */
-class EventsArchive
+class EventsArchive implements InitializableInterface
 {
     /**
      * @since 1.0

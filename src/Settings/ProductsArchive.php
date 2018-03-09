@@ -9,7 +9,7 @@ namespace Itineris\SageFLBuilder\Settings;
  *
  * @since 1.0
  */
-class ProductsArchive
+class ProductsArchive implements InitializableInterface
 {
     /**
      * @since 1.0

@@ -20,7 +20,8 @@ class God implements InitializableInterface
         add_action('fl_builder_posts_module_after_pagination', [$god, 'noPostsFilterBar'], 10, 2);
 
         add_filter('fl_builder_loop_settings', [$god, 'forceEventPostType']);
-        add_filter('fl_theme_builder_template_include', [$god, 'loadPageBladeTemplate'], PHP_INT_MAX);
+        // TODO: Is `PHP_INT_MAX` necessary?
+        add_filter('fl_theme_builder_template_include', [$god, 'loadPageBladeTemplate'], PHP_INT_MAX, 2);
         add_filter('fl_builder_module_frontend_file', [$god, 'locateTemplate'], 10, 2);
         add_filter('fl_builder_render_module_content', [$god, 'wrapRichText'], 10, 2);
         add_filter('fl_builder_module_frontend_custom_fab_filter_bar', [$god, 'filterBarFrontend']);
@@ -96,16 +97,25 @@ class God implements InitializableInterface
         return $settings;
     }
 
-    public function loadPageBladeTemplate($template)
+    /**
+     * TODO: Review if/else conditions.
+     * TODO: Is `$type` dead?
+     */
+    public function loadPageBladeTemplate($template, $ids)
     {
-        $postType = get_post_type();
-        if ('fl-theme-layout' === $postType || is_woocommerce()) {
+        $type = get_post_meta($ids, '_fl_theme_layout_type', true);
+        $post_type = get_post_type();
+        if ('fl-theme-layout' === $post_type || $this->isWoocommerce()) {
             $template = \App\template_path(\App\locate_template('woocommerce/fl-builder-woocommerce'));
-        } elseif ('fl-theme-layout' === $postType || is_home() || is_archive()) {
+        } elseif ('fl-theme-layout' === $post_type || is_home() || is_archive()) {
             $template = \App\template_path(\App\locate_template('fl-builder-archive'));
         }
-
         return $template;
+    }
+
+    private function isWoocommerce(): bool
+    {
+        return function_exists('is_woocommerce') && is_woocommerce();
     }
 
     /**

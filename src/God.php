@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder;
 
+use function App\sage;
 use Itineris\SageFLBuilder\Settings\PostGrid;
 use WP_Query;
 
@@ -103,12 +104,15 @@ class God implements InitializableInterface
      */
     public function loadPageBladeTemplate($template, $ids)
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         $type = get_post_meta($ids, '_fl_theme_layout_type', true);
         $post_type = get_post_type();
         if ('fl-theme-layout' === $post_type || $this->isWoocommerce()) {
-            $template = \App\template_path(\App\locate_template('woocommerce/fl-builder-woocommerce'));
+            $template = $helper->templatePath($helper->locateTemplate('woocommerce/fl-builder-woocommerce'));
         } elseif ('fl-theme-layout' === $post_type || is_home() || is_archive()) {
-            $template = \App\template_path(\App\locate_template('fl-builder-archive'));
+            $template = $helper->templatePath($helper->locateTemplate('fl-builder-archive'));
         }
         return $template;
     }

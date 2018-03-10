@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Modules\SecondaryNav;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
@@ -31,7 +31,7 @@ class SecondaryNav extends AbstractModule
             'name' => __('Secondary nav', 'fabric'),
             'description' => __('Secondary nav widget', 'fabric'),
             'category' => 'Posts',
-            'group' => FLBuilderBase::MODULE_GROUP,
+            'group' => SageFLBuilder::MODULE_GROUP,
             'url' => asset_path(__DIR__),
             'icon' => 'layout.svg',
         ]);

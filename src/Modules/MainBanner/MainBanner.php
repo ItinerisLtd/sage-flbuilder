@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Modules\MainBanner;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
@@ -153,7 +153,7 @@ class MainBanner extends AbstractModule
             'name' => __('Main banner', 'fabric'),
             'description' => __('Main banner widget', 'fabric'),
             'category' => 'Layout',
-            'group' => FLBuilderBase::MODULE_GROUP,
+            'group' => SageFLBuilder::MODULE_GROUP,
             'dir' => __DIR__,
             'url' => asset_path(__DIR__),
             'icon' => 'text.svg',

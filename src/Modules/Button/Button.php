@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Modules\Button;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
@@ -63,7 +63,7 @@ class Button extends AbstractModule
             'name' => __('Button', 'fabric'),
             'description' => __('Button widget', 'fabric'),
             'category' => 'Actions',
-            'group' => FLBuilderBase::MODULE_GROUP,
+            'group' => SageFLBuilder::MODULE_GROUP,
             'dir' => __DIR__,
             'url' => asset_path(__DIR__),
             'icon' => 'button.svg',

@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Modules\PageSlider;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
@@ -206,7 +206,7 @@ class PageSlider extends AbstractModule
         parent::__construct([
             'name' => __('Page Slider', 'fabric'),
             'description' => __('Page Slider widget', 'fabric'),
-            'category' => FLBuilderBase::MODULE_CAT,
+            'category' => SageFLBuilder::MODULE_CAT,
             'dir' => __DIR__,
             'url' => asset_path(__DIR__),
             'editor_export' => true, // Defaults to true and can be omitted.

@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Modules\Breadcrumbs;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
@@ -31,7 +31,7 @@ class Breadcrumbs extends AbstractModule
             'name' => __('Breadcrumbs', 'fabric'),
             'description' => __('Breadcrumbs widget', 'fabric'),
             'category' => 'Posts',
-            'group' => FLBuilderBase::MODULE_GROUP,
+            'group' => SageFLBuilder::MODULE_GROUP,
             'url' => asset_path(__DIR__),
             'icon' => 'layout.svg',
         ]);

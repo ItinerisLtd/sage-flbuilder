@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Modules\Table;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
@@ -92,7 +92,7 @@ class Table extends AbstractModule
             'name' => __('Table', 'fabric'),
             'description' => __('Table module', 'fabric'),
             'category' => 'Layout',
-            'group' => FLBuilderBase::MODULE_GROUP,
+            'group' => SageFLBuilder::MODULE_GROUP,
             'dir' => __DIR__,
             'url' => asset_path(__DIR__),
             'icon' => 'editor-table.svg',

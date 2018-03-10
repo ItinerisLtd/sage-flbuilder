@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Modules\PageHeading;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
@@ -64,7 +64,7 @@ class PageHeading extends AbstractModule
             'name' => __('Page heading', 'fabric'),
             'description' => __('Page heading module', 'fabric'),
             'category' => 'Basic',
-            'group' => FLBuilderBase::MODULE_GROUP,
+            'group' => SageFLBuilder::MODULE_GROUP,
             'dir' => __DIR__,
             'url' => asset_path(__DIR__),
             'icon' => 'text.svg',

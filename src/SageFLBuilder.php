@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder;
 
+use function App\sage;
 use Itineris\SageFLBuilder\Modules\Accordion\Accordion;
 use Itineris\SageFLBuilder\Modules\Alert\Alert;
 use Itineris\SageFLBuilder\Modules\Breadcrumbs\Breadcrumbs;
@@ -25,7 +26,7 @@ use Itineris\SageFLBuilder\Settings\ProductsArchive;
 /**
  * Beaver Builder extensions
  */
-class FLBuilderBase
+class SageFLBuilder
 {
     public const MODULE_CAT = 'Custom Widgets';
     public const MODULE_GROUP = 'Itineris Standard Modules';
@@ -58,25 +59,35 @@ class FLBuilderBase
      */
     protected $initializables;
 
-    public static function init(array $initializables): void
-    {
-        $builder = new self($initializables);
-
-        $builder->initialize();
-    }
-
     /**
-     * FLBuilderBase constructor.
-     *
-     * @param InitializableInterface[] $initializables Class names of project-specific modules and settings.
+     * @var AbstractHelper
      */
-    public function __construct(array $initializables)
+    protected $helper;
+
+    public function __construct(AbstractHelper $helper)
     {
-        $this->initializables = array_merge(static::DEFAULT_INITIALIZABLES, $initializables);
+        $this->helper = $helper;
+        $this->initializables = self::DEFAULT_INITIALIZABLES;
     }
 
-    public function initialize(): void
+    public function add(string ...$initializables): self
     {
+        $this->initializables = array_merge($this->initializables, $initializables);
+
+        return $this;
+    }
+
+    public function exclude(string ...$initializables): self
+    {
+        $this->initializables = array_diff($this->initializables, $initializables);
+
+        return $this;
+    }
+
+    public function init(): void
+    {
+        sage()->bind(AbstractHelper::class, $this->helper);
+
         foreach ($this->initializables as $initializable) {
             $initializable::init();
         }

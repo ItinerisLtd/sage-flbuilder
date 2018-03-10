@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\Video;
 use FLBuilder;
 use FLBuilderModel;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\FLBuilderBase;
+use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
@@ -79,7 +79,7 @@ class Video extends AbstractModule
         parent::__construct([
             'name' => __('Video', 'fabric'),
             'description' => __('Video Widget', 'fabric'),
-            'category' => FLBuilderBase::MODULE_CAT,
+            'category' => SageFLBuilder::MODULE_CAT,
             'dir' => __DIR__,
             'url' => asset_path(__DIR__),
             'editor_export' => true, // Defaults to true and can be omitted.

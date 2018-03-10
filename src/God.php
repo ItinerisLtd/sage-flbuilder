@@ -1,0 +1,284 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Itineris\SageFLBuilder;
+
+use Itineris\SageFLBuilder\Settings\PostGrid;
+use WP_Query;
+
+/**
+ * TODO: This class needs refactor!
+ * TODO: The final goal is to remove this class.
+ */
+class God implements InitializableInterface
+{
+    public static function init(): void
+    {
+        $god = new self();
+
+        add_action('fl_builder_posts_module_after_pagination', [$god, 'noPostsFilterBar'], 10, 2);
+
+        add_filter('fl_builder_loop_settings', [$god, 'forceEventPostType']);
+        add_filter('fl_theme_builder_template_include', [$god, 'loadPageBladeTemplate'], PHP_INT_MAX);
+        add_filter('fl_builder_module_frontend_file', [$god, 'locateTemplate'], 10, 2);
+        add_filter('fl_builder_render_module_content', [$god, 'wrapRichText'], 10, 2);
+        add_filter('fl_builder_module_frontend_custom_fab_filter_bar', [$god, 'filterBarFrontend']);
+    }
+
+    /**
+     * TODO: Am I dead?
+     *
+     * Warning: This is a slow database query!
+     *
+     * @param $postType
+     *
+     * @return array
+     */
+    public static function flGetLocations($postType): array
+    {
+        $locations = [];
+        $locQuery = new WP_Query([
+            'post_type' => $postType,
+            'meta_key' => 'location',
+            'meta_query' => [
+                [
+                    'key' => 'location',
+                    'value' => '',
+                    'compare' => '!=',
+                ],
+            ],
+        ]);
+
+        if ($locQuery->have_posts()) {
+            while ($locQuery->have_posts()) {
+                $locQuery->the_post();
+                $location = get_field('location', get_the_ID());
+                if (! array_key_exists($location, $locations)) {
+                    $locations[esc_attr($location)] = $location;
+                }
+            }
+        }
+
+        wp_reset_postdata();
+
+        return $locations;
+    }
+
+    /**
+     * TODO: Am I dead?
+     */
+    public static function flGetFilterCount($settings): int
+    {
+        $count = 0;
+        if (! $settings->show_filter) {
+            return $count;
+        }
+        if ($settings->show_search) {
+            $count++;
+        }
+        if ($settings->show_meta_filters) {
+            $count++;
+        }
+
+        return $count;
+    }
+
+    /**
+     * TODO: Do I deserve a class?
+     */
+    public function forceEventPostType($settings)
+    {
+        if ('fab_events_carousel' === $settings->type) {
+            $settings->post_type = 'event';
+        }
+
+        return $settings;
+    }
+
+    public function loadPageBladeTemplate($template)
+    {
+        $postType = get_post_type();
+        if ('fl-theme-layout' === $postType || is_woocommerce()) {
+            $template = \App\template_path(\App\locate_template('woocommerce/fl-builder-woocommerce'));
+        } elseif ('fl-theme-layout' === $postType || is_home() || is_archive()) {
+            $template = \App\template_path(\App\locate_template('fl-builder-archive'));
+        }
+
+        return $template;
+    }
+
+    /**
+     * Add Laravel Blade support for frontend.php
+     *
+     * @param $file
+     * @param $module
+     *
+     * @return string
+     */
+    public function locateTemplate($file, $module): string
+    {
+        $relativeBbPath = \App\get_relative_bb_path($module, 'frontend', 'module');
+        $path = \App\locate_template("../{$relativeBbPath}");
+
+        return $path ? \App\template_path($path) : $file;
+    }
+
+    /**
+     * TODO: Do I deserve a class?
+     */
+    public function wrapRichText($out, $module): string
+    {
+        if ('rich-text' !== $module->slug) {
+            return $out;
+        }
+
+        return '<div class="content">' . $out . '</div>';
+    }
+
+    /**
+     * TODO: Inconsistent text domain.
+     */
+    public function registerSettingsForm($form, $id)
+    {
+        if ('post-grid' !== $id) {
+            return $form;
+        }
+
+        $newOption = [
+            'layout' => [
+                'sections' => [
+                    'general' => [
+                        'fields' => [
+                            'layout' => [
+                                'options' => [
+                                    'theme' => __('Theme', 'fl-builder'),
+                                ],
+                                'toggle' => [
+                                    'theme' => [
+                                        'fields' => [
+                                            'show_filter',
+                                            'auto_filter',
+                                            'show_search',
+                                            'show_meta_filters',
+                                            'show_cat_desc',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            'show_filter' => [
+                                'type' => 'select',
+                                'label' => __('Show filter bar?', 'fabric'),
+                                'default' => '1',
+                                'options' => [
+                                    '1' => __('Yes', 'fl-builder'),
+                                    '0' => __('No', 'fl-builder'),
+                                ],
+                                'toggle' => [
+                                    '1' => [
+                                        'fields' => [
+                                            'auto_filter',
+                                            'show_button',
+                                            'show_search',
+                                            'show_meta_filters',
+                                            'show_cat_desc',
+                                        ],
+                                    ],
+                                ],
+                            ],
+                            'auto_filter' => [
+                                'type' => 'select',
+                                'label' => __('Auto filter?', 'fabric'),
+                                'default' => '1',
+                                'options' => [
+                                    '1' => __('Yes', 'fl-builder'),
+                                    '0' => __('No', 'fl-builder'),
+                                ],
+                            ],
+                            'show_button' => [
+                                'type' => 'select',
+                                'label' => __('Show submit button?', 'fabric'),
+                                'default' => '1',
+                                'options' => [
+                                    '0' => __('No', 'fabric'),
+                                    '1' => __('Yes', 'fabric'),
+                                ],
+                            ],
+                            'show_search' => [
+                                'type' => 'select',
+                                'label' => __('Show search box?', 'fabric'),
+                                'default' => '1',
+                                'options' => [
+                                    '1' => __('Yes', 'fl-builder'),
+                                    '0' => __('No', 'fl-builder'),
+                                ],
+                            ],
+                            'show_meta_filters' => [
+                                'type' => 'select',
+                                'label' => __('Show field filters?', 'fabric'),
+                                'default' => '1',
+                                'options' => [
+                                    '1' => __('Yes', 'fl-builder'),
+                                    '0' => __('No', 'fl-builder'),
+                                ],
+                            ],
+                            'show_cat_desc' => [
+                                'type' => 'select',
+                                'label' => __('Show category description?', 'fabric'),
+                                'default' => '1',
+                                'options' => [
+                                    '1' => __('Yes', 'fl-builder'),
+                                    '0' => __('No', 'fl-builder'),
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ];
+
+        return array_merge_recursive($form, $newOption);
+    }
+
+    /**
+     * TODO: Am I dead?
+     */
+    public function loadProductMarkupAfterPosts($settings): void
+    {
+        if ('theme' !== $settings->layout) {
+            return;
+        }
+
+        $postType = get_post_type() ?: $settings->post_type;
+        if ('product' !== $postType) {
+            return;
+        }
+
+        echo '</ul></div></div>';
+    }
+
+    /**
+     * TODO: Am I belong to class `PostGrid` or `FilterBar`?
+     */
+    public function filterBarFrontend($settings): string
+    {
+        $settings['show_filter'] = true;
+        $settings['layout'] = 'theme';
+
+        return PostGrid::filterBar((object) $settings);
+    }
+
+    /**
+     * TODO: Am I belong to class `PostGrid` or `FilterBar`?
+     */
+    public function noPostsFilterBar($settings, $query): void
+    {
+        if ($query->have_posts()) {
+            return;
+        }
+
+        $settings->show_filter = true;
+        $settings->layout = 'theme';
+        echo PostGrid::filterBar($settings);
+    }
+}

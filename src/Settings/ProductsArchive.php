@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings;
 
+use Itineris\SageFLBuilder\InitializableInterface;
+
 /**
  * Custom Post Grid for the theme builder.
  *

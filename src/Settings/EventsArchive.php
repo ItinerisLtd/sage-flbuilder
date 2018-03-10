@@ -6,6 +6,7 @@ namespace Itineris\SageFLBuilder\Settings;
 
 use DateTime;
 use Exception;
+use Itineris\SageFLBuilder\InitializableInterface;
 
 /**
  * Custom Post Grid for the theme builder.

@@ -6,7 +6,7 @@
             "package": {
                 "name": "beaver-builder/bb-plugin",
                 "type": "wordpress-plugin",
-                "version": "2.0.4.3",
+                "version": "999.999.999",
                 "dist": {
                     "type": "zip",
                     "url": "https://updates.wpbeaverbuilder.com/?fl-api-method=composer_download&download=bb-plugin-pro.zip&license=78682e62702e6676657261766776407a7667"
@@ -18,7 +18,7 @@
             "package": {
                 "name": "beaver-builder/bb-theme-builder",
                 "type": "wordpress-plugin",
-                "version": "1.1",
+                "version": "999.999.999",
                 "dist": {
                     "type": "zip",
                     "url": "https://updates.wpbeaverbuilder.com/?fl-api-method=composer_download&download=bb-theme-builder.zip&license=78682e62702e6676657261766776407a7667"

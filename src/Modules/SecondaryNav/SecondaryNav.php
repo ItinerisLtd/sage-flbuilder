@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\SecondaryNav;
 
 use FLBuilder;
-use FLBuilderModule;
+use Itineris\SageFLBuilder\AbstractModule;
 use Itineris\SageFLBuilder\FLBuilderBase;
-use Itineris\SageFLBuilder\RegistrableModuleInterface;
 use function App\asset_path;
 
 /**
  * Class SecondaryNav
  */
-class SecondaryNav extends FLBuilderModule implements RegistrableModuleInterface
+class SecondaryNav extends AbstractModule
 {
     public static function register(): void
     {

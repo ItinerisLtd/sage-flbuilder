@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\FilterBar;
 
 use FLBuilder;
-use FLBuilderModule;
+use Itineris\SageFLBuilder\AbstractModule;
 use Itineris\SageFLBuilder\FLBuilderBase;
-use Itineris\SageFLBuilder\RegistrableModuleInterface;
 use function App\asset_path;
 
 /**
  * @class FilterBar
  */
-class FilterBar extends FLBuilderModule implements RegistrableModuleInterface
+class FilterBar extends AbstractModule
 {
     public static function register(): void
     {

@@ -6,15 +6,14 @@ namespace Itineris\SageFLBuilder\Modules\Video;
 
 use FLBuilder;
 use FLBuilderModel;
-use FLBuilderModule;
+use Itineris\SageFLBuilder\AbstractModule;
 use Itineris\SageFLBuilder\FLBuilderBase;
-use Itineris\SageFLBuilder\RegistrableModuleInterface;
 use function App\asset_path;
 
 /**
  * Class Video
  */
-class Video extends FLBuilderModule implements RegistrableModuleInterface
+class Video extends AbstractModule
 {
     public static function register(): void
     {

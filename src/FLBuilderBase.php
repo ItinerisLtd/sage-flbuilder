@@ -33,7 +33,7 @@ class FLBuilderBase
     public const MODULE_CAT = 'Custom Widgets';
     public const MODULE_GROUP = 'Itineris Standard Modules';
 
-    protected const REGISTRABLE_MODULES = [
+    protected const DEFAULT_MODULES = [
         Accordion::class,
         Alert::class,
         Breadcrumbs::class,
@@ -150,8 +150,8 @@ class FLBuilderBase
 
     public function registerModules(): void
     {
-        /** @var RegistrableModuleInterface[] $modules */
-        $modules = array_merge(self::REGISTRABLE_MODULES, $this->modules);
+        /** @var AbstractModule[] $modules */
+        $modules = array_merge(self::DEFAULT_MODULES, $this->modules);
 
         foreach ($modules as $module) {
             $module::register();

@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\PageSlider;
 
 use FLBuilder;
-use FLBuilderModule;
+use Itineris\SageFLBuilder\AbstractModule;
 use Itineris\SageFLBuilder\FLBuilderBase;
-use Itineris\SageFLBuilder\RegistrableModuleInterface;
 use function App\asset_path;
 
 /**
  * @class PageSlider
  */
-class PageSlider extends FLBuilderModule implements RegistrableModuleInterface
+class PageSlider extends AbstractModule
 {
     private const FORM_ID = 'banner_slides';
 

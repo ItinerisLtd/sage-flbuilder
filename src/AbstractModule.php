@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder;
 
+use FLBuilderModule;
 
-interface RegistrableModuleInterface
+abstract class AbstractModule extends FLBuilderModule
 {
     /**
      * Register the module and its form settings.
      * If needed, register a settings form to use in the "form" field type.
      */
-    public static function register(): void;
+    abstract public static function register(): void;
 }

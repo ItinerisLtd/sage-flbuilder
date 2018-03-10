@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\Table;
 
 use FLBuilder;
-use FLBuilderModule;
+use Itineris\SageFLBuilder\AbstractModule;
 use Itineris\SageFLBuilder\FLBuilderBase;
-use Itineris\SageFLBuilder\RegistrableModuleInterface;
 use function App\asset_path;
 
 /**
@@ -15,7 +14,7 @@ use function App\asset_path;
  *
  * @class Table
  */
-class Table extends FLBuilderModule implements RegistrableModuleInterface
+class Table extends AbstractModule
 {
     private const FORM_ID = 'table_row_form';
 

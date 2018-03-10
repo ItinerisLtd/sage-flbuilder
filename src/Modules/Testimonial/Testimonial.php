@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\Testimonial;
 
 use FLBuilder;
-use FLBuilderModule;
+use Itineris\SageFLBuilder\AbstractModule;
 use Itineris\SageFLBuilder\FLBuilderBase;
-use Itineris\SageFLBuilder\RegistrableModuleInterface;
 use function App\asset_path;
 
 /**
@@ -15,7 +14,7 @@ use function App\asset_path;
  *
  * @class Testimonial
  */
-class Testimonial extends FLBuilderModule implements RegistrableModuleInterface
+class Testimonial extends AbstractModule
 {
     public static function register(): void
     {

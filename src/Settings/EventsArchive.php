@@ -10,15 +10,9 @@ use Itineris\SageFLBuilder\InitializableInterface;
 
 /**
  * Custom Post Grid for the theme builder.
- *
- * @since 1.0
  */
 class EventsArchive implements InitializableInterface
 {
-    /**
-     * @since 1.0
-     * @return void
-     */
     public static function init(): void
     {
         // Actions
@@ -128,8 +122,6 @@ class EventsArchive implements InitializableInterface
     /**
      * Adds custom settings to the Posts module.
      *
-     * @since 1.0
-     *
      * @param array  $form
      * @param string $slug
      *
@@ -226,8 +218,6 @@ class EventsArchive implements InitializableInterface
     /**
      * Renders custom CSS for the post grid module.
      *
-     * @since 1.0
-     *
      * @param string $css
      * @param array  $nodes
      *
@@ -261,8 +251,6 @@ class EventsArchive implements InitializableInterface
 
     /**
      * Renders custom JS for the post grid module.
-     *
-     * @since 1.0
      *
      * @param string $js
      * @param array  $nodes

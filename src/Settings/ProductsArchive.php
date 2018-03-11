@@ -8,18 +8,11 @@ use Itineris\SageFLBuilder\InitializableInterface;
 
 /**
  * Custom Post Grid for the theme builder.
- *
- * @since 1.0
  */
 class ProductsArchive implements InitializableInterface
 {
-    /**
-     * @since 1.0
-     * @return void
-     */
     public static function init(): void
     {
-        // Actions
         remove_action(
             'fl_builder_posts_module_before_posts',
             'FLThemeBuilderWooCommerceArchive::posts_module_before_posts'

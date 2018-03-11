@@ -10,15 +10,9 @@ use function App\sage;
 
 /**
  * Custom Post Grid for the theme builder.
- *
- * @since 1.0
  */
 class PostGrid implements InitializableInterface
 {
-    /**
-     * @since 1.0
-     * @return void
-     */
     public static function init(): void
     {
         // Filters
@@ -28,8 +22,6 @@ class PostGrid implements InitializableInterface
 
     /**
      * Adds custom settings to the Posts module.
-     *
-     * @since 1.0
      *
      * @param array  $form
      * @param string $slug
@@ -125,8 +117,6 @@ class PostGrid implements InitializableInterface
 
     /**
      * Renders custom CSS for the post grid module.
-     *
-     * @since 1.0
      *
      * @param string $css
      * @param array  $nodes

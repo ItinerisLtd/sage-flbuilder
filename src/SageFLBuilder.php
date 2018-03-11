@@ -86,7 +86,7 @@ class SageFLBuilder
 
     public function init(): void
     {
-        sage()->bind(AbstractHelper::class, $this->helper);
+        sage()->instance(AbstractHelper::class, $this->helper);
 
         foreach ($this->initializables as $initializable) {
             $initializable::init();

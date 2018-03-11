@@ -28,7 +28,7 @@ class God implements InitializableInterface
     }
 
     /**
-     * TODO: Am I dead?
+     * TODO: Do I deserve a class?
      *
      * Warning: This is a slow database query!
      *
@@ -67,7 +67,7 @@ class God implements InitializableInterface
     }
 
     /**
-     * TODO: Am I dead?
+     * TODO: Do I deserve a class?
      */
     public static function flGetFilterCount($settings): int
     {

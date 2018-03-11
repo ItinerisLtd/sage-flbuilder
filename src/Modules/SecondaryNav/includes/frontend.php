@@ -1,9 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+use Itineris\SageFLBuilder\AbstractHelper;
+use function App\sage;
+
+/** @var AbstractHelper $helper */
+$helper = sage(AbstractHelper::class);
+
+?>
+
 <div id="secondary" class="hidden-sm hidden-xs widget-area" role="complementary">
 
-  <aside class="sidebar">
+    <aside class="sidebar">
 
-    <?php \App\get_secondary_nav(); ?>
+        <?php $helper->getSecondaryNav(); ?>
 
-  </aside>
+    </aside>
 
 </div> <!-- #secondary -->

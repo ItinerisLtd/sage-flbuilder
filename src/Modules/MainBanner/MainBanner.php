@@ -6,8 +6,8 @@ namespace Itineris\SageFLBuilder\Modules\MainBanner;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractBladeModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
-use function App\asset_path;
+use Itineris\SageFLBuilder\AbstractHelper;
+use function App\sage;
 
 /**
  * @class MainBanner
@@ -18,6 +18,9 @@ class MainBanner extends AbstractBladeModule
 
     public static function register(): void
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         FLBuilder::register_module(__CLASS__, [
             'general' => [
                 'title' => __('General', 'fabric'),
@@ -103,7 +106,7 @@ class MainBanner extends AbstractBladeModule
                                     'type' => 'select',
                                     'label' => __('Style', 'fabric'),
                                     'default' => 'btn-warning',
-                                    'options' => \App\button_styles(),
+                                    'options' => $helper->buttonStyles(),
                                 ],
                                 'link2' => [
                                     'type' => 'link',
@@ -131,7 +134,7 @@ class MainBanner extends AbstractBladeModule
                                     'type' => 'select',
                                     'label' => __('Style', 'fabric'),
                                     'default' => 'btn-warning',
-                                    'options' => \App\button_styles(),
+                                    'options' => $helper->buttonStyles(),
                                 ],
                             ],
                         ],
@@ -149,13 +152,16 @@ class MainBanner extends AbstractBladeModule
      */
     public function __construct()
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         parent::__construct([
             'name' => __('Main banner', 'fabric'),
             'description' => __('Main banner widget', 'fabric'),
             'category' => 'Layout',
-            'group' => SageFLBuilder::MODULE_GROUP,
+            'group' => $helper->getModuleGroup(),
             'dir' => __DIR__,
-            'url' => asset_path(__DIR__),
+            'url' => $helper->assetPath(__DIR__),
             'icon' => 'text.svg',
         ]);
     }

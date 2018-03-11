@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\Button;
 
 use FLBuilder;
+use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
-use function App\asset_path;
+use function App\sage;
 
 /**
  * Generic Bootstrap button widget
@@ -18,6 +18,9 @@ class Button extends AbstractModule
 {
     public static function register(): void
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         FLBuilder::register_module(__CLASS__, [
             'general' => [
                 'title' => 'Button',
@@ -36,13 +39,13 @@ class Button extends AbstractModule
                                 'type' => 'select',
                                 'label' => __('Link target', 'fabric'),
                                 'default' => '_self',
-                                'options' => \App\link_targets(),
+                                'options' => $helper->linkTargets(),
                             ],
                             'style' => [
                                 'type' => 'select',
                                 'label' => __('Button style', 'fabric'),
                                 'default' => 'btn-primary',
-                                'options' => \App\button_styles(),
+                                'options' => $helper->buttonStyles(),
                             ],
                         ],
                     ],
@@ -59,13 +62,16 @@ class Button extends AbstractModule
      */
     public function __construct()
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         parent::__construct([
             'name' => __('Button', 'fabric'),
             'description' => __('Button widget', 'fabric'),
             'category' => 'Actions',
-            'group' => SageFLBuilder::MODULE_GROUP,
+            'group' => $helper->getModuleGroup(),
             'dir' => __DIR__,
-            'url' => asset_path(__DIR__),
+            'url' => $helper->assetPath(__DIR__),
             'icon' => 'button.svg',
         ]);
     }

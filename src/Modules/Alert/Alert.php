@@ -6,8 +6,8 @@ namespace Itineris\SageFLBuilder\Modules\Alert;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractBladeModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
-use function App\asset_path;
+use Itineris\SageFLBuilder\AbstractHelper;
+use function App\sage;
 
 /**
  * Class Alert
@@ -54,13 +54,16 @@ class Alert extends AbstractBladeModule
      */
     public function __construct()
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         parent::__construct([
             'name' => __('Alert', 'fabric'),
             'description' => __('Alert widget', 'fabric'),
             'category' => 'Actions',
-            'group' => SageFLBuilder::MODULE_GROUP,
+            'group' => $helper->getModuleGroup(),
             'dir' => __DIR__,
-            'url' => asset_path(__DIR__),
+            'url' => $helper->assetPath(__DIR__),
             'icon' => 'megaphone.svg',
         ]);
     }

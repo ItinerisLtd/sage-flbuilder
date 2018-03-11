@@ -6,9 +6,9 @@ namespace Itineris\SageFLBuilder\Modules\Video;
 
 use FLBuilder;
 use FLBuilderModel;
+use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
-use function App\asset_path;
+use function App\sage;
 
 /**
  * Class Video
@@ -17,6 +17,9 @@ class Video extends AbstractModule
 {
     public static function register(): void
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         FLBuilder::register_module(__CLASS__, [
             'general' => [
                 'title' => __('Video', 'fabric'),
@@ -51,7 +54,7 @@ class Video extends AbstractModule
                             'module' => [
                                 'type' => 'select',
                                 'label' => __('Video', 'fabric'),
-                                'options' => FLBuilderModel::is_builder_active() ? \App\get_posts('video') : [],
+                                'options' => FLBuilderModel::is_builder_active() ? $helper->getPosts('video') : [],
                             ],
                         ],
                     ],
@@ -76,12 +79,15 @@ class Video extends AbstractModule
      */
     public function __construct()
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         parent::__construct([
             'name' => __('Video', 'fabric'),
             'description' => __('Video Widget', 'fabric'),
-            'category' => SageFLBuilder::MODULE_CAT,
+            'category' => $helper->getModuleCategory(),
             'dir' => __DIR__,
-            'url' => asset_path(__DIR__),
+            'url' => $helper->assetPath(__DIR__),
             'editor_export' => true, // Defaults to true and can be omitted.
             'enabled' => true, // Defaults to true and can be omitted.
         ]);

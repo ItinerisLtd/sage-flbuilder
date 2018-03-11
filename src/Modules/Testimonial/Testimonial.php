@@ -6,8 +6,8 @@ namespace Itineris\SageFLBuilder\Modules\Testimonial;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractBladeModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
-use function App\asset_path;
+use Itineris\SageFLBuilder\AbstractHelper;
+use function App\sage;
 
 /**
  * Generic Testimonial widget
@@ -46,13 +46,16 @@ class Testimonial extends AbstractBladeModule
 
     public function __construct()
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         parent::__construct([
             'name' => __('Testimonial', 'fabric'),
             'description' => __('Testimonial widget', 'fabric'),
             'category' => 'Media',
-            'group' => SageFLBuilder::MODULE_GROUP,
+            'group' => $helper->getModuleGroup(),
             'dir' => __DIR__,
-            'url' => asset_path(__DIR__),
+            'url' => $helper->assetPath(__DIR__),
             'icon' => 'format-quote.svg',
         ]);
     }

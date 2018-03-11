@@ -6,8 +6,8 @@ namespace Itineris\SageFLBuilder\Modules\PageHeading;
 
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractBladeModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
-use function App\asset_path;
+use Itineris\SageFLBuilder\AbstractHelper;
+use function App\sage;
 
 /**
  * @class PageHeading
@@ -60,13 +60,16 @@ class PageHeading extends AbstractBladeModule
      */
     public function __construct()
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         parent::__construct([
             'name' => __('Page heading', 'fabric'),
             'description' => __('Page heading module', 'fabric'),
             'category' => 'Basic',
-            'group' => SageFLBuilder::MODULE_GROUP,
+            'group' => $helper->getModuleGroup(),
             'dir' => __DIR__,
-            'url' => asset_path(__DIR__),
+            'url' => $helper->assetPath(__DIR__),
             'icon' => 'text.svg',
         ]);
     }

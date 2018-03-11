@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\Accordion;
 
 use FLBuilder;
+use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
-use function App\asset_path;
+use function App\sage;
 
 /**
  * Generic Bootstrap accordion widget
@@ -86,13 +86,16 @@ class Accordion extends AbstractModule
      */
     public function __construct()
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         parent::__construct([
             'name' => __('Accordion', 'fabric'),
             'description' => __('Accordion widget', 'fabric'),
             'category' => 'Layout',
-            'group' => SageFLBuilder::MODULE_GROUP,
+            'group' => $helper->getModuleGroup(),
             'dir' => __DIR__,
-            'url' => asset_path(__DIR__),
+            'url' => $helper->assetPath(__DIR__),
             'icon' => 'layout.svg',
         ]);
     }

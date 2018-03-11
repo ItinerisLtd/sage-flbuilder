@@ -5,6 +5,13 @@
  *
  * @package Fabric
  */
+
+use Itineris\SageFLBuilder\AbstractHelper;
+use function App\sage;
+
+/** @var AbstractHelper $helper */
+$helper = sage(AbstractHelper::class);
+
 // Show the posts filter.
 $show_filter = false;
 $tax_exists = false;
@@ -19,7 +26,7 @@ if ($settings->show_filter) {
     $show_filter = $tax_exists ? true : false;
 
     // Get the Term ID to filter by from $_GET['cat'].
-    $term_id = App\get_cat(true, $category, true);
+    $term_id = $helper->getCat(true, $category, true);
     // Change the category if it is valid.
     if (! empty($term_id)) {
         $settings->{'tax_' . $post_type . '_' . $category} = $term_id;
@@ -33,9 +40,10 @@ if (('job_vacancy' === $post_type || 'volunteer_vacancy' === $post_type) && 'the
 } elseif ('product' === $post_type && 'theme' === $settings->layout) {
     $list_class = 'product';
 }
-$filter_count = Itineris\SageFLBuilder\SageFLBuilder::flGetFilterCount($settings);
+$filter_count = Itineris\SageFLBuilder\God::flGetFilterCount($settings);
 if ('post' === $post_type) {
-    $authors = App\get_posts('team', '', true);
+    // TODO: `\App\get_posts` only accepts 2 parameters.
+    $authors = $helper->getPosts('team', '', true);
     $filter_count++;
 }
 if (1 === $filter_count) {
@@ -67,11 +75,11 @@ $kw = get_query_var('kw');
                 <?php endif; ?>
                 <?php if (isset($tax_exists) && $tax_exists) : ?>
                     <div class="col-xs-12 col-sm-<?php echo sanitize_html_class($filter_col); ?>">
-                        <?php App\taxonomy_dropdown($category, 'Category', $post_type); ?>
+                        <?php $helper->taxonomyDropdown($category, 'Category', $post_type); ?>
                     </div>
                 <?php endif; ?>
                 <?php if ($settings->show_meta_filters) : ?>
-                    <?php $locations = Itineris\SageFLBuilder\SageFLBuilder::flGetLocations($post_type); ?>
+                    <?php $locations = Itineris\SageFLBuilder\God::flGetLocations($post_type); ?>
                     <?php if (! empty($locations)) : ?>
                         <?php $current = get_query_var('location'); ?>
                         <div class="col-xs-12 col-sm-<?php echo sanitize_html_class($filter_col); ?>">

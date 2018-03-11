@@ -5,17 +5,22 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\FilterBar;
 
 use FLBuilder;
+use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
-use function App\asset_path;
+use function App\sage;
 
 /**
  * @class FilterBar
  */
 class FilterBar extends AbstractModule
 {
+
+
     public static function register(): void
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         FLBuilder::register_module(__CLASS__, [
             'layout' => [
                 'title' => __('Layout', 'fabric'),
@@ -144,7 +149,7 @@ class FilterBar extends AbstractModule
                                     'type' => 'select',
                                     'label' => __('Style', 'fabric'),
                                     'default' => 'btn-warning',
-                                    'options' => \App\button_styles(),
+                                    'options' => $helper->buttonStyles(),
                                 ],
                             ],
                         ],
@@ -162,13 +167,16 @@ class FilterBar extends AbstractModule
      */
     public function __construct()
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         parent::__construct([
             'name' => __('Filter bar', 'fabric'),
             'description' => __('Filter bar widget', 'fabric'),
             'category' => 'Posts',
-            'group' => SageFLBuilder::MODULE_GROUP,
+            'group' => $helper->getModuleGroup(),
             'dir' => __DIR__,
-            'url' => asset_path(__DIR__),
+            'url' => $helper->assetPath(__DIR__),
             'icon' => 'layout.svg',
         ]);
     }

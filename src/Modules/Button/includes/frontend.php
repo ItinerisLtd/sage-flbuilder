@@ -5,7 +5,15 @@
  * @package Fabric
  */
 
+use Itineris\SageFLBuilder\AbstractHelper;
+use function App\sage;
+
+/** @var AbstractHelper $helper */
+$helper = sage(AbstractHelper::class);
+
 ?>
-<?php if ( ! empty( $settings->link ) && ! empty( $settings->text ) ) : ?>
-<a href="<?php echo esc_url( $settings->link ); ?>" class="btn <?php echo \App\sanitize_html_classes( $settings->style ); ?>" target="<?php echo esc_attr( $settings->target ); ?>"><?php echo esc_html( $settings->text ); ?></a>
+<?php if (! empty($settings->link) && ! empty($settings->text)) : ?>
+    <a href="<?php echo esc_url($settings->link); ?>"
+       class="btn <?php echo $helper->sanitizeHtmlClasses($settings->style); ?>"
+       target="<?php echo esc_attr($settings->target); ?>"><?php echo esc_html($settings->text); ?></a>
 <?php endif; ?>

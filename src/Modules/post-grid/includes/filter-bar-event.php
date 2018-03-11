@@ -5,6 +5,13 @@
  *
  * @package Fabric
  */
+
+use Itineris\SageFLBuilder\AbstractHelper;
+use function App\sage;
+
+/** @var AbstractHelper $helper */
+$helper = sage(AbstractHelper::class);
+
 // Show the posts filter.
 $post_type = 'event';
 $show_filter = true;
@@ -14,10 +21,10 @@ $show_filter = true;
         <form action="<?php echo esc_url(get_pagenum_link()); ?>" method="get">
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
-                    <?php App\taxonomy_dropdown('event_category', 'event', 'ec', 'Category'); ?>
+                    <?php $helper->taxonomyDropdown('event_category', 'event', 'ec', 'Category'); ?>
                 </div>
                 <div class="col-xs-12 col-sm-4">
-                    <?php App\taxonomy_dropdown('event_type', 'event', 'et', 'Type'); ?>
+                    <?php $helper->taxonomyDropdown('event_type', 'event', 'et', 'Type'); ?>
                 </div>
                 <div class="col-xs-12 col-sm-4">
                     <select name="sort" class="form-control">

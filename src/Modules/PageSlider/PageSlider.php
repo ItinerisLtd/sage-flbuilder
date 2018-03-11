@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\PageSlider;
 
 use FLBuilder;
+use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
-use function App\asset_path;
+use function App\sage;
 
 /**
  * @class PageSlider
@@ -18,6 +18,9 @@ class PageSlider extends AbstractModule
 
     public static function register(): void
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         FLBuilder::register_module(__CLASS__, [
             'general' => [
                 'title' => __('General', 'fabric'),
@@ -185,7 +188,7 @@ class PageSlider extends AbstractModule
                                     'type' => 'select',
                                     'label' => __('Style', 'fabric'),
                                     'default' => 'btn-primary',
-                                    'options' => \App\button_styles(),
+                                    'options' => $helper->buttonStyles(),
                                 ],
                             ],
                         ],
@@ -203,12 +206,15 @@ class PageSlider extends AbstractModule
      */
     public function __construct()
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         parent::__construct([
             'name' => __('Page Slider', 'fabric'),
             'description' => __('Page Slider widget', 'fabric'),
-            'category' => SageFLBuilder::MODULE_CAT,
+            'category' => $helper->getModuleCategory(),
             'dir' => __DIR__,
-            'url' => asset_path(__DIR__),
+            'url' => $helper->assetPath(__DIR__),
             'editor_export' => true, // Defaults to true and can be omitted.
             'enabled' => true, // Defaults to true and can be omitted.
         ]);

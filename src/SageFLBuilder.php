@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder;
 
-use function App\sage;
 use Itineris\SageFLBuilder\Modules\Accordion\Accordion;
 use Itineris\SageFLBuilder\Modules\Alert\Alert;
 use Itineris\SageFLBuilder\Modules\Breadcrumbs\Breadcrumbs;
@@ -22,15 +21,13 @@ use Itineris\SageFLBuilder\Modules\Video\Video;
 use Itineris\SageFLBuilder\Settings\EventsArchive;
 use Itineris\SageFLBuilder\Settings\PostGrid;
 use Itineris\SageFLBuilder\Settings\ProductsArchive;
+use function App\sage;
 
 /**
  * Beaver Builder extensions
  */
 class SageFLBuilder
 {
-    public const MODULE_CAT = 'Custom Widgets';
-    public const MODULE_GROUP = 'Itineris Standard Modules';
-
     protected const DEFAULT_INITIALIZABLES = [
         Accordion::class,
         Alert::class,

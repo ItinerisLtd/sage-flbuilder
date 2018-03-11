@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\Breadcrumbs;
 
 use FLBuilder;
+use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
-use function App\asset_path;
+use function App\sage;
 
 /**
  * Class Breadcrumbs
@@ -27,12 +27,15 @@ class Breadcrumbs extends AbstractModule
      */
     public function __construct()
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         parent::__construct([
             'name' => __('Breadcrumbs', 'fabric'),
             'description' => __('Breadcrumbs widget', 'fabric'),
             'category' => 'Posts',
-            'group' => SageFLBuilder::MODULE_GROUP,
-            'url' => asset_path(__DIR__),
+            'group' => $helper->getModuleGroup(),
+            'url' => $helper->assetPath(__DIR__),
             'icon' => 'layout.svg',
         ]);
     }

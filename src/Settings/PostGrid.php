@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings;
 
+use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\InitializableInterface;
+use function App\sage;
 
 /**
  * Custom Post Grid for the theme builder.
@@ -177,6 +179,9 @@ class PostGrid implements InitializableInterface
 
     public static function filterBar($settings): string
     {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         ob_start();
 
         $show_filter = false;
@@ -190,7 +195,7 @@ class PostGrid implements InitializableInterface
             // Whether or not to show the filter.
             $show_filter = $tax_exists ? true : false;
             // Get the Term ID to filter by from $_GET['cat'].
-            $term_id = \App\get_cat(true, $category, true);
+            $term_id = $helper->getCat(true, $category, true);
             // Change the category if it is valid.
             if (! empty($term_id)) {
                 $settings->{'tax_' . $post_type . '_' . $category} = $term_id;

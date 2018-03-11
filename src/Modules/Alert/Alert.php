@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\Alert;
 
 use FLBuilder;
-use Itineris\SageFLBuilder\AbstractModule;
+use Itineris\SageFLBuilder\AbstractBladeModule;
 use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
  * Class Alert
  */
-class Alert extends AbstractModule
+class Alert extends AbstractBladeModule
 {
     public static function register(): void
     {

@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\PageHeading;
 
 use FLBuilder;
-use Itineris\SageFLBuilder\AbstractModule;
+use Itineris\SageFLBuilder\AbstractBladeModule;
 use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
  * @class PageHeading
  */
-class PageHeading extends AbstractModule
+class PageHeading extends AbstractBladeModule
 {
     public static function register(): void
     {

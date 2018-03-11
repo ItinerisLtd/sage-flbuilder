@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder;
 
-use function App\sage;
 use Itineris\SageFLBuilder\Settings\PostGrid;
 use WP_Query;
+use function App\sage;
 
 /**
  * TODO: This class needs refactor!
@@ -23,7 +23,6 @@ class God implements InitializableInterface
         add_filter('fl_builder_loop_settings', [$god, 'forceEventPostType']);
         // TODO: Is `PHP_INT_MAX` necessary?
         add_filter('fl_theme_builder_template_include', [$god, 'loadPageBladeTemplate'], PHP_INT_MAX, 2);
-        add_filter('fl_builder_module_frontend_file', [$god, 'locateTemplate'], 10, 2);
         add_filter('fl_builder_render_module_content', [$god, 'wrapRichText'], 10, 2);
         add_filter('fl_builder_module_frontend_custom_fab_filter_bar', [$god, 'filterBarFrontend']);
     }
@@ -114,28 +113,13 @@ class God implements InitializableInterface
         } elseif ('fl-theme-layout' === $post_type || is_home() || is_archive()) {
             $template = $helper->templatePath($helper->locateTemplate('fl-builder-archive'));
         }
+
         return $template;
     }
 
     private function isWoocommerce(): bool
     {
         return function_exists('is_woocommerce') && is_woocommerce();
-    }
-
-    /**
-     * Add Laravel Blade support for frontend.php
-     *
-     * @param $file
-     * @param $module
-     *
-     * @return string
-     */
-    public function locateTemplate($file, $module): string
-    {
-        $relativeBbPath = \App\get_relative_bb_path($module, 'frontend', 'module');
-        $path = \App\locate_template("../{$relativeBbPath}");
-
-        return $path ? \App\template_path($path) : $file;
     }
 
     /**

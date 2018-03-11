@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\Gallery;
 
 use FLBuilder;
-use Itineris\SageFLBuilder\AbstractModule;
+use Itineris\SageFLBuilder\AbstractBladeModule;
 use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
 /**
  * Class Gallery
  */
-class Gallery extends AbstractModule
+class Gallery extends AbstractBladeModule
 {
     public static function register(): void
     {

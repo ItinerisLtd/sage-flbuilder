@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Modules\ContentImage;
 
 use FLBuilder;
-use Itineris\SageFLBuilder\AbstractModule;
+use Itineris\SageFLBuilder\AbstractBladeModule;
 use Itineris\SageFLBuilder\SageFLBuilder;
 use function App\asset_path;
 
@@ -14,7 +14,7 @@ use function App\asset_path;
  *
  * @class ContentImage
  */
-class ContentImage extends AbstractModule
+class ContentImage extends AbstractBladeModule
 {
     public static function register(): void
     {

@@ -77,7 +77,7 @@ class SageFLBuilder
         return $this;
     }
 
-    public function exclude(string ...$initializables): self
+    public function remove(string ...$initializables): self
     {
         $this->initializables = array_diff($this->initializables, $initializables);
 

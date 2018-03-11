@@ -8,19 +8,25 @@ use FLBuilderModule;
 use ReflectionClass;
 use function App\sage;
 
+/**
+ * Add Laravel Blade support.
+ */
 abstract class AbstractBladeModule extends AbstractModule
 {
     public static function init(): void
     {
-        add_filter('fl_builder_module_frontend_file', [static::class, 'locateTemplate'], 10, 2);
+        add_filter('fl_builder_render_module_html', [static::class, 'locateModuleHtml'], 10, 4);
+        add_filter('fl_builder_module_frontend_file', [static::class, 'locateFrontendTemplate'], 10, 2);
 
         parent::init();
     }
 
-    /**
-     * Add Laravel Blade support.
-     */
-    public static function locateTemplate(string $file, FLBuilderModule $module): string
+    public static function locateModuleHtml(string $file, $_type, $_settings, FLBuilderModule $module): string
+    {
+        return static::locateFrontendTemplate($file, $module);
+    }
+
+    public static function locateFrontendTemplate(string $file, FLBuilderModule $module): string
     {
         if (static::class !== get_class($module)) {
             return $file;

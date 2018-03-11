@@ -57,7 +57,7 @@ class ProductsArchive implements InitializableInterface
             echo '<header class="woocommerce-products-header"><div class="row">';
             echo '<div class="col-sm-8">';
             echo '<h2 class="woocommerce-products-header__title page-title">';
-            if (is_product_category()) {
+            if (function_exists('is_product_category') && is_product_category()) {
                 single_term_title();
             } else {
                 echo $cat_title;

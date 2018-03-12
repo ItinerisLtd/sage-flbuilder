@@ -42,12 +42,12 @@ abstract class AbstractHelper
 
     public function getModuleGroup(): string
     {
-        return __('Custom Widgets', 'fabric');
+        return __('Itineris Standard Modules', 'fabric');
     }
 
     public function getModuleCategory(): string
     {
-        return __('Itineris Standard Modules', 'fabric');
+        return __('Custom Widgets', 'fabric');
     }
 
     /**

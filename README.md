@@ -25,7 +25,7 @@ Sage theme's composer.json:
 ```
 
 ```bash
-➜ composer require itineris/sage-flbuilder:dev-master
+➜ composer require itineris/sage-flbuilder
 ```
 
 ## Rules
@@ -75,7 +75,6 @@ See: https://kb.wpbeaverbuilder.com/article/124-custom-module-developer-guide
 ```php
 namespace App\Plugins\FLBuilder\Modules\RunnerBlock;
 
-use FLBuilder;
 use Itineris\SageFLBuilder\AbstractModule;
 use Itineris\SageFLBuilder\AbstractHelper;
 
@@ -87,8 +86,8 @@ class RunnerBlock extends AbstractBladeModule
      */
     public static function register(): void
     {
-        // Call `\FLBuilder::register_module` here.
-        // Call `\FLBuilder::register_settings_form` here.
+        // Invoke `\FLBuilder::register_module` here
+        // Invoke `\FLBuilder::register_settings_form` here
     }
 
     public function __construct()
@@ -102,7 +101,7 @@ class RunnerBlock extends AbstractBladeModule
             'category' => 'Basic',
             'group' => $helper->getModuleGroup(),
             'dir' => __DIR__,
-            'url' => asset_path(__DIR__),
+            'url' => $helper->assetPath(__DIR__),
             'icon' => 'layout.svg',
         ]);
     }
@@ -140,11 +139,16 @@ $sageFLBuilder->add(RunnerBlock::class)
 
 Similar to custom PHP module.
 
-### Step 1 - Subclass from `AbstractBladeModule`.
+### Step 1 - Inherit from `AbstractBladeModule`.
 
 ```php
+namespace App\Plugins\FLBuilder\Modules\BladeRunnerBlock;
+
+use Itineris\SageFLBuilder\AbstractBladeModule;
+
 class BladeRunnerBlock extends AbstractBladeModule
 {
+    // Similar to custom PHP module
 }
 ```
 

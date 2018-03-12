@@ -70,7 +70,7 @@ Tips: Put these lines into a class method.
 
 ### Step 1 - Define module class
 
-See: [https://kb.wpbeaverbuilder.com/article/124-custom-module-developer-guide
+See: https://kb.wpbeaverbuilder.com/article/124-custom-module-developer-guide
 
 ```php
 namespace App\Plugins\FLBuilder\Modules\RunnerBlock;

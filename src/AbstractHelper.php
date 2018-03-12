@@ -153,7 +153,7 @@ abstract class AbstractHelper
     /**
      * Builds a navigation menu based on parent post, children and siblings
      */
-    abstract public function getSecondaryNav(): string;
+    abstract public function getSecondaryNav();
 
     /**
      * Grabs the data of a specified meta key

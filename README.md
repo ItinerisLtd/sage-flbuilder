@@ -25,7 +25,7 @@ Sage theme's composer.json:
 ```
 
 ```bash
-➜ composer require itineris/sage-flbuilder
+➜ composer require itineris/sage-flbuilder:dev-master
 ```
 
 ## Rules

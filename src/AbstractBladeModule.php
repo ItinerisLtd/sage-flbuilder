@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder;
 
 use FLBuilderModule;
-use ReflectionClass;
 use function App\sage;
 
 /**
@@ -35,20 +34,6 @@ abstract class AbstractBladeModule extends AbstractModule
         /** @var AbstractHelper $helper */
         $helper = sage(AbstractHelper::class);
 
-        return $helper->templatePath(static::getDirPath() . '/includes/frontend.blade.php');
-    }
-
-    /**
-     * Warning: `ReflectionClass` is slow.
-     * For maximum performance, override this method with `return __DIR__;` in child class.
-     *
-     * @return string
-     */
-    protected static function getDirPath(): string
-    {
-        $classInfo = new ReflectionClass(static::class);
-        $classPath = $classInfo->getFileName();
-
-        return dirname($classPath);
+        return $helper->templatePath($module->dir . 'includes/frontend.blade.php');
     }
 }

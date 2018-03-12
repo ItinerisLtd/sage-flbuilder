@@ -76,7 +76,7 @@ abstract class AbstractHelper
      *
      * @return string[]
      */
-    abstract public function getPosts($post_type, $parent_id = ''): array;
+    abstract public function getPosts($postType, $parentId = ''): array;
 
     /**
      * Retrieves the category from $_GET['cat'] and sanitizes for use
@@ -114,27 +114,27 @@ abstract class AbstractHelper
     abstract public function sanitizeHtmlClasses($class, $fallback = null): string;
 
     /**
-     * @param        $video_url
-     * @param bool   $is_element
+     * @param        $videoUrl
+     * @param bool   $isElement
      * @param int    $size
-     * @param string $alt_text
+     * @param string $altText
      *
      * @return string|false
      */
-    abstract public function videoThumb($video_url, $is_element = false, $size = 0, $alt_text = '');
+    abstract public function videoThumb($videoUrl, $isElement = false, $size = 0, $altText = '');
 
     /**
      * Creates a responsive iframe and embeds a video player
      * or an embed URL for the video
      *
-     * @param  string  $video_url URL of the video
-     * @param  boolean $is_url    If true, returns the iframe URL, not the iframe
-     * @param  int     $width     The width of the iframe
-     * @param  int     $height    The height of the iframe
+     * @param  string  $videoUrl URL of the video
+     * @param  boolean $isUrl    If true, returns the iframe URL, not the iframe
+     * @param  int     $width    The width of the iframe
+     * @param  int     $height   The height of the iframe
      *
      * @return string|false Video embed URL or HTML for iframe embed
      */
-    abstract public function videoEmbed($video_url, $is_url = false, $width = null, $height = null);
+    abstract public function videoEmbed($videoUrl, $isUrl = false, $width = null, $height = null);
 
     /**
      * Creates a HTML taxonomy dropdown
@@ -144,10 +144,10 @@ abstract class AbstractHelper
      */
     abstract public function taxonomyDropdown(
         $taxonomy,
-        $post_type = null,
-        $query_var = 'pc',
+        $postType = null,
+        $queryVar = 'pc',
         $label = 'Category',
-        $show_label = false
+        $showLabel = false
     );
 
     /**
@@ -158,12 +158,12 @@ abstract class AbstractHelper
     /**
      * Grabs the data of a specified meta key
      *
-     * @param  string  $key     The ID of the meta key.
-     * @param  int     $post_id The ID of the post.
-     * @param  boolean $single  Output as array or array value.
-     * @param  boolean $raw     Whether to return filtered data or not.
+     * @param  string  $key    The ID of the meta key.
+     * @param  int     $postId The ID of the post.
+     * @param  boolean $single Output as array or array value.
+     * @param  boolean $raw    Whether to return filtered data or not.
      *
      * @return string|array     The requested meta value
      */
-    abstract public function fabricGf($key, $post_id = 0, $single = true, $raw = false);
+    abstract public function fabricGf($key, $postId = 0, $single = true, $raw = false);
 }

@@ -16,8 +16,8 @@ class PostGrid implements InitializableInterface
     public static function init(): void
     {
         // Filters
-        add_filter('fl_builder_register_settings_form', __CLASS__ . '::postGridSettings', 10, 2);
-        add_filter('fl_builder_posts_module_layout_path', __CLASS__ . '::loadLayoutPath', 10, 3);
+        add_filter('fl_builder_register_settings_form', static::class . '::postGridSettings', 10, 2);
+        add_filter('fl_builder_posts_module_layout_path', static::class . '::loadLayoutPath', 10, 3);
     }
 
     /**

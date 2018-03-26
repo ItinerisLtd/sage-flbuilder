@@ -16,16 +16,16 @@ class EventsArchive implements InitializableInterface
     public static function init(): void
     {
         // Actions
-        add_action('fl_builder_posts_module_before_posts', __CLASS__ . '::beforePosts', 10, 2);
-        add_action('fl_builder_posts_module_before_posts', __CLASS__ . '::beforePostsItemsWrap', 11, 2);
-        add_action('fl_builder_posts_module_after_posts', __CLASS__ . '::afterPosts', 10, 2);
-        add_action('fl_builder_posts_module_after_posts', __CLASS__ . '::afterPostsItemsWrap', 11, 2);
-        add_action('pre_get_posts', __CLASS__ . '::modifyQuery');
+        add_action('fl_builder_posts_module_before_posts', static::class . '::beforePosts', 10, 2);
+        add_action('fl_builder_posts_module_before_posts', static::class . '::beforePostsItemsWrap', 11, 2);
+        add_action('fl_builder_posts_module_after_posts', static::class . '::afterPosts', 10, 2);
+        add_action('fl_builder_posts_module_after_posts', static::class . '::afterPostsItemsWrap', 11, 2);
+        add_action('pre_get_posts', static::class . '::modifyQuery');
 
         // Filters
-        add_filter('fl_builder_module_custom_class', __CLASS__ . '::customClass', 10, 2);
-        add_filter('fl_builder_register_settings_form', __CLASS__ . '::postGridSettings', 10, 2);
-        add_filter('fl_builder_render_js', __CLASS__ . '::postGridJS', 10, 2);
+        add_filter('fl_builder_module_custom_class', static::class . '::customClass', 10, 2);
+        add_filter('fl_builder_register_settings_form', static::class . '::postGridSettings', 10, 2);
+        add_filter('fl_builder_render_js', static::class . '::postGridJS', 10, 2);
     }
 
     public static function eventDate($format): void

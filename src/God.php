@@ -16,7 +16,7 @@ class God implements InitializableInterface
 {
     public static function init(): void
     {
-        $god = new self();
+        $god = new static();
 
         add_action('fl_builder_posts_module_after_pagination', [$god, 'noPostsFilterBar'], 10, 2);
 

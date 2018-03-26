@@ -32,7 +32,7 @@ Sage theme's composer.json:
 
 * Follow [PSR-4](https://www.php-fig.org/psr/psr-4/)
 * Follow [PSR-1](https://www.php-fig.org/psr/psr-1/)
-* Do not copy and paste from default modules - huge technical debt in this package. 
+* Do not copy and paste from default modules - huge technical debt in this package.
 
 ## Usage - Minimum
 
@@ -78,7 +78,7 @@ namespace App\Plugins\FLBuilder\Modules\RunnerBlock;
 use Itineris\SageFLBuilder\AbstractModule;
 use Itineris\SageFLBuilder\AbstractHelper;
 
-class RunnerBlock extends AbstractBladeModule
+class RunnerBlock extends AbstractModule
 {
     /**
      * Register the module and its form settings.
@@ -110,7 +110,7 @@ class RunnerBlock extends AbstractBladeModule
 
 ### Step 2 - Frontend Template
 
-Create `includes/frontend.php`: 
+Create `includes/frontend.php`:
 
 ```
 <sage>/app/Plugins/FLBuilder/Modules
@@ -133,7 +133,7 @@ $sageFLBuilder = new SageFLBuilder(
 
 $sageFLBuilder->add(RunnerBlock::class)
               ->init();
-``` 
+```
 
 ## Usage - Custom Blade Module
 
@@ -154,7 +154,7 @@ class BladeRunnerBlock extends AbstractBladeModule
 
 ### Step 2 - Frontend Template
 
-Create `includes/frontend.blade.php`: 
+Create `includes/frontend.blade.php`:
 
 ```
 <sage>/app/Plugins/FLBuilder/Modules
@@ -183,7 +183,7 @@ use Itineris\SageFLBuilder\InitializableInterface;
 class MySetting implements InitializableInterface
 {
     // Implement all required methods.
-} 
+}
 ```
 
 ### Step 2

@@ -13,6 +13,8 @@ use function App\sage;
  */
 class PostGrid implements InitializableInterface
 {
+    protected const DIR = __DIR__;
+
     public static function init(): void
     {
         // Filters
@@ -158,10 +160,10 @@ class PostGrid implements InitializableInterface
         }
 
         $post_type = get_post_type() ?: $settings->post_type;
-        $path = __DIR__ . "/../Modules/post-grid/includes/post-theme-{$post_type}.php";
+        $path = static::DIR . "/../Modules/post-grid/includes/post-theme-{$post_type}.php";
 
         if (! file_exists($path)) {
-            $path = __DIR__ . '/../Modules/post-grid/includes/post-theme.php';
+            $path = static::DIR . '/../Modules/post-grid/includes/post-theme.php';
         }
 
         return $path;
@@ -192,9 +194,9 @@ class PostGrid implements InitializableInterface
             }
         }
 
-        $path = __DIR__ . "/../Modules/post-grid/includes/filter-bar-{$post_type}.php";
+        $path = static::DIR . "/../Modules/post-grid/includes/filter-bar-{$post_type}.php";
         if (! file_exists($path)) {
-            $path = __DIR__ . '/../Modules/post-grid/includes/filter-bar.php';
+            $path = static::DIR . '/../Modules/post-grid/includes/filter-bar.php';
         }
 
         include $path;

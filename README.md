@@ -217,3 +217,56 @@ $sageFLBuilder->add(RunnerBlock::class, BladeRunnerBlock::class, MySetting::clas
               ->remove(FilterBar::class, EventsArchive::class)
               ->init();
 ```
+
+## Migrating from Fabric
+
+Since `sage-flbuilder` uses PSR-4 while `Fabric` doesn't, module names are changed.
+When migrating from `Fabric`, you have to *search and replace* all module name saved in database:
+
+```bash
+$ wp search-replace 'OLD_NAME' 'NEW_NAME'
+$ wp search-replace 'fab_accordion' 'Accordion'
+```
+
+This is a bash script for `sage-flbuilder`'s default modules:
+
+```bash
+#!/bin/bash
+
+declare -A modules
+
+# Base Modules
+modules[fab_accordion]=Accordion
+modules[fab_alert]=Alert
+modules[fab_breadcrumbs]=Breadcrumbs
+modules[fab_button]=Button
+modules[fab_content_image]=ContentImage
+modules[fab_filter_bar]=FilterBar
+modules[fab_gallery]=Gallery
+modules[fab_page_heading]=PageBanner
+modules[fab_page_slider]=PageSlider
+modules[fab_secondary_nav]=SecondaryNav
+modules[fab_table]=Table
+modules[fab_testimonial]=Testimonial
+modules[fab_video]=Video
+
+# Add project-specific modules here, for example:
+# modules[gh_welcome_section]=WelcomeSection
+
+for i in "${!modules[@]}"
+do
+    echo "$i -> ${modules[$i]}"
+    command="wp search-replace '$i' '${modules[$i]}' --dry-run"
+    echo "Running $command"
+    result=$(eval "${command} 2> /dev/null")
+    if [ $? -eq 0 ];then
+        echo "${result##*$'\n'}"
+        printf "\n------------\n\n"
+    else
+        echo "Failed!"
+        echo $(result | tail -n 1)
+        break
+    fi
+
+done
+```

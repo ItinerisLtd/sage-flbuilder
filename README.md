@@ -32,7 +32,24 @@ Sage theme's composer.json:
 
 * Follow [PSR-4](https://www.php-fig.org/psr/psr-4/)
 * Follow [PSR-1](https://www.php-fig.org/psr/psr-1/)
-* Do not copy and paste from default modules - huge technical debt in this package.
+* Do not copy and paste from default modules - huge technical debt in this package
+* Do not use `God` class - it is pure technical debt
+
+## Caveats
+
+Beaver Builder can't accept 2 modules with the same file name even they follow PSR-4.
+
+For example, these 3 modules conflict each other:
+
+- `vendor/itineris/sage-flbuilder/src/Modules/Button/Button.php`
+- `app/Plugins/FLBuilder/Modules/BrainHouse/Button/Button.php`
+- `app/Plugins/FLBuilder/Modules/Trinity/Button/Button.php`
+
+Solution - Use unique class names:
+
+- `vendor/itineris/sage-flbuilder/src/Modules/Button/Button.php`
+- `app/Plugins/FLBuilder/Modules/BrainHouseButton/BrainHouseButton.php`
+- `app/Plugins/FLBuilder/Modules/TrinityButton/TrinityButton.php`
 
 ## Usage - Minimum
 
@@ -199,4 +216,57 @@ $sageFLBuilder->add(RunnerBlock::class, BladeRunnerBlock::class, MySetting::clas
 $sageFLBuilder->add(RunnerBlock::class, BladeRunnerBlock::class, MySetting::class)
               ->remove(FilterBar::class, EventsArchive::class)
               ->init();
+```
+
+## Migrating from Fabric
+
+Since `sage-flbuilder` uses PSR-4 while `Fabric` doesn't, module names are changed.
+When migrating from `Fabric`, you have to *search and replace* all module name saved in database:
+
+```bash
+$ wp search-replace 'OLD_NAME' 'NEW_NAME'
+$ wp search-replace 'fab_accordion' 'Accordion'
+```
+
+This is a bash script for `sage-flbuilder`'s default modules:
+
+```bash
+#!/bin/bash
+
+declare -A modules
+
+# Base Modules
+modules[fab_accordion]=Accordion
+modules[fab_alert]=Alert
+modules[fab_breadcrumbs]=Breadcrumbs
+modules[fab_button]=Button
+modules[fab_content_image]=ContentImage
+modules[fab_filter_bar]=FilterBar
+modules[fab_gallery]=Gallery
+modules[fab_page_heading]=PageBanner
+modules[fab_page_slider]=PageSlider
+modules[fab_secondary_nav]=SecondaryNav
+modules[fab_table]=Table
+modules[fab_testimonial]=Testimonial
+modules[fab_video]=Video
+
+# Add project-specific modules here, for example:
+# modules[gh_welcome_section]=WelcomeSection
+
+for i in "${!modules[@]}"
+do
+    echo "$i -> ${modules[$i]}"
+    command="wp search-replace '$i' '${modules[$i]}' --dry-run"
+    echo "Running $command"
+    result=$(eval "${command} 2> /dev/null")
+    if [ $? -eq 0 ];then
+        echo "${result##*$'\n'}"
+        printf "\n------------\n\n"
+    else
+        echo "Failed!"
+        echo $(result | tail -n 1)
+        break
+    fi
+
+done
 ```

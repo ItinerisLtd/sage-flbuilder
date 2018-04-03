@@ -18,7 +18,7 @@ Sage theme's composer.json:
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/ItinerisLtd/sage-flbuilder.git"
+      "url": "git@github.com:ItinerisLtd/sage-flbuilder.git"
     }
   ]
 }

@@ -32,7 +32,24 @@ Sage theme's composer.json:
 
 * Follow [PSR-4](https://www.php-fig.org/psr/psr-4/)
 * Follow [PSR-1](https://www.php-fig.org/psr/psr-1/)
-* Do not copy and paste from default modules - huge technical debt in this package.
+* Do not copy and paste from default modules - huge technical debt in this package
+* Do not use `God` class - it is pure technical debt
+
+## Caveats
+
+Beaver Builder can't accept 2 modules with the same file name even they follow PSR-4.
+
+For example, these 3 modules conflict each other:
+
+- `vendor/itineris/sage-flbuilder/src/Modules/Button/Button.php`
+- `app/Plugins/FLBuilder/Modules/BrainHouse/Button/Button.php`
+- `app/Plugins/FLBuilder/Modules/Trinity/Button/Button.php`
+
+Solution - Use unique class names:
+
+- `vendor/itineris/sage-flbuilder/src/Modules/Button/Button.php`
+- `app/Plugins/FLBuilder/Modules/BrainHouseButton/BrainHouseButton.php`
+- `app/Plugins/FLBuilder/Modules/TrinityButton/TrinityButton.php`
 
 ## Usage - Minimum
 

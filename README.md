@@ -37,6 +37,8 @@ Sage theme's composer.json:
 
 ## Caveats
 
+### Module Names
+
 Beaver Builder can't accept 2 modules with the same file name even they follow PSR-4.
 
 For example, these 3 modules conflict each other:
@@ -50,6 +52,21 @@ Solution - Use unique class names:
 - `vendor/itineris/sage-flbuilder/src/Modules/Button/Button.php`
 - `app/Plugins/FLBuilder/Modules/BrainHouseButton/BrainHouseButton.php`
 - `app/Plugins/FLBuilder/Modules/TrinityButton/TrinityButton.php`
+
+### Subclassing `PostGrid`
+
+If you overridden `PostGrid` with a subclass, you have to put it into Sage's container **after** init:
+
+```
+use App\Plugins\FLBuilder\Settings\PostGrid;
+use Itineris\SageFLBuilder\Settings\PostGrid as SageFLBuilderPostGrid;
+
+$sageFLBuilder->add(PostGrid::class)
+              ->remove(SageFLBuilderPostGrid::class)
+              ->init();
+
+sage()->bind(SageFLBuilderPostGrid::class, PostGrid::class);
+```
 
 ## Usage - Minimum
 
@@ -132,9 +149,9 @@ Create `includes/frontend.php`:
 ```
 <sage>/app/Plugins/FLBuilder/Modules
 └── RunnerBlock
-   ├── RunnerBlock.php
-   └── includes
-       └── frontend.php
+   ├── RunnerBlock.php
+   └── includes
+       └── frontend.php
 ```
 
 ### Step 3 - Add custom module into `SageFLBuilder`
@@ -176,9 +193,9 @@ Create `includes/frontend.blade.php`:
 ```
 <sage>/app/Plugins/FLBuilder/Modules
 └── BladeRunnerBlock
-   ├── BladeRunnerBlock.php
-   └── includes
-       └── frontend.blade.php
+   ├── BladeRunnerBlock.php
+   └── includes
+       └── frontend.blade.php
 ```
 
 ### Step 3

@@ -1,10 +1,20 @@
 # Change Log
 
+## [0.3.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.1) (2018-04-04)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.0...0.3.1)
+
+**Merged pull requests:**
+
+- Put `PostGrid` into Sage container [\#19](https://github.com/ItinerisLtd/sage-flbuilder/pull/19) ([TangRufus](https://github.com/TangRufus))
+- Readme: Fix migration script [\#18](https://github.com/ItinerisLtd/sage-flbuilder/pull/18) ([TangRufus](https://github.com/TangRufus))
+- Readme: Fix PHP minimum requirement [\#17](https://github.com/ItinerisLtd/sage-flbuilder/pull/17) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.3.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.0) (2018-04-03)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.2.0...0.3.0)
 
 **Merged pull requests:**
 
+- Version bump 0.3.0 [\#16](https://github.com/ItinerisLtd/sage-flbuilder/pull/16) ([TangRufus](https://github.com/TangRufus))
 - Update readme [\#15](https://github.com/ItinerisLtd/sage-flbuilder/pull/15) ([TangRufus](https://github.com/TangRufus))
 - Remove `MainBanner` module [\#14](https://github.com/ItinerisLtd/sage-flbuilder/pull/14) ([TangRufus](https://github.com/TangRufus))
 - Readme: Suggest SSH instead of HTTPS git repo url [\#13](https://github.com/ItinerisLtd/sage-flbuilder/pull/13) ([TangRufus](https://github.com/TangRufus))

@@ -263,7 +263,7 @@ class God implements InitializableInterface
         $settings['show_filter'] = true;
         $settings['layout'] = 'theme';
 
-        return PostGrid::filterBar((object) $settings);
+        return sage(PostGrid::class)->filterBar((object) $settings);
     }
 
     /**
@@ -277,6 +277,7 @@ class God implements InitializableInterface
 
         $settings->show_filter = true;
         $settings->layout = 'theme';
-        echo PostGrid::filterBar($settings);
+
+        echo sage(PostGrid::class)->filterBar($settings);
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings;
 
+use function App\sage;
 use Itineris\SageFLBuilder\InitializableInterface;
 
 /**
@@ -62,7 +63,7 @@ class ProductsArchive implements InitializableInterface
             echo '</div></div></header>';
             echo '<div class="product-row row"><ul class="products">';
         } elseif ($settings->show_filter) {
-            echo PostGrid::filterBar($settings);
+            echo sage(PostGrid::class)->filterBar($settings);
         }
     }
 }

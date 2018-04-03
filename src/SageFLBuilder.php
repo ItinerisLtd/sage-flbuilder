@@ -82,6 +82,7 @@ class SageFLBuilder
     public function init(): void
     {
         sage()->instance(AbstractHelper::class, $this->helper);
+        sage()->bind(PostGrid::class);
 
         foreach ($this->initializables as $initializable) {
             $initializable::init();

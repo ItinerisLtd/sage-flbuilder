@@ -1,10 +1,18 @@
 # Change Log
 
-## [0.3.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.1) (2018-04-04)
+## [0.3.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.2) (2018-04-09)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.1...0.3.2)
+
+**Merged pull requests:**
+
+- Remove unused parameters from `fl\_builder\_posts\_module\_after\_posts` hook [\#21](https://github.com/ItinerisLtd/sage-flbuilder/pull/21) ([TangRufus](https://github.com/TangRufus))
+
+## [0.3.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.1) (2018-04-03)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.0...0.3.1)
 
 **Merged pull requests:**
 
+- Version bump 0.3.1 [\#20](https://github.com/ItinerisLtd/sage-flbuilder/pull/20) ([TangRufus](https://github.com/TangRufus))
 - Put `PostGrid` into Sage container [\#19](https://github.com/ItinerisLtd/sage-flbuilder/pull/19) ([TangRufus](https://github.com/TangRufus))
 - Readme: Fix migration script [\#18](https://github.com/ItinerisLtd/sage-flbuilder/pull/18) ([TangRufus](https://github.com/TangRufus))
 - Readme: Fix PHP minimum requirement [\#17](https://github.com/ItinerisLtd/sage-flbuilder/pull/17) ([TangRufus](https://github.com/TangRufus))

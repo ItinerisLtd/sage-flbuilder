@@ -18,7 +18,7 @@ class ProductsArchive implements InitializableInterface
             'fl_builder_posts_module_before_posts',
             'FLThemeBuilderWooCommerceArchive::posts_module_before_posts'
         );
-        add_action('fl_builder_posts_module_after_posts', static::class, '::loadProductMarkupAfterPosts', 10, 2);
+        add_action('fl_builder_posts_module_after_posts', static::class, '::loadProductMarkupAfterPosts');
         add_action('fl_builder_posts_module_before_posts', static::class . '::loadFilterBar', 11, 2);
     }
 

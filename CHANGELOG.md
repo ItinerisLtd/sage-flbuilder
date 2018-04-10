@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.3.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.3) (2018-04-10)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.2...0.3.3)
+
+**Merged pull requests:**
+
+- Fix: Incorrect `add\_action` invocation [\#23](https://github.com/ItinerisLtd/sage-flbuilder/pull/23) ([TangRufus](https://github.com/TangRufus))
+- Change Log: Add v0.3.2 entries [\#22](https://github.com/ItinerisLtd/sage-flbuilder/pull/22) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.3.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.2) (2018-04-09)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.1...0.3.2)
 

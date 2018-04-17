@@ -7,6 +7,7 @@
 * Advanced Custom Fields PRO v5.6.9
 * Beaver Builder Plugin (Pro Version) v2.0.6.1
 * Beaver Themer v1.1.0.3
+* Gravity Forms v2.2.6.5
 
 You must ensure these 3 required plugins installed via Bedrock's composer.json.
 
@@ -260,6 +261,7 @@ modules[fab_button]=Button
 modules[fab_content_image]=ContentImage
 modules[fab_filter_bar]=FilterBar
 modules[fab_gallery]=Gallery
+modules[fab_gravity_form]=GravityForm
 modules[fab_page_heading]=PageHeading
 modules[fab_page_slider]=PageSlider
 modules[fab_secondary_nav]=SecondaryNav

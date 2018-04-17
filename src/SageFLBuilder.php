@@ -11,6 +11,7 @@ use Itineris\SageFLBuilder\Modules\Button\Button;
 use Itineris\SageFLBuilder\Modules\ContentImage\ContentImage;
 use Itineris\SageFLBuilder\Modules\FilterBar\FilterBar;
 use Itineris\SageFLBuilder\Modules\Gallery\Gallery;
+use Itineris\SageFLBuilder\Modules\GravityForm\GravityForm;
 use Itineris\SageFLBuilder\Modules\PageHeading\PageHeading;
 use Itineris\SageFLBuilder\Modules\PageSlider\PageSlider;
 use Itineris\SageFLBuilder\Modules\SecondaryNav\SecondaryNav;
@@ -36,6 +37,7 @@ class SageFLBuilder
         EventsArchive::class,
         FilterBar::class,
         Gallery::class,
+        GravityForm::class,
         God::class,
         PageHeading::class,
         PageSlider::class,

@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.4.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.4.1) (2018-04-17)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.4.0...0.4.1)
+
+**Merged pull requests:**
+
+- Fix: Not to escape `GravityForm` blade output [\#28](https://github.com/ItinerisLtd/sage-flbuilder/pull/28) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.4.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.4.0) (2018-04-17)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.3...0.4.0)
 
@@ -9,6 +16,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.4.0 [\#27](https://github.com/ItinerisLtd/sage-flbuilder/pull/27) ([TangRufus](https://github.com/TangRufus))
 - Add `GravityForm` module [\#26](https://github.com/ItinerisLtd/sage-flbuilder/pull/26) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.3.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.3) (2018-04-10)

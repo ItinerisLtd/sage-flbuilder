@@ -1,10 +1,22 @@
 # Change Log
 
+## [0.4.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.4.0) (2018-04-17)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.3...0.4.0)
+
+**Closed issues:**
+
+- GravityForms Module [\#25](https://github.com/ItinerisLtd/sage-flbuilder/issues/25)
+
+**Merged pull requests:**
+
+- Add `GravityForm` module [\#26](https://github.com/ItinerisLtd/sage-flbuilder/pull/26) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.3.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.3) (2018-04-10)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.2...0.3.3)
 
 **Merged pull requests:**
 
+- Version bump 0.3.3 [\#24](https://github.com/ItinerisLtd/sage-flbuilder/pull/24) ([TangRufus](https://github.com/TangRufus))
 - Fix: Incorrect `add\_action` invocation [\#23](https://github.com/ItinerisLtd/sage-flbuilder/pull/23) ([TangRufus](https://github.com/TangRufus))
 - Change Log: Add v0.3.2 entries [\#22](https://github.com/ItinerisLtd/sage-flbuilder/pull/22) ([TangRufus](https://github.com/TangRufus))
 

@@ -166,4 +166,6 @@ abstract class AbstractHelper
      * @return string|array     The requested meta value
      */
     abstract public function fabricGf($key, $postId = 0, $single = true, $raw = false);
+
+    abstract public function getGravityForms(): array;
 }

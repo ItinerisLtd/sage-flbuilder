@@ -78,6 +78,9 @@ class God implements InitializableInterface
         if ($settings->show_search) {
             $count++;
         }
+        if (isset($settings->tax_exists) && $settings->tax_exists) {
+            $count++;
+        }
         if ($settings->show_meta_filters) {
             $count++;
         }

@@ -1,10 +1,22 @@
 # Change Log
 
+## [0.4.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.4.2) (2018-04-20)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.4.1...0.4.2)
+
+**Implemented enhancements:**
+
+- Add a 'tax\_exists' filter count [\#30](https://github.com/ItinerisLtd/sage-flbuilder/issues/30)
+
+**Merged pull requests:**
+
+- \(fix\) Missing 'tax\_exist' count check [\#32](https://github.com/ItinerisLtd/sage-flbuilder/pull/32) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.4.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.4.1) (2018-04-17)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.4.0...0.4.1)
 
 **Merged pull requests:**
 
+- Version bump 0.4.1 [\#29](https://github.com/ItinerisLtd/sage-flbuilder/pull/29) ([TangRufus](https://github.com/TangRufus))
 - Fix: Not to escape `GravityForm` blade output [\#28](https://github.com/ItinerisLtd/sage-flbuilder/pull/28) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.4.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.4.0) (2018-04-17)

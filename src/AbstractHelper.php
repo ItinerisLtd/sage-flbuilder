@@ -168,4 +168,11 @@ abstract class AbstractHelper
     abstract public function fabricGf($key, $postId = 0, $single = true, $raw = false);
 
     abstract public function getGravityForms(): array;
+
+    /**
+     * Full path to PostGrid template directory.
+     *
+     * @return string
+     */
+    abstract public function getPostGridTemplateDir(): string;
 }

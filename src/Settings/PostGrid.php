@@ -14,7 +14,6 @@ use function App\sage;
  */
 class PostGrid implements InitializableInterface
 {
-    protected const DIR = __DIR__;
     private const NOT_FOUND = 'not found';
 
     public static function init(): void
@@ -161,8 +160,11 @@ class PostGrid implements InitializableInterface
             return $path;
         }
 
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
         return self::templatePath(
-            static::DIR . '/../Modules/post-grid/includes',
+            $helper->getPostGridTemplateDir(),
             'post-theme',
             get_post_type() ?: $settings->post_type
         );
@@ -226,7 +228,13 @@ class PostGrid implements InitializableInterface
             }
         }
 
-        include self::templatePath(static::DIR . '/../Modules/post-grid/includes', 'filter-bar', $postType);
+        $path = self::templatePath(
+            $helper->getPostGridTemplateDir(),
+            'filter-bar',
+            $postType
+        );
+
+        include $path;
 
         return ob_get_clean();
     }

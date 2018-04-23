@@ -61,6 +61,11 @@ class SageFLBuilder
      */
     protected $helper;
 
+    /**
+     * @var string
+     */
+    protected $postGridTemplateDir;
+
     public function __construct(AbstractHelper $helper)
     {
         $this->helper = $helper;

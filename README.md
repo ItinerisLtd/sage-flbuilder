@@ -1,9 +1,42 @@
 # itineris/sage-flbuilder
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Minimum Requirements](#minimum-requirements)
+- [Installation](#installation)
+- [Rules](#rules)
+- [Caveats](#caveats)
+  - [Module Names](#module-names)
+- [Customizing `PostGrid`](#customizing-postgrid)
+  - [Templates](#templates)
+  - [Subclass](#subclass)
+- [Usage - Minimum](#usage---minimum)
+  - [Step 1 - Define helper class](#step-1---define-helper-class)
+  - [Step 2](#step-2)
+- [Usage - Custom PHP Module](#usage---custom-php-module)
+  - [Step 1 - Define module class](#step-1---define-module-class)
+  - [Step 2 - Frontend Template](#step-2---frontend-template)
+  - [Step 3 - Add custom module into `SageFLBuilder`](#step-3---add-custom-module-into-sageflbuilder)
+- [Usage - Custom Blade Module](#usage---custom-blade-module)
+  - [Step 1 - Inherit from `AbstractBladeModule`.](#step-1---inherit-from-abstractblademodule)
+  - [Step 2 - Frontend Template](#step-2---frontend-template-1)
+  - [Step 3](#step-3)
+- [Usage - Custom Settings](#usage---custom-settings)
+  - [Step 1 - Define Setting Class](#step-1---define-setting-class)
+  - [Step 2](#step-2-1)
+- [Usage - Exclude Default Modules / Settings](#usage---exclude-default-modules--settings)
+- [Migrating from Fabric](#migrating-from-fabric)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
 ## Minimum Requirements
 
 * PHP v7.1
 * Sage v9.0.0-beta.4
+* illuminate/support v5.4
 * Advanced Custom Fields PRO v5.6.9
 * Beaver Builder Plugin (Pro Version) v2.0.6.1
 * Beaver Themer v1.1.0.3
@@ -54,9 +87,47 @@ Solution - Use unique class names:
 - `app/Plugins/FLBuilder/Modules/BrainHouseButton/BrainHouseButton.php`
 - `app/Plugins/FLBuilder/Modules/TrinityButton/TrinityButton.php`
 
-### Subclassing `PostGrid`
+## Customizing `PostGrid`
 
-If you overridden `PostGrid` with a subclass, you have to put it into Sage's container **after** init:
+### Templates
+
+**Deprecated:** Prior to v0.5.0, `PostGrid::DIR` is used to locate template directory. This is replaced with `AbstractHelper::getPostGridTemplateDir`.
+
+Filter bar and post theme templates are customizable in projects, both Blade and normal `.php` are supported.
+
+For example:
+```bash
+➜ tree web/app/themes/greenwich/app/Plugins/FLBuilder
+web/app/themes/greenwich/app/Plugins/FLBuilder
+├── Helper.php
+└── post-grid
+    ├── filter-bar-event.blade.php
+    ├── filter-bar.php
+    ├── post-theme-event.blade.php
+    ├── post-theme-product.php
+    └── post-theme.blade.php
+```
+
+```php
+class Helper extends AbstractHelper
+{
+    /**
+     * Full path to PostGrid template directory.
+     *
+     * @return string
+     */
+    abstract public function getPostGridTemplateDir(): string
+    {
+        return __DIR__ . '/post-grid';
+    }
+}
+```
+
+### Subclass
+
+**Important:** Overriding `PostGrid` is not recommended. Tweak your project to fit in default `PostGrid` whenever possible.
+
+If you must override `PostGrid` with a subclass **as a last resort**, you have to put it into Sage's container **after** `SageFLBuilder::init`:
 
 ```
 use App\Plugins\FLBuilder\Settings\PostGrid;
@@ -80,7 +151,7 @@ use Itineris\SageFLBuilder\AbstractHelper;
 
 class Helper extends AbstractHelper
 {
-    // Impletement all abstract methods.
+    // Implement all abstract methods.
 }
 ```
 

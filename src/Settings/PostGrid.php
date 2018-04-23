@@ -6,6 +6,7 @@ namespace Itineris\SageFLBuilder\Settings;
 
 use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\InitializableInterface;
+use RuntimeException;
 use function App\sage;
 
 /**
@@ -14,6 +15,7 @@ use function App\sage;
 class PostGrid implements InitializableInterface
 {
     protected const DIR = __DIR__;
+    private const NOT_FOUND = 'not found';
 
     public static function init(): void
     {
@@ -159,11 +161,41 @@ class PostGrid implements InitializableInterface
             return $path;
         }
 
-        $post_type = get_post_type() ?: $settings->post_type;
-        $path = static::DIR . "/../Modules/post-grid/includes/post-theme-{$post_type}.php";
+        return self::templatePath(
+            static::DIR . '/../Modules/post-grid/includes',
+            'post-theme',
+            get_post_type() ?: $settings->post_type
+        );
+    }
 
-        if (! file_exists($path)) {
-            $path = static::DIR . '/../Modules/post-grid/includes/post-theme.php';
+    private static function templatePath(string $dir, string $prefix, string $postType): string
+    {
+        $dir = untrailingslashit($dir);
+        $prefix = untrailingslashit($prefix);
+
+        $paths = [
+            "$dir/$prefix-$postType.blade.php",
+            "$dir/$prefix-$postType.php",
+            "$dir/$prefix.blade.php",
+            "$dir/$prefix.php",
+            __DIR__ . "/../post-grid/$prefix-$postType.blade.php",
+            __DIR__ . "/../post-grid/$prefix-$postType.php",
+            __DIR__ . "/../post-grid/$prefix.blade.php",
+            __DIR__ . "/../post-grid/$prefix.php",
+        ];
+
+        $path = array_first($paths, function (string $path): bool {
+            return file_exists($path);
+        }, self::NOT_FOUND);
+
+        if (self::NOT_FOUND === $path) {
+            throw new RuntimeException('Template not found in ' . implode(', ', $paths));
+        }
+
+        if (ends_with($path, '.blade.php')) {
+            /** @var AbstractHelper $helper */
+            $helper = sage(AbstractHelper::class);
+            $path = $helper->templatePath($path);
         }
 
         return $path;
@@ -178,10 +210,10 @@ class PostGrid implements InitializableInterface
 
         $show_filter = false;
         $tax_exists = false;
-        $post_type = 'main_query' === $settings->data_source ? (get_post_type() ?: 'post') : $settings->post_type;
+        $postType = 'main_query' === $settings->data_source ? (get_post_type() ?: 'post') : $settings->post_type;
         if ($settings->show_filter) {
             // Get the taxonomy name.
-            $category = ('post' === $post_type) ? 'category' : $post_type . '_cat';
+            $category = ('post' === $postType) ? 'category' : $postType . '_cat';
             // Check if the taxonomy exists.
             $tax_exists = taxonomy_exists($category);
             // Whether or not to show the filter.
@@ -190,16 +222,11 @@ class PostGrid implements InitializableInterface
             $term_id = $helper->getCat(true, $category, true);
             // Change the category if it is valid.
             if (! empty($term_id)) {
-                $settings->{'tax_' . $post_type . '_' . $category} = $term_id;
+                $settings->{'tax_' . $postType . '_' . $category} = $term_id;
             }
         }
 
-        $path = static::DIR . "/../Modules/post-grid/includes/filter-bar-{$post_type}.php";
-        if (! file_exists($path)) {
-            $path = static::DIR . '/../Modules/post-grid/includes/filter-bar.php';
-        }
-
-        include $path;
+        include self::templatePath(static::DIR . '/../Modules/post-grid/includes', 'filter-bar', $postType);
 
         return ob_get_clean();
     }

@@ -20,7 +20,6 @@ use Itineris\SageFLBuilder\Modules\Testimonial\Testimonial;
 use Itineris\SageFLBuilder\Modules\Video\Video;
 use Itineris\SageFLBuilder\Settings\EventsArchive;
 use Itineris\SageFLBuilder\Settings\PostGrid;
-use Itineris\SageFLBuilder\Settings\ProductsArchive;
 use Itineris\SageFLBuilder\Settings\RichText;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\ArchiveThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\HomeThemeLayout;
@@ -47,7 +46,6 @@ class SageFLBuilder
         PageHeading::class,
         PageSlider::class,
         PostGrid::class,
-        ProductsArchive::class,
         RichText::class,
         SecondaryNav::class,
         Table::class,

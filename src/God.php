@@ -109,11 +109,10 @@ class God implements InitializableInterface
         /** @var AbstractHelper $helper */
         $helper = sage(AbstractHelper::class);
 
-        $type = get_post_meta($ids, '_fl_theme_layout_type', true);
-        $post_type = get_post_type();
-        if ('fl-theme-layout' === $post_type || $this->isWoocommerce()) {
+        $postType = get_post_type();
+        if ('fl-theme-layout' === $postType || $this->isWoocommerce()) {
             $template = $helper->templatePath($helper->locateTemplate('woocommerce/fl-builder-woocommerce'));
-        } elseif ('fl-theme-layout' === $post_type || is_home() || is_archive()) {
+        } elseif ('fl-theme-layout' === $postType || is_home() || is_archive() || is_404()) {
             $template = $helper->templatePath($helper->locateTemplate('fl-builder-archive'));
         }
 

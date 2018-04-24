@@ -1,10 +1,19 @@
 # Change Log
 
+## [0.5.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.5.2) (2018-04-24)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.5.1...0.5.2)
+
+**Merged pull requests:**
+
+- Fix: Search pages should use `fl-builder-archive` template [\#41](https://github.com/ItinerisLtd/sage-flbuilder/pull/41) ([TangRufus](https://github.com/TangRufus))
+- Readme: Concrete helper `::getPostGridTemplateDir` should not be abstract [\#40](https://github.com/ItinerisLtd/sage-flbuilder/pull/40) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.5.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.5.1) (2018-04-24)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.5.0...0.5.1)
 
 **Merged pull requests:**
 
+- Version bump 0.5.1 [\#39](https://github.com/ItinerisLtd/sage-flbuilder/pull/39) ([TangRufus](https://github.com/TangRufus))
 - Fix: 404 pages should use `fl-builder-archive` template [\#38](https://github.com/ItinerisLtd/sage-flbuilder/pull/38) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.5.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.5.0) (2018-04-23)

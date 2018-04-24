@@ -102,7 +102,6 @@ class God implements InitializableInterface
 
     /**
      * TODO: Review if/else conditions.
-     * TODO: Is `$type` dead?
      */
     public function loadPageBladeTemplate($template)
     {

@@ -21,8 +21,6 @@ class God implements InitializableInterface
         add_action('fl_builder_posts_module_after_pagination', [$god, 'noPostsFilterBar'], 10, 2);
 
         add_filter('fl_builder_loop_settings', [$god, 'forceEventPostType']);
-        // TODO: Is `PHP_INT_MAX` necessary?
-        add_filter('fl_theme_builder_template_include', [$god, 'loadPageBladeTemplate'], PHP_INT_MAX);
         add_filter('fl_builder_render_module_content', [$god, 'wrapRichText'], 10, 2);
         add_filter('fl_builder_module_frontend_custom_fab_filter_bar', [$god, 'filterBarFrontend']);
     }
@@ -98,29 +96,6 @@ class God implements InitializableInterface
         }
 
         return $settings;
-    }
-
-    /**
-     * TODO: Review if/else conditions.
-     */
-    public function loadPageBladeTemplate($template)
-    {
-        /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
-
-        $postType = get_post_type();
-        if ('fl-theme-layout' === $postType || $this->isWoocommerce()) {
-            $template = $helper->templatePath($helper->locateTemplate('woocommerce/fl-builder-woocommerce'));
-        } elseif ('fl-theme-layout' === $postType || is_home() || is_archive() || is_404() || is_search()) {
-            $template = $helper->templatePath($helper->locateTemplate('fl-builder-archive'));
-        }
-
-        return $template;
-    }
-
-    private function isWoocommerce(): bool
-    {
-        return function_exists('is_woocommerce') && is_woocommerce();
     }
 
     /**

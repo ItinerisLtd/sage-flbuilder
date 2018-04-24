@@ -26,6 +26,7 @@
 - [Usage - Custom Settings](#usage---custom-settings)
   - [Step 1 - Define Setting Class](#step-1---define-setting-class)
   - [Step 2](#step-2-1)
+- [Usage - Extra Settings](#usage---extra-settings)
 - [Usage - Exclude Default Modules / Settings](#usage---exclude-default-modules--settings)
 - [Migrating from Fabric](#migrating-from-fabric)
 
@@ -296,6 +297,22 @@ class MySetting implements InitializableInterface
 
 ```php
 $sageFLBuilder->add(RunnerBlock::class, BladeRunnerBlock::class, MySetting::class)
+              ->init();
+```
+
+## Usage - Extra Settings
+
+The following settings are disabled by default:
+
+- [FourOFourThemeLayout](./src/Settings/ThemeLayouts/FourOFourThemeLayout)
+- [SearchThemeLayout](./src/Settings/ThemeLayouts/SearchThemeLayout)
+- [WooCommerceThemeLayout](./src/Settings/ThemeLayouts/WooCommerceThemeLayout)
+
+To enable them:
+
+```php
+// Example: Enabling `FourOFourThemeLayout`
+$sageFLBuilder->add(FourOFourThemeLayout::class)
               ->init();
 ```
 

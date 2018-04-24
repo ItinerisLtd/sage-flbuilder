@@ -113,7 +113,7 @@ class God implements InitializableInterface
         $post_type = get_post_type();
         if ('fl-theme-layout' === $post_type || $this->isWoocommerce()) {
             $template = $helper->templatePath($helper->locateTemplate('woocommerce/fl-builder-woocommerce'));
-        } elseif ('fl-theme-layout' === $post_type || is_home() || is_archive()) {
+        } elseif ('fl-theme-layout' === $post_type || is_home() || is_archive() || is_404()) {
             $template = $helper->templatePath($helper->locateTemplate('fl-builder-archive'));
         }
 

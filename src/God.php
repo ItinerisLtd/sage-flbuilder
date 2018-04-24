@@ -109,7 +109,6 @@ class God implements InitializableInterface
         /** @var AbstractHelper $helper */
         $helper = sage(AbstractHelper::class);
 
-        $type = get_post_meta($ids, '_fl_theme_layout_type', true);
         $postType = get_post_type();
         if ('fl-theme-layout' === $postType || $this->isWoocommerce()) {
             $template = $helper->templatePath($helper->locateTemplate('woocommerce/fl-builder-woocommerce'));

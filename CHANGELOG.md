@@ -1,10 +1,20 @@
 # Change Log
 
+## [0.6.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.6.0) (2018-04-24)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.5.2...0.6.0)
+
+**Merged pull requests:**
+
+- Extract `God::wrapRichText` into `RichText::wrap` [\#45](https://github.com/ItinerisLtd/sage-flbuilder/pull/45) ([TangRufus](https://github.com/TangRufus))
+- Fix: `ArchiveThemeLayout` should extend `AbstractThemeLayout` [\#44](https://github.com/ItinerisLtd/sage-flbuilder/pull/44) ([TangRufus](https://github.com/TangRufus))
+- Extract `God::loadPageBladeTemplate` into smaller classes [\#43](https://github.com/ItinerisLtd/sage-flbuilder/pull/43) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.5.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.5.2) (2018-04-24)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.5.1...0.5.2)
 
 **Merged pull requests:**
 
+- Version bump 0.5.2 [\#42](https://github.com/ItinerisLtd/sage-flbuilder/pull/42) ([TangRufus](https://github.com/TangRufus))
 - Fix: Search pages should use `fl-builder-archive` template [\#41](https://github.com/ItinerisLtd/sage-flbuilder/pull/41) ([TangRufus](https://github.com/TangRufus))
 - Readme: Concrete helper `::getPostGridTemplateDir` should not be abstract [\#40](https://github.com/ItinerisLtd/sage-flbuilder/pull/40) ([TangRufus](https://github.com/TangRufus))
 

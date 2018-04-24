@@ -21,6 +21,8 @@ use Itineris\SageFLBuilder\Modules\Video\Video;
 use Itineris\SageFLBuilder\Settings\EventsArchive;
 use Itineris\SageFLBuilder\Settings\PostGrid;
 use Itineris\SageFLBuilder\Settings\ProductsArchive;
+use Itineris\SageFLBuilder\Settings\ThemeLayouts\ArchiveThemeLayout;
+use Itineris\SageFLBuilder\Settings\ThemeLayouts\HomeThemeLayout;
 use function App\sage;
 
 /**
@@ -31,14 +33,16 @@ class SageFLBuilder
     protected const DEFAULT_INITIALIZABLES = [
         Accordion::class,
         Alert::class,
+        ArchiveThemeLayout::class,
         Breadcrumbs::class,
         Button::class,
         ContentImage::class,
         EventsArchive::class,
         FilterBar::class,
         Gallery::class,
-        GravityForm::class,
         God::class,
+        GravityForm::class,
+        HomeThemeLayout::class,
         PageHeading::class,
         PageSlider::class,
         PostGrid::class,

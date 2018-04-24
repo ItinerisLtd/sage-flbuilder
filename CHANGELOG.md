@@ -1,14 +1,22 @@
 # Change Log
 
-## [0.5.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.5.0) (2018-04-24)
+## [0.5.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.5.1) (2018-04-24)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.5.0...0.5.1)
+
+**Merged pull requests:**
+
+- Fix: 404 pages should use `fl-builder-archive` template [\#38](https://github.com/ItinerisLtd/sage-flbuilder/pull/38) ([TangRufus](https://github.com/TangRufus))
+
+## [0.5.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.5.0) (2018-04-23)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.4.2...0.5.0)
 
 **Closed issues:**
 
-- Should `/src/Modules/post-grid/includes` be moved under /src/Settings`? [\#7](https://github.com/ItinerisLtd/sage-flbuilder/issues/7)
+- Should `/src/Modules/post-grid/includes` be moved under `/src/Settings`? [\#7](https://github.com/ItinerisLtd/sage-flbuilder/issues/7)
 
 **Merged pull requests:**
 
+- Version bump 0.5.0 [\#37](https://github.com/ItinerisLtd/sage-flbuilder/pull/37) ([TangRufus](https://github.com/TangRufus))
 - Accept post grid template directory path via helper [\#36](https://github.com/ItinerisLtd/sage-flbuilder/pull/36) ([TangRufus](https://github.com/TangRufus))
 - PostGrid: Add Blade support [\#35](https://github.com/ItinerisLtd/sage-flbuilder/pull/35) ([TangRufus](https://github.com/TangRufus))
 

@@ -21,7 +21,6 @@ class God implements InitializableInterface
         add_action('fl_builder_posts_module_after_pagination', [$god, 'noPostsFilterBar'], 10, 2);
 
         add_filter('fl_builder_loop_settings', [$god, 'forceEventPostType']);
-        add_filter('fl_builder_render_module_content', [$god, 'wrapRichText'], 10, 2);
         add_filter('fl_builder_module_frontend_custom_fab_filter_bar', [$god, 'filterBarFrontend']);
     }
 
@@ -96,18 +95,6 @@ class God implements InitializableInterface
         }
 
         return $settings;
-    }
-
-    /**
-     * TODO: Do I deserve a class?
-     */
-    public function wrapRichText($out, $module): string
-    {
-        if ('rich-text' !== $module->slug) {
-            return $out;
-        }
-
-        return '<div class="content">' . $out . '</div>';
     }
 
     /**

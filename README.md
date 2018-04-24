@@ -116,7 +116,7 @@ class Helper extends AbstractHelper
      *
      * @return string
      */
-    abstract public function getPostGridTemplateDir(): string
+    public function getPostGridTemplateDir(): string
     {
         return __DIR__ . '/post-grid';
     }

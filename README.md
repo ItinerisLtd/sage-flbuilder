@@ -304,9 +304,9 @@ $sageFLBuilder->add(RunnerBlock::class, BladeRunnerBlock::class, MySetting::clas
 
 The following settings are disabled by default:
 
-- [FourOFourThemeLayout](./src/Settings/ThemeLayouts/FourOFourThemeLayout)
-- [SearchThemeLayout](./src/Settings/ThemeLayouts/SearchThemeLayout)
-- [WooCommerceThemeLayout](./src/Settings/ThemeLayouts/WooCommerceThemeLayout)
+- [`FourOFourThemeLayout`](./src/Settings/ThemeLayouts/FourOFourThemeLayout.php)
+- [`SearchThemeLayout`](./src/Settings/ThemeLayouts/SearchThemeLayout.php)
+- [`WooCommerceThemeLayout`](./src/Settings/ThemeLayouts/WooCommerceThemeLayout.php)
 
 To enable them:
 

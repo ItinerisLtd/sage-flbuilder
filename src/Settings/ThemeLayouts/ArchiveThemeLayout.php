@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
-class ArchiveThemeLayout
+class ArchiveThemeLayout extends AbstractThemeLayout
 {
     protected static function shouldIncludeLayout(): bool
     {

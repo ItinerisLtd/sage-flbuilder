@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder;
 
-use Itineris\SageFLBuilder\Settings\PostGrid;
 use WP_Query;
-use function App\sage;
 
 /**
  * TODO: This class needs refactor!
@@ -18,10 +16,7 @@ class God implements InitializableInterface
     {
         $god = new static();
 
-        add_action('fl_builder_posts_module_after_pagination', [$god, 'noPostsFilterBar'], 10, 2);
-
         add_filter('fl_builder_loop_settings', [$god, 'forceEventPostType']);
-        add_filter('fl_builder_module_frontend_custom_fab_filter_bar', [$god, 'filterBarFrontend']);
     }
 
     /**
@@ -216,31 +211,5 @@ class God implements InitializableInterface
         }
 
         echo '</ul></div></div>';
-    }
-
-    /**
-     * TODO: Am I belong to class `PostGrid` or `FilterBar`?
-     */
-    public function filterBarFrontend($settings): string
-    {
-        $settings['show_filter'] = true;
-        $settings['layout'] = 'theme';
-
-        return sage(PostGrid::class)->filterBar((object) $settings);
-    }
-
-    /**
-     * TODO: Am I belong to class `PostGrid` or `FilterBar`?
-     */
-    public function noPostsFilterBar($settings, $query): void
-    {
-        if ($query->have_posts()) {
-            return;
-        }
-
-        $settings->show_filter = true;
-        $settings->layout = 'theme';
-
-        echo sage(PostGrid::class)->filterBar($settings);
     }
 }

@@ -9,9 +9,9 @@
 - [Rules](#rules)
 - [Caveats](#caveats)
   - [Module Names](#module-names)
-- [Customizing `PostGrid`](#customizing-postgrid)
-  - [Templates](#templates)
-  - [Subclass](#subclass)
+- [`PostGrid` (filter bar and post theme) Templates](#postgrid-filter-bar-and-post-theme-templates)
+- [Rendering `FilterBar`](#rendering-filterbar)
+  - [Customizing](#customizing)
 - [Usage - Minimum](#usage---minimum)
   - [Step 1 - Define helper class](#step-1---define-helper-class)
   - [Step 2](#step-2)
@@ -69,6 +69,7 @@ Sage theme's composer.json:
 * Follow [PSR-1](https://www.php-fig.org/psr/psr-1/)
 * Do not copy and paste from default modules - huge technical debt in this package
 * Do not use `God` class - it is pure technical debt
+* Do not inherit from any concrete classes
 
 ## Caveats
 
@@ -88,13 +89,11 @@ Solution - Use unique class names:
 - `app/Plugins/FLBuilder/Modules/BrainHouseButton/BrainHouseButton.php`
 - `app/Plugins/FLBuilder/Modules/TrinityButton/TrinityButton.php`
 
-## Customizing `PostGrid`
-
-### Templates
+## `PostGrid` (filter bar and post theme) Templates
 
 **Deprecated:** Prior to v0.5.0, `PostGrid::DIR` is used to locate template directory. This is replaced with `AbstractHelper::getPostGridTemplateDir`.
 
-Filter bar and post theme templates are customizable in projects, both Blade and normal `.php` are supported.
+Filter bar and post theme templates are customizable in projects, both Blade(`.blade.php`) and normal `.php` are supported.
 
 For example:
 ```bash
@@ -124,21 +123,36 @@ class Helper extends AbstractHelper
 }
 ```
 
-### Subclass
-
-**Important:** Overriding `PostGrid` is not recommended. Tweak your project to fit in default `PostGrid` whenever possible.
-
-If you must override `PostGrid` with a subclass **as a last resort**, you have to put it into Sage's container **after** `SageFLBuilder::init`:
+## Rendering `FilterBar`
 
 ```
-use App\Plugins\FLBuilder\Settings\PostGrid;
-use Itineris\SageFLBuilder\Settings\PostGrid as SageFLBuilderPostGrid;
+use App\Plugins\FLBuilder\FilterBar;
 
-$sageFLBuilder->add(PostGrid::class)
-              ->remove(SageFLBuilderPostGrid::class)
-              ->init();
+$htmlString = sage(FilterBar::class)::html($settingsObject);
 
-sage()->bind(SageFLBuilderPostGrid::class, PostGrid::class);
+// Equivalent to echo sage(FilterBar::class)::html($settingsObject);
+sage(FilterBar::class)::render($settingsObject);
+
+// Using filter
+$htmlStringForFrontend = apply_filters('fl_builder_module_frontend_custom_fab_filter_bar', '');
+```
+
+### Customizing 
+
+**Important:** Overriding `FilterBar` is not recommended:
+
+- Preferred: Tweak your project to fit in default `FilterBar` and `PostGrid` whenever possible
+- Good: Use filter bar and post theme templates, see [above](#postgrid-filter-bar-and-post-theme-templates)
+- Last Resort: Replace the default `FilterBar` class with a custom one in Sage's container
+
+If you must override `FilterBar` with a custom class **as a last resort**, you have to put it into Sage's container **after** `SageFLBuilder::init`:
+
+```
+use App\Plugins\FLBuilder\FilterBar;
+use Itineris\SageFLBuilder\FilterBar as SageFLBuilderFilterBar;
+
+$sageFLBuilder->init();
+sage()->bind(SageFLBuilderFilterBar::class, FilterBar::class);
 ```
 
 ## Usage - Minimum

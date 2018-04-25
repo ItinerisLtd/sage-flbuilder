@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings;
 
-use function App\sage;
 use Itineris\SageFLBuilder\InitializableInterface;
+use function App\sage;
 
 /**
  * Custom Post Grid for the theme builder.
@@ -63,7 +63,7 @@ class ProductsArchive implements InitializableInterface
             echo '</div></div></header>';
             echo '<div class="product-row row"><ul class="products">';
         } elseif ($settings->show_filter) {
-            echo sage(PostGrid::class)->filterBar($settings);
+            sage(FilterBar::class)->render($settings);
         }
     }
 }

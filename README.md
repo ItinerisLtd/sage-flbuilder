@@ -35,7 +35,7 @@
 
 ## Minimum Requirements
 
-* PHP v7.1
+* PHP v7.2
 * Sage v9.0.0-beta.4
 * illuminate/support v5.4
 * Advanced Custom Fields PRO v5.6.9

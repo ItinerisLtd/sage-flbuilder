@@ -26,7 +26,7 @@ class FilterBar implements InitializableInterface
         return self::getFromContainer()::html((object) $settings);
     }
 
-    public static function html($settings): string
+    public static function html(object $settings): string
     {
         return self::getFromContainer()::toString($settings);
     }
@@ -34,11 +34,11 @@ class FilterBar implements InitializableInterface
     /**
      * @internal
      *
-     * @param $settings
+     * @param object $settings
      *
      * @return string
      */
-    public static function toString($settings): string
+    public static function toString(object $settings): string
     {
         $settings = (object) $settings;
 
@@ -89,7 +89,7 @@ class FilterBar implements InitializableInterface
         sage()->bind(self::class, $newClass);
     }
 
-    public static function renderNoPosts($settings, WP_Query $query): void
+    public static function renderNoPosts(object $settings, WP_Query $query): void
     {
         if ($query->have_posts()) {
             return;
@@ -103,8 +103,8 @@ class FilterBar implements InitializableInterface
         self::getFromContainer()::render($settings);
     }
 
-    public static function render($settings): void
+    public static function render(object $settings): void
     {
-        echo self::getFromContainer()::html((object) $settings);
+        echo self::getFromContainer()::html($settings);
     }
 }

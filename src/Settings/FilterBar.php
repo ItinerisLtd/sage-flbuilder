@@ -23,7 +23,7 @@ class FilterBar implements InitializableInterface
         $settings['show_filter'] = true;
         $settings['layout'] = 'theme';
 
-        return self::getFromContainer()::html((object) $settings);
+        return self::html((object) $settings);
     }
 
     public static function html(object $settings): string
@@ -100,11 +100,11 @@ class FilterBar implements InitializableInterface
         $settings->show_filter = true;
         $settings->layout = 'theme';
 
-        self::getFromContainer()::render($settings);
+        self::render($settings);
     }
 
     public static function render(object $settings): void
     {
-        echo self::getFromContainer()::html($settings);
+        echo self::html($settings);
     }
 }

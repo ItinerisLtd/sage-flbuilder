@@ -133,13 +133,13 @@ $htmlString = FilterBar::html($settingsObject);
 // Equivalent to echo FilterBar::html($settingsObject);
 FilterBar::render($settingsObject);
 
-// Using filter
-$htmlStringForFrontend = apply_filters('fl_builder_module_frontend_custom_fab_filter_bar', '');
+// Using filter (not recommended)
+$htmlStringForFrontend = apply_filters('fl_builder_module_frontend_custom_fab_filter_bar', $settingsArray);
 ```
 
 Check the [source code](./src/Settings/FilterBar.php) for more usages.
 
-### Customizing 
+### Customizing
 
 **Important:** Overriding `FilterBar` is not recommended:
 

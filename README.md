@@ -126,7 +126,7 @@ class Helper extends AbstractHelper
 ## Rendering `FilterBar`
 
 ```
-use App\Plugins\FLBuilder\FilterBar;
+use App\Plugins\FLBuilder\Settings\FilterBar;
 
 $htmlString = sage(FilterBar::class)::html($settingsObject);
 
@@ -148,8 +148,8 @@ $htmlStringForFrontend = apply_filters('fl_builder_module_frontend_custom_fab_fi
 If you must override `FilterBar` with a custom class **as a last resort**, you have to put it into Sage's container **after** `SageFLBuilder::init`:
 
 ```
-use App\Plugins\FLBuilder\FilterBar;
-use Itineris\SageFLBuilder\FilterBar as SageFLBuilderFilterBar;
+use App\Plugins\FLBuilder\Settings\FilterBar;
+use Itineris\SageFLBuilder\Settings\FilterBar as SageFLBuilderFilterBar;
 
 $sageFLBuilder->init();
 sage()->bind(SageFLBuilderFilterBar::class, FilterBar::class);

@@ -137,6 +137,8 @@ sage(FilterBar::class)::render($settingsObject);
 $htmlStringForFrontend = apply_filters('fl_builder_module_frontend_custom_fab_filter_bar', '');
 ```
 
+Check the [source code](./src/Settings/FilterBar.php) for more usages.
+
 ### Customizing 
 
 **Important:** Overriding `FilterBar` is not recommended:

@@ -128,10 +128,10 @@ class Helper extends AbstractHelper
 ```
 use App\Plugins\FLBuilder\Settings\FilterBar;
 
-$htmlString = sage(FilterBar::class)::html($settingsObject);
+$htmlString = FilterBar::html($settingsObject);
 
-// Equivalent to echo sage(FilterBar::class)::html($settingsObject);
-sage(FilterBar::class)::render($settingsObject);
+// Equivalent to echo FilterBar::html($settingsObject);
+FilterBar::render($settingsObject);
 
 // Using filter
 $htmlStringForFrontend = apply_filters('fl_builder_module_frontend_custom_fab_filter_bar', '');
@@ -154,7 +154,22 @@ use App\Plugins\FLBuilder\Settings\FilterBar;
 use Itineris\SageFLBuilder\Settings\FilterBar as SageFLBuilderFilterBar;
 
 $sageFLBuilder->init();
-sage()->bind(SageFLBuilderFilterBar::class, FilterBar::class);
+
+FilterBar::swap(YourNewFilterBar::class);
+```
+
+`FilterBar` implemented a Laravel-like real time facade feature. You don't need to get it from container explicitly:
+
+```php
+use App\Plugins\FLBuilder\Settings\FilterBar;
+
+$htmlString = FilterBar::html($settingsObject);
+// $htmlString = 'The original string';
+
+FilterBar::swap(YourNewFilterBar::class);
+
+$htmlString = FilterBar::html($settingsObject);
+// $htmlString = 'The new string';
 ```
 
 ## Usage - Minimum

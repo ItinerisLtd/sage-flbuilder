@@ -28,6 +28,20 @@ class FilterBar implements InitializableInterface
 
     public static function html($settings): string
     {
+        return self::getFromContainer()::toString($settings);
+    }
+
+    /**
+     * @internal
+     *
+     * @param $settings
+     *
+     * @return string
+     */
+    public static function toString($settings): string
+    {
+        $settings = (object) $settings;
+
         $show_filter = false;
         $tax_exists = false;
         $post_type = 'main_query' === $settings->data_source ? (get_post_type() ?: 'post') : $settings->post_type;
@@ -68,6 +82,11 @@ class FilterBar implements InitializableInterface
     private static function getFromContainer(): FilterBar
     {
         return sage(self::class);
+    }
+
+    public static function swap(string $newClass): void
+    {
+        sage()->bind(self::class, $newClass);
     }
 
     public static function renderNoPosts($settings, WP_Query $query): void

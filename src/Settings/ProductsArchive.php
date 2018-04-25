@@ -35,7 +35,7 @@ class ProductsArchive implements InitializableInterface
         }
     }
 
-    public static function loadFilterBar($settings, $query)
+    public static function loadFilterBar($settings, $query): void
     {
         if ('theme' !== $settings->layout) {
             return;
@@ -63,7 +63,7 @@ class ProductsArchive implements InitializableInterface
             echo '</div></div></header>';
             echo '<div class="product-row row"><ul class="products">';
         } elseif ($settings->show_filter) {
-            sage(FilterBar::class)->render($settings);
+            FilterBar::render($settings);
         }
     }
 }

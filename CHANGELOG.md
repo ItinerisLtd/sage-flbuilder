@@ -1,10 +1,22 @@
 # Change Log
 
+## [0.7.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.0) (2018-05-09)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.6.0...0.7.0)
+
+**Merged pull requests:**
+
+- Add `show\_role` to `God::flGetFilterCount` [\#52](https://github.com/ItinerisLtd/sage-flbuilder/pull/52) ([TangRufus](https://github.com/TangRufus))
+- Fix: Call to abstract method [\#51](https://github.com/ItinerisLtd/sage-flbuilder/pull/51) ([TangRufus](https://github.com/TangRufus))
+- GravityForm: Add null checks and type cast [\#50](https://github.com/ItinerisLtd/sage-flbuilder/pull/50) ([TangRufus](https://github.com/TangRufus))
+- Disable `ProductsArchive` by default [\#48](https://github.com/ItinerisLtd/sage-flbuilder/pull/48) ([TangRufus](https://github.com/TangRufus))
+- Readme: Fix broken links [\#47](https://github.com/ItinerisLtd/sage-flbuilder/pull/47) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.6.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.6.0) (2018-04-24)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.5.2...0.6.0)
 
 **Merged pull requests:**
 
+- Version bump 0.6.0 [\#46](https://github.com/ItinerisLtd/sage-flbuilder/pull/46) ([TangRufus](https://github.com/TangRufus))
 - Extract `God::wrapRichText` into `RichText::wrap` [\#45](https://github.com/ItinerisLtd/sage-flbuilder/pull/45) ([TangRufus](https://github.com/TangRufus))
 - Fix: `ArchiveThemeLayout` should extend `AbstractThemeLayout` [\#44](https://github.com/ItinerisLtd/sage-flbuilder/pull/44) ([TangRufus](https://github.com/TangRufus))
 - Extract `God::loadPageBladeTemplate` into smaller classes [\#43](https://github.com/ItinerisLtd/sage-flbuilder/pull/43) ([TangRufus](https://github.com/TangRufus))

@@ -5,6 +5,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.7.0 [\#53](https://github.com/ItinerisLtd/sage-flbuilder/pull/53) ([TangRufus](https://github.com/TangRufus))
 - Add `show\_role` to `God::flGetFilterCount` [\#52](https://github.com/ItinerisLtd/sage-flbuilder/pull/52) ([TangRufus](https://github.com/TangRufus))
 - Fix: Call to abstract method [\#51](https://github.com/ItinerisLtd/sage-flbuilder/pull/51) ([TangRufus](https://github.com/TangRufus))
 - GravityForm: Add null checks and type cast [\#50](https://github.com/ItinerisLtd/sage-flbuilder/pull/50) ([TangRufus](https://github.com/TangRufus))

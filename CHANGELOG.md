@@ -1,5 +1,16 @@
 # Change Log
 
+## [0.7.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.2) (2018-05-10)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.1...0.7.2)
+
+**Closed issues:**
+
+- Uncaught type error if $date = null [\#56](https://github.com/ItinerisLtd/sage-flbuilder/issues/56)
+
+**Merged pull requests:**
+
+- `EventsArchive::eventDate` catch `TypeError` [\#57](https://github.com/ItinerisLtd/sage-flbuilder/pull/57) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.7.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.1) (2018-05-09)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.0...0.7.1)
 

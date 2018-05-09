@@ -10,7 +10,6 @@ use function App\sage;
 
 abstract class AbstractThemeLayout implements InitializableInterface
 {
-    protected const POST_TYPE = 'fl-theme-layout';
     protected const PRIORITY = 1000000;
     protected const TEMPLATE = 'fl-builder-archive';
 
@@ -21,10 +20,6 @@ abstract class AbstractThemeLayout implements InitializableInterface
 
     public static function locateTemplatePath(string $template): string
     {
-        if (static::POST_TYPE !== get_post_type()) {
-            return $template;
-        }
-
         if (! static::shouldIncludeLayout()) {
             return $template;
         }
@@ -33,7 +28,7 @@ abstract class AbstractThemeLayout implements InitializableInterface
         $helper = sage(AbstractHelper::class);
 
         return $helper->templatePath(
-            $helper->locateTemplate(self::TEMPLATE)
+            $helper->locateTemplate(static::TEMPLATE)
         );
     }
 

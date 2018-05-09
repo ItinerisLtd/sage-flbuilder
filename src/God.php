@@ -81,6 +81,9 @@ class God implements InitializableInterface
         if ($settings->show_meta_filters) {
             $count++;
         }
+        if (isset($settings->show_role) && $settings->show_role) {
+            $count++;
+        }
 
         return $count;
     }

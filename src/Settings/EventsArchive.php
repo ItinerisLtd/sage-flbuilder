@@ -7,6 +7,7 @@ namespace Itineris\SageFLBuilder\Settings;
 use DateTime;
 use Exception;
 use Itineris\SageFLBuilder\InitializableInterface;
+use TypeError;
 
 /**
  * Custom Post Grid for the theme builder.
@@ -32,16 +33,16 @@ class EventsArchive implements InitializableInterface
     {
         if ('default' === $format) {
             the_field('event_start');
-        } else {
-            $date = get_field('event_start', false, false);
-            try {
-                $dateObj = new DateTime($date);
-            } catch (Exception $e) {
-                $dateObj = false;
-            }
-            if ($dateObj) {
-                echo $dateObj->format($format);
-            }
+            return;
+        }
+
+        $date = get_field('event_start', false, false);
+
+        try {
+            $dateObj = new DateTime($date);
+            echo $dateObj->format($format);
+        } catch (TypeError | Exception $e) {
+            // Do nothing.
         }
     }
 

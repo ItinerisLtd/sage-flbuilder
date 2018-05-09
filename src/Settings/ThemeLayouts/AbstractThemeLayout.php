@@ -25,7 +25,7 @@ abstract class AbstractThemeLayout implements InitializableInterface
             return $template;
         }
 
-        if (! self::shouldIncludeLayout()) {
+        if (! static::shouldIncludeLayout()) {
             return $template;
         }
 

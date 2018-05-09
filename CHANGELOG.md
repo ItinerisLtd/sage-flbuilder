@@ -1,10 +1,18 @@
 # Change Log
 
+## [0.7.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.1) (2018-05-09)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.0...0.7.1)
+
+**Merged pull requests:**
+
+- Fix: Theme layout settings only works for `fl-theme-layout` post type [\#54](https://github.com/ItinerisLtd/sage-flbuilder/pull/54) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.7.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.0) (2018-05-09)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.6.0...0.7.0)
 
 **Merged pull requests:**
 
+- Version bump 0.7.0 [\#53](https://github.com/ItinerisLtd/sage-flbuilder/pull/53) ([TangRufus](https://github.com/TangRufus))
 - Add `show\_role` to `God::flGetFilterCount` [\#52](https://github.com/ItinerisLtd/sage-flbuilder/pull/52) ([TangRufus](https://github.com/TangRufus))
 - Fix: Call to abstract method [\#51](https://github.com/ItinerisLtd/sage-flbuilder/pull/51) ([TangRufus](https://github.com/TangRufus))
 - GravityForm: Add null checks and type cast [\#50](https://github.com/ItinerisLtd/sage-flbuilder/pull/50) ([TangRufus](https://github.com/TangRufus))

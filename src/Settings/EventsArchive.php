@@ -100,7 +100,7 @@ class EventsArchive implements InitializableInterface
             )
         ) {
             if (! isset($query->query['settings']->type) || 'post-grid' === $query->query['settings']->type) {
-                $query->set('posts_per_page', 2); // TODO: remove when fixed
+                $query->set('post_parent', 0);
             }
         }
 

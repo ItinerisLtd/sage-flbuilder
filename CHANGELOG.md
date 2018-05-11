@@ -1,6 +1,13 @@
 # Change Log
 
-## [0.7.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.2) (2018-05-10)
+## [0.7.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.3) (2018-05-11)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.2...0.7.3)
+
+**Merged pull requests:**
+
+- \(fix\) Remove test code and hide children events [\#60](https://github.com/ItinerisLtd/sage-flbuilder/pull/60) ([codepuncher](https://github.com/codepuncher))
+
+## [0.7.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.2) (2018-05-09)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.1...0.7.2)
 
 **Closed issues:**
@@ -9,6 +16,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.7.2 [\#58](https://github.com/ItinerisLtd/sage-flbuilder/pull/58) ([TangRufus](https://github.com/TangRufus))
 - `EventsArchive::eventDate` catch `TypeError` [\#57](https://github.com/ItinerisLtd/sage-flbuilder/pull/57) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.7.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.1) (2018-05-09)

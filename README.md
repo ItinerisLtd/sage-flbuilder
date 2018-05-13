@@ -39,8 +39,8 @@
 * Sage v9.0.0-beta.4
 * illuminate/support v5.4
 * Advanced Custom Fields PRO v5.6.9
-* Beaver Builder Plugin (Pro Version) v2.0.6.1
-* Beaver Themer v1.1.0.3
+* Beaver Builder Plugin (Pro Version) v2.1.1.1
+* Beaver Themer v1.1.1
 * Gravity Forms v2.2.6.5
 
 You must ensure these 3 required plugins installed via Bedrock's composer.json.

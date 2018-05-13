@@ -1,10 +1,22 @@
 # Change Log
 
+## [0.7.4](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.4) (2018-05-13)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.3...0.7.4)
+
+**Closed issues:**
+
+- Filter in God.php uses old module name rather than new  [\#59](https://github.com/ItinerisLtd/sage-flbuilder/issues/59)
+
+**Merged pull requests:**
+
+- God: Fix outdated module name, `fab\_filter\_bar` --\> `FilterBar` [\#62](https://github.com/ItinerisLtd/sage-flbuilder/pull/62) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.7.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.3) (2018-05-11)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.2...0.7.3)
 
 **Merged pull requests:**
 
+- Version bump 0.7.3 [\#61](https://github.com/ItinerisLtd/sage-flbuilder/pull/61) ([TangRufus](https://github.com/TangRufus))
 - \(fix\) Remove test code and hide children events [\#60](https://github.com/ItinerisLtd/sage-flbuilder/pull/60) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.7.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.2) (2018-05-09)

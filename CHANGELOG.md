@@ -1,5 +1,16 @@
 # Change Log
 
+## [0.7.5](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.5) (2018-05-16)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.4...0.7.5)
+
+**Fixed bugs:**
+
+- FilterBar $postType can become null value [\#65](https://github.com/ItinerisLtd/sage-flbuilder/issues/65)
+
+**Merged pull requests:**
+
+- \(fix\) FilterBar $postType could default to null [\#64](https://github.com/ItinerisLtd/sage-flbuilder/pull/64) ([codepuncher](https://github.com/codepuncher))
+
 ## [0.7.4](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.4) (2018-05-13)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.3...0.7.4)
 
@@ -9,6 +20,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.7.4 [\#63](https://github.com/ItinerisLtd/sage-flbuilder/pull/63) ([TangRufus](https://github.com/TangRufus))
 - God: Fix outdated module name, `fab\_filter\_bar` --\> `FilterBar` [\#62](https://github.com/ItinerisLtd/sage-flbuilder/pull/62) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.7.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.3) (2018-05-11)

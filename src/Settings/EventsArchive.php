@@ -74,9 +74,6 @@ class EventsArchive implements InitializableInterface
     {
         if ('event' === $query->query_vars['post_type'] ?? null) {
             echo '</div><!-- ./events -->';
-            echo '<footer class="fl-builder-pagination-load-more btn-row hidden-xs">';
-            echo '<a href="#" class="fl-button btn btn-sm btn-info">Load More</a>';
-            echo '</footer>';
         }
     }
 
@@ -103,19 +100,6 @@ class EventsArchive implements InitializableInterface
                 $query->set('post_parent', 0);
             }
         }
-
-        return $query;
-    }
-
-    public static function fixInfiniteScroll($query)
-    {
-        $query->set('post_type', 'fl-theme-layout');
-        $query->set('is_single', true);
-        $query->is_single = true;
-        $query->set('is_singular', true);
-        $query->is_singular = true;
-        $query->set('is_page', false);
-        $query->is_page = false;
 
         return $query;
     }

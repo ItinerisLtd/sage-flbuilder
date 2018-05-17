@@ -1,5 +1,17 @@
 # Change Log
 
+## [0.8.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.8.0) (2018-05-17)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.5...0.8.0)
+
+**Closed issues:**
+
+- This line needs removing [\#67](https://github.com/ItinerisLtd/sage-flbuilder/issues/67)
+- Review: `EventsArchive::fixInfiniteScroll` [\#5](https://github.com/ItinerisLtd/sage-flbuilder/issues/5)
+
+**Merged pull requests:**
+
+- \(fix\) Remove obsolete code [\#68](https://github.com/ItinerisLtd/sage-flbuilder/pull/68) ([codepuncher](https://github.com/codepuncher))
+
 ## [0.7.5](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.5) (2018-05-16)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.4...0.7.5)
 
@@ -9,6 +21,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.7.5 [\#66](https://github.com/ItinerisLtd/sage-flbuilder/pull/66) ([TangRufus](https://github.com/TangRufus))
 - \(fix\) FilterBar $postType could default to null [\#64](https://github.com/ItinerisLtd/sage-flbuilder/pull/64) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.7.4](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.4) (2018-05-13)

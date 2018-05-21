@@ -26,13 +26,13 @@ class EventsArchive implements InitializableInterface
         // Filters
         add_filter('fl_builder_module_custom_class', static::class . '::customClass', 10, 2);
         add_filter('fl_builder_register_settings_form', static::class . '::postGridSettings', 10, 2);
-        add_filter('fl_builder_render_js', static::class . '::postGridJS', 10, 2);
     }
 
     public static function eventDate($format): void
     {
         if ('default' === $format) {
             the_field('event_start');
+
             return;
         }
 
@@ -232,42 +232,5 @@ class EventsArchive implements InitializableInterface
         }
 
         return '';
-    }
-
-    /**
-     * Renders custom JS for the post grid module.
-     *
-     * @param string $js
-     * @param array  $nodes
-     *
-     * @return string
-     */
-    public static function postGridJS($js, $nodes): string
-    {
-        foreach ($nodes['modules'] as $module) {
-            if (! is_object($module)) {
-                continue;
-            }
-
-            if ('post-grid' !== $module->settings->type) {
-                continue;
-            }
-
-            $js = str_replace(
-                "else if(this.settings.layout == 'gallery') {",
-                'else if(this.settings.layout == \'theme\') {
-                            $(\'.event-box\').matchHeight();
-                            $(\'.event-box .img\').each(function() {
-                                var $el = $(this).find(\'> img\');
-                                if ($el.length > 0) {
-                                    $(this).css(\'background-image\', \'url(\' + $el.attr(\'src\') + \')\');
-                                }
-                            });
-                        }else if(this.settings.layout == \'gallery\') {',
-                $js
-            );
-        }
-
-        return $js;
     }
 }

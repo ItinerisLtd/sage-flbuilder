@@ -203,6 +203,8 @@ class EventsArchive implements InitializableInterface
     /**
      * Renders custom CSS for the post grid module.
      *
+     * TODO: Am I dead code?
+     *
      * @param string $css
      * @param array  $nodes
      *

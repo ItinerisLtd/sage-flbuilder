@@ -121,6 +121,8 @@ class PostGrid implements InitializableInterface
     /**
      * Renders custom CSS for the post grid module.
      *
+     * TODO: Am i dead code?
+     *
      * @param string $css
      * @param array  $nodes
      *

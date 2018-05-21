@@ -1,5 +1,16 @@
 # Change Log
 
+## [0.9.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.9.0) (2018-05-21)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.8.0...0.9.0)
+
+**Closed issues:**
+
+- Method breaking JS on PostGrid [\#70](https://github.com/ItinerisLtd/sage-flbuilder/issues/70)
+
+**Merged pull requests:**
+
+- Remove `EventsArchive::postGridJS` [\#71](https://github.com/ItinerisLtd/sage-flbuilder/pull/71) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.8.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.8.0) (2018-05-17)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.5...0.8.0)
 
@@ -10,6 +21,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.8.0 [\#69](https://github.com/ItinerisLtd/sage-flbuilder/pull/69) ([TangRufus](https://github.com/TangRufus))
 - \(fix\) Remove obsolete code [\#68](https://github.com/ItinerisLtd/sage-flbuilder/pull/68) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.7.5](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.5) (2018-05-16)

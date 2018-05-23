@@ -62,7 +62,7 @@ $kw = get_query_var('kw');
              class="filter-form main-form<?php (! $settings->auto_filter) || ($settings->show_button) && print ' no-labels'; ?>"<?php $settings->auto_filter && print ' data-filter-auto="true"'; ?>>
         <form action="<?php echo esc_url(get_pagenum_link()); ?>" method="get" id="searchform">
             <div class="row">
-                <?php if ($settings->show_search) : ?>
+                <?php if ($settings->show_search_filter) : ?>
                     <div class="col-xs-12 col-sm-<?php echo sanitize_html_class($filter_col); ?>">
                         <div class="sfFormBox">
                             <div class="sfFieldWrap">

@@ -234,12 +234,18 @@ class PostGrid implements InitializableInterface
 
         if ($settings->show_filter) {
             // Get the taxonomy name.
-            $category = ('post' === $postType) ? 'category' : $postType . '_cat';
+            if ('post' === $postType) {
+                $category = 'category';
+            } elseif ('product' === $postType) {
+                $category = 'product_cat';
+            } else {
+                $category = $postType . '_category';
+            }
             // Check if the taxonomy exists.
             $tax_exists = taxonomy_exists($category);
             // Whether or not to show the filter.
             $show_filter = $tax_exists ? true : false;
-            // Get the Term ID to filter by from $_GET['cat'].
+            // Get the Term ID to filter by from $_GET['pc'].
             $term_id = $helper->getCat(true, $category, true);
             // Change the category if it is valid.
             if (! empty($term_id)) {

@@ -19,8 +19,6 @@ class God implements InitializableInterface
         $god = new static();
 
         add_action('fl_builder_posts_module_after_pagination', [$god, 'noPostsFilterBar'], 10, 2);
-
-        add_filter('fl_builder_loop_settings', [$god, 'forceEventPostType']);
         add_filter('fl_builder_module_frontend_custom_FilterBar', [$god, 'filterBarFrontend']);
     }
 

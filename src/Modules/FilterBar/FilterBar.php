@@ -65,7 +65,7 @@ class FilterBar extends AbstractModule
                                     '1' => __('Yes', 'fabric'),
                                 ],
                             ],
-                            'show_search' => [
+                            'show_search_filter' => [
                                 'type' => 'select',
                                 'label' => __('Show search box?', 'fabric'),
                                 'default' => '1',

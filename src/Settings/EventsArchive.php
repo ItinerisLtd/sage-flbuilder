@@ -32,7 +32,6 @@ class EventsArchive implements InitializableInterface
     {
         if ('default' === $format) {
             the_field('event_start');
-
             return;
         }
 
@@ -103,107 +102,9 @@ class EventsArchive implements InitializableInterface
 
         return $query;
     }
-
-    /**
-     * Adds custom settings to the Posts module.
-     *
-     * @param array  $form
-     * @param string $slug
-     *
-     * @return array
-     */
-    public static function postGridSettings($form, $slug)
-    {
-        if ('post-grid' !== $slug) {
-            return $form;
-        }
-
-        $form['layout']['sections']['general']['fields']['layout']['options']['theme'] = __('Theme', 'fl-builder');
-        $form['layout']['sections']['general']['fields']['layout']['toggle']['theme'] = [
-            'fields' => [
-                'section_title',
-                'show_filter',
-                'show_cat_desc',
-            ],
-        ];
-        $form['layout']['sections']['general']['fields']['section_title'] = [
-            'type' => 'text',
-            'label' => __('Section title', 'fabric'),
-            'default' => 'Upcoming Events',
-        ];
-        $form['layout']['sections']['general']['fields']['show_filter'] = [
-            'type' => 'select',
-            'label' => __('Show filter bar?', 'fabric'),
-            'default' => '1',
-            'options' => [
-                '1' => __('Yes', 'fl-builder'),
-                '0' => __('No', 'fl-builder'),
-            ],
-            'toggle' => [
-                '0' => [],
-                '1' => [
-                    'sections' => ['filter_bar'],
-                ],
-            ],
-        ];
-        $form['layout']['sections']['filter_bar'] = [
-            'title' => __('Filter bar', 'fabric'),
-            'fields' => [
-                'auto_filter' => [
-                    'type' => 'select',
-                    'label' => __('Auto filter?', 'fabric'),
-                    'default' => '1',
-                    'options' => [
-                        '1' => __('Yes', 'fl-builder'),
-                        '0' => __('No', 'fl-builder'),
-                    ],
-                ],
-                'show_button' => [
-                    'type' => 'select',
-                    'label' => __('Show submit button?', 'fabric'),
-                    'default' => '1',
-                    'options' => [
-                        '0' => __('No', 'fabric'),
-                        '1' => __('Yes', 'fabric'),
-                    ],
-                ],
-                'show_search' => [
-                    'type' => 'select',
-                    'label' => __('Show search box?', 'fabric'),
-                    'default' => '1',
-                    'options' => [
-                        '1' => __('Yes', 'fl-builder'),
-                        '0' => __('No', 'fl-builder'),
-                    ],
-                ],
-                'show_meta_filters' => [
-                    'type' => 'select',
-                    'label' => __('Show field filters?', 'fabric'),
-                    'default' => '1',
-                    'options' => [
-                        '1' => __('Yes', 'fl-builder'),
-                        '0' => __('No', 'fl-builder'),
-                    ],
-                ],
-                'show_cat_desc' => [
-                    'type' => 'select',
-                    'label' => __('Show category description?', 'fabric'),
-                    'default' => '1',
-                    'options' => [
-                        '1' => __('Yes', 'fl-builder'),
-                        '0' => __('No', 'fl-builder'),
-                    ],
-                ],
-            ],
-        ];
-
-        return $form;
-    }
-
+    
     /**
      * Renders custom CSS for the post grid module.
-     *
-     * TODO: Am I dead code?
      *
      * @param string $css
      * @param array  $nodes

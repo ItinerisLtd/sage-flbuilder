@@ -85,7 +85,7 @@ class PostGrid implements InitializableInterface
                         '1' => __('Yes', 'fabric'),
                     ],
                 ],
-                'show_search' => [
+                'show_search_filter' => [
                     'type' => 'select',
                     'label' => __('Show search box?', 'fabric'),
                     'default' => '1',
@@ -106,6 +106,15 @@ class PostGrid implements InitializableInterface
                 'show_cat_desc' => [
                     'type' => 'select',
                     'label' => __('Show category description?', 'fabric'),
+                    'default' => '1',
+                    'options' => [
+                        '1' => __('Yes', 'fl-builder'),
+                        '0' => __('No', 'fl-builder'),
+                    ],
+                ],
+                'show_cat_filter' => [
+                    'type' => 'select',
+                    'label' => __('Show category dropdown?', 'fabric'),
                     'default' => '1',
                     'options' => [
                         '1' => __('Yes', 'fl-builder'),

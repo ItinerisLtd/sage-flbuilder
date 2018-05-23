@@ -127,44 +127,6 @@ class PostGrid implements InitializableInterface
         return $form;
     }
 
-    /**
-     * Renders custom CSS for the post grid module.
-     *
-     * TODO: Am i dead code?
-     *
-     * @param string $css
-     * @param array  $nodes
-     *
-     * @return string
-     */
-    public static function postGridCSS($css, $nodes)
-    {
-        $globalIncluded = false;
-
-        foreach ($nodes['modules'] as $module) {
-            if (! is_object($module)) {
-                continue;
-            }
-
-            if ('post-grid' !== $module->settings->type) {
-                continue;
-            }
-
-            if (! $globalIncluded) {
-                $globalIncluded = true;
-                $css .= file_get_contents(FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'css/fl-theme-builder-post-grid-woocommerce.css');
-            }
-
-            ob_start();
-            $id = $module->node;
-            $settings = $module->settings;
-            include FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'includes/post-grid-woocommerce.css.php';
-            $css .= ob_get_clean();
-        }
-
-        return $css;
-    }
-
     public static function loadLayoutPath($path, $layout, $settings)
     {
         if ('theme' !== $layout) {

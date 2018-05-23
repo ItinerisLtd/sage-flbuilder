@@ -97,66 +97,6 @@ class FilterBar extends AbstractModule
                 ],
             ],
         ]);
-
-        /**
-         * Register the slide settings form.
-         */
-        FLBuilder::register_settings_form('main_banner_buttons', [
-            'title' => __('Column settings', 'fabric'),
-            'tabs' => [
-                'general' => [
-                    'title' => __('General', 'fabric'),
-                    'sections' => [
-                        'general' => [
-                            'fields' => [
-                                'enabled' => [
-                                    'type' => 'select',
-                                    'label' => __('Status', 'fabric'),
-                                    'default' => '1',
-                                    'options' => [
-                                        '1' => __('Show / Active', 'fabric'),
-                                        '0' => __('Hide / Inactive', 'fabric'),
-                                    ],
-                                ],
-                            ],
-                        ],
-                        'content' => [
-                            'title' => __('Content Layout', 'fabric'),
-                            'fields' => [
-                                'link' => [
-                                    'type' => 'link',
-                                    'label' => __('Link', 'fabric'),
-                                    'help' => __(
-                                        'The link applies to the entire slide. If choosing a call to action type below, this link will also be used for the text or button.',
-                                        'fabric'
-                                    ),
-                                ],
-                                'link_target' => [
-                                    'type' => 'select',
-                                    'label' => __('Link Target', 'fabric'),
-                                    'default' => '_self',
-                                    'options' => [
-                                        '_self' => __('Same Window', 'fabric'),
-                                        '_blank' => __('New Window', 'fabric'),
-                                    ],
-                                ],
-                                'btn_text' => [
-                                    'type' => 'text',
-                                    'label' => __('Text', 'fabric'),
-                                    'default' => 'Become a member',
-                                ],
-                                'btn_style' => [
-                                    'type' => 'select',
-                                    'label' => __('Style', 'fabric'),
-                                    'default' => 'btn-warning',
-                                    'options' => $helper->buttonStyles(),
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
     }
 
     /**
@@ -179,28 +119,5 @@ class FilterBar extends AbstractModule
             'url' => $helper->assetPath(__DIR__),
             'icon' => 'layout.svg',
         ]);
-    }
-
-    /**
-     * @method renderButtons
-     */
-    public function renderButtons()
-    {
-        if ($this->settings->show_buttons && ! empty($this->settings->buttons)) {
-            foreach ($this->settings->buttons as $button) {
-                $this->renderButton($button);
-            }
-        }
-    }
-
-    /**
-     * @method renderButton
-     */
-    public function renderButton($button)
-    {
-        if (! empty($button)) {
-            print '<a href="' . esc_url($button->link) . '" class="btn ' . sanitize_html_class($button->btn_style) .
-                  '" target="' . esc_attr($button->link_target) . '">' . esc_html($button->btn_text) . '</a>';
-        }
     }
 }

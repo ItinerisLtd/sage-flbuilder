@@ -17,15 +17,7 @@ class EventsArchive implements InitializableInterface
     public static function init(): void
     {
         // Actions
-        add_action('fl_builder_posts_module_before_posts', static::class . '::beforePosts', 10, 2);
-        add_action('fl_builder_posts_module_before_posts', static::class . '::beforePostsItemsWrap', 11, 2);
-        add_action('fl_builder_posts_module_after_posts', static::class . '::afterPosts', 10, 2);
-        add_action('fl_builder_posts_module_after_posts', static::class . '::afterPostsItemsWrap', 11, 2);
         add_action('pre_get_posts', static::class . '::modifyQuery');
-
-        // Filters
-        add_filter('fl_builder_module_custom_class', static::class . '::customClass', 10, 2);
-        add_filter('fl_builder_register_settings_form', static::class . '::postGridSettings', 10, 2);
     }
 
     public static function eventDate($format): void
@@ -45,46 +37,6 @@ class EventsArchive implements InitializableInterface
         }
     }
 
-    public static function beforePosts($settings, $query): void
-    {
-        if ('event' === $query->query_vars['post_type'] ?? null) {
-            echo '<div class="container">';
-            if (! empty($settings->section_title)) {
-                echo '<h2>' . esc_html($settings->section_title) . '</h2>';
-            }
-        }
-    }
-
-    public static function beforePostsItemsWrap($settings, $query): void
-    {
-        if ('event' === $query->query_vars['post_type'] ?? null) {
-            echo '<div class="events">';
-        }
-    }
-
-    public static function afterPosts($settings, $query): void
-    {
-        if ('event' === $query->query_vars['post_type'] ?? null) {
-            echo '</div>';
-        }
-    }
-
-    public static function afterPostsItemsWrap($settings, $query): void
-    {
-        if ('event' === $query->query_vars['post_type'] ?? null) {
-            echo '</div><!-- ./events -->';
-        }
-    }
-
-    public static function customClass($class, $module)
-    {
-        if ('post-grid' === $module->slug && 'event' === get_post_type()) {
-            $class .= ' upcoming-events';
-        }
-
-        return $class;
-    }
-
     public static function modifyQuery($query)
     {
         if (! is_admin() &&
@@ -101,39 +53,5 @@ class EventsArchive implements InitializableInterface
         }
 
         return $query;
-    }
-    
-    /**
-     * Renders custom CSS for the post grid module.
-     *
-     * @param string $css
-     * @param array  $nodes
-     *
-     * @return string
-     */
-    public static function postGridCSS($css, $nodes): string
-    {
-        foreach ($nodes['modules'] as $module) {
-            if (! is_object($module)) {
-                continue;
-            }
-
-            if ('post-grid' !== $module->settings->type) {
-                continue;
-            }
-
-            $css .= file_get_contents(FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'css/fl-theme-builder-post-grid-woocommerce.css');
-
-            $id = $module->node;
-            $settings = $module->settings;
-
-            ob_start();
-            include FL_THEME_BUILDER_WOOCOMMERCE_DIR . 'includes/post-grid-woocommerce.css.php';
-            $css .= ob_get_clean();
-
-            return $css;
-        }
-
-        return '';
     }
 }

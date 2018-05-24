@@ -1,5 +1,24 @@
 # Change Log
 
+## [0.9.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.9.1) (2018-05-24)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.9.0...0.9.1)
+
+**Fixed bugs:**
+
+- Module 'Breadcrumbs' has no output [\#31](https://github.com/ItinerisLtd/sage-flbuilder/issues/31)
+
+**Closed issues:**
+
+- Filter Bar detects the wrong taxonomies [\#75](https://github.com/ItinerisLtd/sage-flbuilder/issues/75)
+- Rename `show\_search` to `show\_filter\_search` due to default setting conflict [\#73](https://github.com/ItinerisLtd/sage-flbuilder/issues/73)
+
+**Merged pull requests:**
+
+- Remove obsolete filter [\#78](https://github.com/ItinerisLtd/sage-flbuilder/pull/78) ([TangRufus](https://github.com/TangRufus))
+- \(remove\) Obsolete code [\#77](https://github.com/ItinerisLtd/sage-flbuilder/pull/77) ([codepuncher](https://github.com/codepuncher))
+- \(fix\) Incorrect Filter Bar taxonomy detection [\#76](https://github.com/ItinerisLtd/sage-flbuilder/pull/76) ([codepuncher](https://github.com/codepuncher))
+- \(fix\) Refactor filter bar 'show\_drop\_down' to 'show\_cat\_filter' and fix output issue [\#74](https://github.com/ItinerisLtd/sage-flbuilder/pull/74) ([codepuncher](https://github.com/codepuncher))
+
 ## [0.9.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.9.0) (2018-05-21)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.8.0...0.9.0)
 
@@ -9,6 +28,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.9.0 [\#72](https://github.com/ItinerisLtd/sage-flbuilder/pull/72) ([TangRufus](https://github.com/TangRufus))
 - Remove `EventsArchive::postGridJS` [\#71](https://github.com/ItinerisLtd/sage-flbuilder/pull/71) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.8.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.8.0) (2018-05-17)

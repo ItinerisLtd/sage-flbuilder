@@ -1,5 +1,16 @@
 # Change Log
 
+## [0.9.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.9.2) (2018-05-25)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.9.1...0.9.2)
+
+**Fixed bugs:**
+
+- God::flGetLocations\(\) doesn't respect new 'show\_search\_filter' property [\#80](https://github.com/ItinerisLtd/sage-flbuilder/issues/80)
+
+**Merged pull requests:**
+
+- \(fix\) flGetFilterCount doesn't recognise new prop `show\_search\_filter` [\#81](https://github.com/ItinerisLtd/sage-flbuilder/pull/81) ([codepuncher](https://github.com/codepuncher))
+
 ## [0.9.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.9.1) (2018-05-24)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.9.0...0.9.1)
 
@@ -14,6 +25,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.9.1 [\#79](https://github.com/ItinerisLtd/sage-flbuilder/pull/79) ([codepuncher](https://github.com/codepuncher))
 - Remove obsolete filter [\#78](https://github.com/ItinerisLtd/sage-flbuilder/pull/78) ([TangRufus](https://github.com/TangRufus))
 - \(remove\) Obsolete code [\#77](https://github.com/ItinerisLtd/sage-flbuilder/pull/77) ([codepuncher](https://github.com/codepuncher))
 - \(fix\) Incorrect Filter Bar taxonomy detection [\#76](https://github.com/ItinerisLtd/sage-flbuilder/pull/76) ([codepuncher](https://github.com/codepuncher))

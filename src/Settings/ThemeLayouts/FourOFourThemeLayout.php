@@ -4,10 +4,16 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
-class FourOFourThemeLayout extends AbstractThemeLayout
+use Itineris\SageFLBuilder\InitializableInterface;
+
+final class FourOFourThemeLayout implements InitializableInterface
 {
-    protected static function shouldIncludeLayout(): bool
+    public static function init(): void
     {
-        return is_404();
+        $themeLayout = new ThemeLayout(function (): bool {
+            return is_404();
+        }, 'fl-builder-archive');
+
+        add_filter('fl_theme_builder_template_include', [$themeLayout, 'locateTemplatePath'], 1000000);
     }
 }

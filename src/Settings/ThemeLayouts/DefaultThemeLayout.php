@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
-class DefaultThemeLayout extends AbstractThemeLayout
-{
-    protected const PRIORITY = parent::PRIORITY + 20;
+use Itineris\SageFLBuilder\InitializableInterface;
 
-    protected static function shouldIncludeLayout(): bool
+final class DefaultThemeLayout implements InitializableInterface
+{
+    public static function init(): void
     {
-        return 'fl-theme-layout' === get_post_type();
+        $themeLayout = new ThemeLayout(function (): bool {
+            return 'fl-theme-layout' === get_post_type();
+        }, 'fl-builder-archive');
+
+        add_filter('fl_theme_builder_template_include', [$themeLayout, 'locateTemplatePath'], 1000020);
     }
 }

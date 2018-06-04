@@ -28,12 +28,16 @@
     ],
     "require": {
         "php": "^7.1",
-        "illuminate/support": "^5.4"
+        "illuminate/support": "^5.4",
+        "roots/sage-lib": "^9.0"
     },
     "autoload": {
         "psr-4": {
             "Itineris\\SageFLBuilder\\": "src/"
-        }
+        },
+        "files": [
+            "src/functions.php"
+        ]
     },
     "require-dev": {
         "beaver-builder/bb-plugin": "*",

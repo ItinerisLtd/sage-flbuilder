@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
-class WooCommerceThemeLayout extends AbstractThemeLayout
-{
-    protected const PRIORITY = parent::PRIORITY + 10;
-    protected const TEMPLATE = 'woocommerce/fl-builder-woocommerce';
+use Itineris\SageFLBuilder\InitializableInterface;
 
-    protected static function shouldIncludeLayout(): bool
+final class WooCommerceThemeLayout implements InitializableInterface
+{
+    public static function init(): void
     {
-        return is_woocommerce();
+        $themeLayout = new ThemeLayout(function (): bool {
+            return is_woocommerce();
+        }, 'woocommerce/fl-builder-woocommerce');
+
+        add_filter('fl_theme_builder_template_include', [$themeLayout, 'locateTemplatePath'], 1000010);
     }
 }

@@ -4,12 +4,37 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
-class ThemeLayout extends AbstractThemeLayout
-{
-    protected const PRIORITY = parent::PRIORITY + 20;
+use Closure;
+use function Itineris\SageFLBuilder\getHelper;
 
-    protected static function shouldIncludeLayout(): bool
+final class ThemeLayout
+{
+    /**
+     * @var Closure
+     */
+    private $shouldInclude;
+
+    /**
+     * @var string
+     */
+    private $template;
+
+    public function __construct(Closure $shouldInclude, string $template)
     {
-        return 'fl-theme-layout' === get_post_type();
+        $this->shouldInclude = $shouldInclude;
+        $this->template = $template;
+    }
+
+    public function locateTemplatePath(string $template): string
+    {
+        if (! ($this->shouldInclude)()) {
+            return $template;
+        }
+
+        $helper = getHelper();
+
+        return $helper->templatePath(
+            $helper->locateTemplate($this->template)
+        );
     }
 }

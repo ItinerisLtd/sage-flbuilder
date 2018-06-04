@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
-class ThemeLayout extends AbstractThemeLayout
+class DefaultThemeLayout extends AbstractThemeLayout
 {
     protected const PRIORITY = parent::PRIORITY + 20;
 

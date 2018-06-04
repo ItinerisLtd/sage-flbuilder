@@ -24,7 +24,7 @@ use Itineris\SageFLBuilder\Settings\RichText;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\ArchiveThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\HomeThemeLayout;
 use function App\sage;
-use Itineris\SageFLBuilder\Settings\ThemeLayouts\ThemeLayout;
+use Itineris\SageFLBuilder\Settings\ThemeLayouts\DefaultThemeLayout;
 
 /**
  * Beaver Builder extensions
@@ -51,7 +51,7 @@ class SageFLBuilder
         SecondaryNav::class,
         Table::class,
         Testimonial::class,
-        ThemeLayout::class,
+        DefaultThemeLayout::class,
         Video::class,
     ];
 

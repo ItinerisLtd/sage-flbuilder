@@ -29,9 +29,9 @@ use function App\sage;
 /**
  * Beaver Builder extensions
  */
-class SageFLBuilder
+final class SageFLBuilder
 {
-    protected const DEFAULT_INITIALIZABLES = [
+    private const DEFAULT_INITIALIZABLES = [
         Accordion::class,
         Alert::class,
         ArchiveThemeLayout::class,
@@ -60,17 +60,12 @@ class SageFLBuilder
      *
      * @var InitializableInterface[]
      */
-    protected $initializables;
+    private $initializables;
 
     /**
      * @var AbstractHelper
      */
-    protected $helper;
-
-    /**
-     * @var string
-     */
-    protected $postGridTemplateDir;
+    private $helper;
 
     public function __construct(AbstractHelper $helper)
     {

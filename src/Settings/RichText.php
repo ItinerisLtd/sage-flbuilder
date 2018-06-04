@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Settings;
 
 use Itineris\SageFLBuilder\InitializableInterface;
 
-class RichText implements InitializableInterface
+final class RichText implements InitializableInterface
 {
     public static function init(): void
     {

@@ -18,13 +18,13 @@ use Itineris\SageFLBuilder\Modules\SecondaryNav\SecondaryNav;
 use Itineris\SageFLBuilder\Modules\Table\Table;
 use Itineris\SageFLBuilder\Modules\Testimonial\Testimonial;
 use Itineris\SageFLBuilder\Modules\Video\Video;
-use Itineris\SageFLBuilder\Settings\EventsArchive;
+use Itineris\SageFLBuilder\Settings\Archives\EventsArchive;
 use Itineris\SageFLBuilder\Settings\PostGrid;
 use Itineris\SageFLBuilder\Settings\RichText;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\ArchiveThemeLayout;
+use Itineris\SageFLBuilder\Settings\ThemeLayouts\DefaultThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\HomeThemeLayout;
 use function App\sage;
-use Itineris\SageFLBuilder\Settings\ThemeLayouts\DefaultThemeLayout;
 
 /**
  * Beaver Builder extensions

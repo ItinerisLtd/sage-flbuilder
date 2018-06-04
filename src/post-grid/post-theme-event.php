@@ -24,7 +24,7 @@ $img = has_post_thumbnail() ? get_the_post_thumbnail(null,
             <figcaption>
                 <?php the_title('<h3>', '</h3>'); ?>
                 <?php if ($settings->show_date) : ?>
-                    <p><?php Itineris\SageFLBuilder\Settings\EventsArchive::eventDate($settings->date_format); ?></p>
+                    <p><?php Itineris\SageFLBuilder\EventDate::echo($settings->date_format); ?></p>
                     <?php if (get_field('location')['location']) : ?>
                         <?php echo wpautop(get_field('location')['location']); ?>
                     <?php endif; ?>

@@ -1,5 +1,14 @@
 # Change Log
 
+## [0.10.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.10.0) (2018-06-04)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.9.2...0.10.0)
+
+**Merged pull requests:**
+
+- Mark `SageFLBuilder` and `RichText` as `final` [\#87](https://github.com/ItinerisLtd/sage-flbuilder/pull/87) ([TangRufus](https://github.com/TangRufus))
+- Refactor: `EventsArchive` [\#86](https://github.com/ItinerisLtd/sage-flbuilder/pull/86) ([TangRufus](https://github.com/TangRufus))
+- Refactor `ThemeLayout` [\#85](https://github.com/ItinerisLtd/sage-flbuilder/pull/85) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.9.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.9.2) (2018-05-25)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.9.1...0.9.2)
 
@@ -9,6 +18,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.9.2 [\#83](https://github.com/ItinerisLtd/sage-flbuilder/pull/83) ([codepuncher](https://github.com/codepuncher))
 - \(fix\) flGetFilterCount doesn't recognise new prop `show\_search\_filter` [\#81](https://github.com/ItinerisLtd/sage-flbuilder/pull/81) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.9.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.9.1) (2018-05-24)

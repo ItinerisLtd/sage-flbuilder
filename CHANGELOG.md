@@ -1,10 +1,22 @@
 # Change Log
 
-## [0.10.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.10.0) (2018-06-04)
-[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.9.2...0.10.0)
+## [0.10.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.10.1) (2018-06-27)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.10.0...0.10.1)
 
 **Merged pull requests:**
 
+- Fix: `ThemeLayout` checks template existence; Remove `getHelper\(\)` [\#89](https://github.com/ItinerisLtd/sage-flbuilder/pull/89) ([TangRufus](https://github.com/TangRufus))
+
+## [0.10.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.10.0) (2018-06-04)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.9.2...0.10.0)
+
+**Closed issues:**
+
+- \(feature\) module settings class per post type [\#84](https://github.com/ItinerisLtd/sage-flbuilder/issues/84)
+
+**Merged pull requests:**
+
+- Version bump 0.10.0 [\#88](https://github.com/ItinerisLtd/sage-flbuilder/pull/88) ([TangRufus](https://github.com/TangRufus))
 - Mark `SageFLBuilder` and `RichText` as `final` [\#87](https://github.com/ItinerisLtd/sage-flbuilder/pull/87) ([TangRufus](https://github.com/TangRufus))
 - Refactor: `EventsArchive` [\#86](https://github.com/ItinerisLtd/sage-flbuilder/pull/86) ([TangRufus](https://github.com/TangRufus))
 - Refactor `ThemeLayout` [\#85](https://github.com/ItinerisLtd/sage-flbuilder/pull/85) ([TangRufus](https://github.com/TangRufus))

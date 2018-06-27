@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
 use Closure;
-use function Itineris\SageFLBuilder\getHelper;
+use Itineris\SageFLBuilder\AbstractHelper;
+use function App\sage;
 
 final class ThemeLayout
 {
@@ -31,10 +32,15 @@ final class ThemeLayout
             return $template;
         }
 
-        $helper = getHelper();
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
 
-        return $helper->templatePath(
-            $helper->locateTemplate($this->template)
-        );
+        $newTemplate = $helper->locateTemplate($this->template);
+
+        if (empty($newTemplate)) {
+            return $template;
+        }
+
+        return $helper->templatePath($newTemplate);
     }
 }

@@ -34,10 +34,7 @@
     "autoload": {
         "psr-4": {
             "Itineris\\SageFLBuilder\\": "src/"
-        },
-        "files": [
-            "src/functions.php"
-        ]
+        }
     },
     "require-dev": {
         "beaver-builder/bb-plugin": "*",

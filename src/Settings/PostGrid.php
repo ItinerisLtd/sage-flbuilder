@@ -18,7 +18,7 @@ class PostGrid implements InitializableInterface
 
     public static function init(): void
     {
-        // Filters
+        // Filters.
         add_filter('fl_builder_register_settings_form', static::class . '::postGridSettings', 10, 2);
         add_filter('fl_builder_posts_module_layout_path', static::class . '::loadLayoutPath', 10, 3);
     }
@@ -183,6 +183,7 @@ class PostGrid implements InitializableInterface
 
         ob_start();
 
+        // phpcs:ignore WordPressVIPMinimum.Variables.VariableAnalysis.UnusedVariable
         $show_filter = false;
         $tax_exists = false;
 
@@ -221,6 +222,7 @@ class PostGrid implements InitializableInterface
             $postType
         );
 
+        // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.IncludingFile
         include $path;
 
         return ob_get_clean();

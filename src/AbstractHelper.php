@@ -51,7 +51,7 @@ abstract class AbstractHelper
     }
 
     /**
-     * @param string|string[] $templates Relative path to possible template files
+     * @param string|string[] $templates Relative path to possible template files.
      *
      * @return string Location of the template
      */
@@ -81,11 +81,11 @@ abstract class AbstractHelper
     /**
      * Retrieves the category from $_GET['cat'] and sanitizes for use
      *
-     * @param string $asTerm    Whether or not to return the term object
-     * @param string $category  The category to check against for term object
-     * @param string $asTermId  Whether or not to return the term object ID
-     * @param string $termValue The value to check against for the term object
-     * @param string $filter    The filter used to sanitize against the input
+     * @param string $asTerm    Whether or not to return the term object.
+     * @param string $category  The category to check against for term object.
+     * @param string $asTermId  Whether or not to return the term object ID.
+     * @param string $termValue The value to check against for the term object.
+     * @param string $filter    The filter used to sanitize against the input.
      *
      * @return int|string|object    The category value or object
      */
@@ -127,10 +127,10 @@ abstract class AbstractHelper
      * Creates a responsive iframe and embeds a video player
      * or an embed URL for the video
      *
-     * @param  string  $videoUrl URL of the video
-     * @param  boolean $isUrl    If true, returns the iframe URL, not the iframe
-     * @param  int     $width    The width of the iframe
-     * @param  int     $height   The height of the iframe
+     * @param  string  $videoUrl URL of the video.
+     * @param  boolean $isUrl    If true, returns the iframe URL, not the iframe.
+     * @param  int     $width    The width of the iframe.
+     * @param  int     $height   The height of the iframe.
      *
      * @return string|false Video embed URL or HTML for iframe embed
      */
@@ -140,7 +140,12 @@ abstract class AbstractHelper
      * Creates a HTML taxonomy dropdown
      *
      * @param string $taxonomy The taxnonomy slug or name.
+     * @param null   $postType
+     * @param string $queryVar
      * @param string $label    The name of the type of dropdown.
+     * @param bool   $showLabel
+     *
+     * @return mixed
      */
     abstract public function taxonomyDropdown(
         $taxonomy,

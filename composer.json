@@ -1,5 +1,33 @@
 {
     "name": "itineris/sage-flbuilder",
+    "description": "x",
+    "license": "proprietary",
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^5.4",
+        "roots/sage-lib": "^9.0"
+    },
+    "require-dev": {
+        "automattic/vipwpcs": "dev-master",
+        "beaver-builder/bb-plugin": "*",
+        "beaver-builder/bb-theme-builder": "*",
+        "roave/security-advisories": "dev-master",
+        "roots/sage": "*",
+        "wp-coding-standards/wpcs": "^1.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.10.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Itineris\\SageFLBuilder\\": "src/"
+        }
+    },
     "repositories": [
         {
             "type": "package",
@@ -26,19 +54,13 @@
             }
         }
     ],
-    "require": {
-        "php": "^7.1",
-        "illuminate/support": "^5.4",
-        "roots/sage-lib": "^9.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Itineris\\SageFLBuilder\\": "src/"
-        }
-    },
-    "require-dev": {
-        "beaver-builder/bb-plugin": "*",
-        "beaver-builder/bb-theme-builder": "*",
-        "roots/sage": "@beta"
+    "prefer-stable": true,
+    "scripts": {
+        "check-style": "phpcs --standard=ruleset.xml --colors -p -s",
+        "pretag": [
+            "@check-style",
+            "composer normalize",
+            "github_changelog_generator --no-verbose"
+        ]
     }
 }

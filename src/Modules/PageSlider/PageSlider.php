@@ -30,8 +30,8 @@ class PageSlider extends AbstractModule
                             'slides' => [
                                 'type' => 'form',
                                 'label' => __('Item', 'fabric'),
-                                'form' => self::FORM_ID, // ID from registered form below
-                                'preview_text' => 'title1', // Name of a field to use for the preview text
+                                'form' => self::FORM_ID, // ID from registered form below.
+                                'preview_text' => 'title1', // Name of a field to use for the preview text.
                                 'multiple' => true,
                             ],
                         ],
@@ -43,8 +43,8 @@ class PageSlider extends AbstractModule
         FLBuilder::register_settings_form(self::FORM_ID, [
             'title' => __('Slide Settings', 'fabric'),
             'tabs' => [
-                'general' => [ // Tab
-                    'title' => __('General', 'fabric'), // Tab title
+                'general' => [ // Tab.
+                    'title' => __('General', 'fabric'), // Tab title.
                     'sections' => [
                         'general' => [
                             'fields' => [
@@ -222,17 +222,24 @@ class PageSlider extends AbstractModule
 
     /**
      * @method renderBackground
+     * @param     $slide
+     * @param int $sc
      */
     public function renderBackground($slide, $sc = 0)
     {
         if (! empty($slide->bg_image_src)) {
-            print '<div class="img" style="background-image: url(' .
-                  esc_url($slide->bg_image_src) . ')"><img src="' . esc_url($slide->bg_image_src) . '"></div><!-- end img -->';
+            echo sprintf(
+                '<div class="img" style="background-image: url(%1$s)"><img src="%2$s"></div><!-- end img -->',
+                esc_url($slide->bg_image_src),
+                esc_url($slide->bg_image_src)
+            );
         }
     }
 
     /**
      * @method renderContent
+     * @param     $slide
+     * @param int $sc
      */
     public function renderContent($slide, $sc = 0)
     {
@@ -251,7 +258,6 @@ class PageSlider extends AbstractModule
             if (! empty($slide->text)) {
                 print wpautop($slide->text);
             }
-
         }
 
         print '</div><!-- end block --></div><!-- end container --></figcaption>';
@@ -259,6 +265,8 @@ class PageSlider extends AbstractModule
 
     /**
      * @method renderButton
+     * @param     $slide
+     * @param int $sc
      */
     public function renderButton($slide, $sc = 0)
     {
@@ -281,9 +289,13 @@ class PageSlider extends AbstractModule
                     $slide->btn_style = 'btn-transparent';
                 }
 
-                echo '<a href="' . esc_url($slide->link) . '" class="btn ' . sanitize_html_class($slide->btn_style) .
-                     '" target="' . esc_attr($slide->link_target) . '">' . esc_html($slide->cta_text) . '</a>';
-
+                echo sprintf(
+                    '<a href="%1$s" class="btn %2$s" target="%3$s">%4$s</a>',
+                    esc_url($slide->link),
+                    sanitize_html_class($slide->btn_style),
+                    esc_attr($slide->link_target),
+                    esc_html($slide->cta_text)
+                );
             }
             print '</div><!-- end valign --></div><!-- end image-label -->';
         }

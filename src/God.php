@@ -44,7 +44,7 @@ class God implements InitializableInterface
                     'compare' => '!=',
                 ],
             ],
-        ]);
+        ]); // WPCS: slow query ok.
 
         if ($locQuery->have_posts()) {
             while ($locQuery->have_posts()) {

@@ -1,10 +1,19 @@
 # Change Log
 
+## [0.11.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.0) (2018-08-24)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.10.1...0.11.0)
+
+**Merged pull requests:**
+
+- Fix: Missing `$\_\_env` [\#92](https://github.com/ItinerisLtd/sage-flbuilder/pull/92) ([TangRufus](https://github.com/TangRufus))
+- Apply code style [\#91](https://github.com/ItinerisLtd/sage-flbuilder/pull/91) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.10.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.10.1) (2018-06-27)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.10.0...0.10.1)
 
 **Merged pull requests:**
 
+- Version bump 0.10.1 [\#90](https://github.com/ItinerisLtd/sage-flbuilder/pull/90) ([TangRufus](https://github.com/TangRufus))
 - Fix: `ThemeLayout` checks template existence; Remove `getHelper\(\)` [\#89](https://github.com/ItinerisLtd/sage-flbuilder/pull/89) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.10.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.10.0) (2018-06-04)

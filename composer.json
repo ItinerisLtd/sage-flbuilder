@@ -20,7 +20,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.10.x-dev"
+            "dev-master": "0.11.x-dev"
         }
     },
     "autoload": {
@@ -58,6 +58,7 @@
     "scripts": {
         "check-style": "phpcs --standard=ruleset.xml --colors -p -s",
         "pretag": [
+            "composer update",
             "@check-style",
             "composer normalize",
             "github_changelog_generator --no-verbose"

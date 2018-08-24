@@ -14,13 +14,8 @@ use function App\sage;
  */
 class FilterBar extends AbstractModule
 {
-
-
     public static function register(): void
     {
-        /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
-
         FLBuilder::register_module(__CLASS__, [
             'layout' => [
                 'title' => __('Layout', 'fabric'),

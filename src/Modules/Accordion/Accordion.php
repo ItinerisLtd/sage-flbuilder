@@ -33,8 +33,8 @@ class Accordion extends AbstractModule
                             'items' => [
                                 'type' => 'form',
                                 'label' => __('Item', 'fabric'),
-                                'form' => self::FORM_ID, // ID from registered form below
-                                'preview_text' => 'label', // Name of a field to use for the preview text
+                                'form' => self::FORM_ID, // ID from registered form below.
+                                'preview_text' => 'label', // Name of a field to use for the preview text.
                                 'multiple' => true,
                             ],
                             'collapsed' => [

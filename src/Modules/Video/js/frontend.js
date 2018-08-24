@@ -1,6 +1,6 @@
-(function ($){
-	$('.magnific-popup').magnificPopup({
-		type: 'iframe',
-		closeBtnInside: false,
-	});
+(function ($) {
+    $('.magnific-popup').magnificPopup({
+        type: 'iframe',
+        closeBtnInside: false,
+    });
 })(jQuery);

@@ -8,6 +8,9 @@ use WP_Query;
 
 final class Archive
 {
+    /**
+     * @var string
+     */
     private $postType;
 
     public function __construct(string $postType)
@@ -29,6 +32,6 @@ final class Archive
         return ! is_admin() &&
                $query->is_post_type_archive($this->postType) &&
                ($query->is_main_query() || $query->get('fl_builder_loop', false)) &&
-               (! isset($query->query['settings']->type) || 'post-grid' === $query->query['settings']->type);
+               (! isset($query->query['settings']->type) || 'post-grid' === $query->query['settings']->type); // WPCS: precision alignment ok.
     }
 }

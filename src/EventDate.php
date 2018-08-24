@@ -26,6 +26,9 @@ final class EventDate
         try {
             $dateObj = new DateTime($date);
             echo $dateObj->format($format);
+
+            // See: Automattic/VIP-Coding-Standards#144 on Github.
+            // phpcs:ignore
         } catch (TypeError | Exception $exception) {
             // Do nothing.
         }

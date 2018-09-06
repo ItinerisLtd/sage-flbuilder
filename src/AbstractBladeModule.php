@@ -35,7 +35,10 @@ abstract class AbstractBladeModule extends AbstractModule
         $helper = sage(AbstractHelper::class);
         $path = $helper->templatePath($module->dir . 'includes/frontend.blade.php');
 
-        echo $helper->template($path);
+        echo $helper->template($path, [
+            'module' => $module,
+            'settings' => $module->settings,
+        ]);
 
         return __DIR__ . '/empty.php';
     }

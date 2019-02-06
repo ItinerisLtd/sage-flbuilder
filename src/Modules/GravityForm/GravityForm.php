@@ -35,9 +35,18 @@ class GravityForm extends AbstractBladeModule
                                 'label' => __('Form', 'fabric'),
                                 'options' => $helper->getGravityForms(),
                             ],
+                            'show_custom_title' => [
+                                'type' => 'select',
+                                'label' => __('Display custom title', 'fabric'),
+                                'default' => '0',
+                                'options' => [
+                                    '0' => __('No', 'fabric'),
+                                    '1' => __('Yes', 'fabric'),
+                                ],
+                            ],
                             'show_title' => [
                                 'type' => 'select',
-                                'label' => __('Display title', 'fabric'),
+                                'label' => __('Display form title', 'fabric'),
                                 'default' => '0',
                                 'options' => [
                                     '0' => __('No', 'fabric'),

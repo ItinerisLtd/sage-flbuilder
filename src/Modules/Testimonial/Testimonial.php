@@ -44,6 +44,25 @@ class Testimonial extends AbstractBladeModule
         ]);
     }
 
+    public function getCite(): string
+    {
+        $cite = '';
+
+        if (! empty($this->settings->cite_1)) {
+            $cite .= $this->settings->cite_1;
+        }
+
+        if (! empty($this->settings->cite_2)) {
+            if (! empty($cite)) {
+                $cite .= ', ';
+            }
+
+            $cite .= $this->settings->cite_2;
+        }
+
+        return $cite;
+    }
+
     public function __construct()
     {
         /** @var AbstractHelper $helper */

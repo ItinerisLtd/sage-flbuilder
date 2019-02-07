@@ -1,5 +1,18 @@
 # Change Log
 
+## [0.11.4](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.4) (2019-02-07)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.3...0.11.4)
+
+**Merged pull requests:**
+
+- Refactor blade directives and make fix "Bold" tag used to format text" [\#97](https://github.com/ItinerisLtd/sage-flbuilder/pull/97) ([codepuncher](https://github.com/codepuncher))
+
+## [0.11.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.3) (2019-02-06)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.2...0.11.3)
+
+## [0.11.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.2) (2019-02-06)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.1...0.11.2)
+
 ## [0.11.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.1) (2018-09-06)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.0...0.11.1)
 
@@ -9,6 +22,7 @@
 
 **Merged pull requests:**
 
+- Version 0.11.1 [\#96](https://github.com/ItinerisLtd/sage-flbuilder/pull/96) ([codepuncher](https://github.com/codepuncher))
 - Pass $settings to module blade templates [\#95](https://github.com/ItinerisLtd/sage-flbuilder/pull/95) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.11.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.0) (2018-08-24)

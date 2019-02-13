@@ -1,10 +1,18 @@
 # Change Log
 
+## [0.11.5](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.5) (2019-02-13)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.4...0.11.5)
+
+**Merged pull requests:**
+
+- Fix broken PHP code when variables not set [\#99](https://github.com/ItinerisLtd/sage-flbuilder/pull/99) ([codepuncher](https://github.com/codepuncher))
+
 ## [0.11.4](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.4) (2019-02-07)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.3...0.11.4)
 
 **Merged pull requests:**
 
+- Version bump 0.11.4 [\#98](https://github.com/ItinerisLtd/sage-flbuilder/pull/98) ([codepuncher](https://github.com/codepuncher))
 - Refactor blade directives and make fix "Bold" tag used to format text" [\#97](https://github.com/ItinerisLtd/sage-flbuilder/pull/97) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.11.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.3) (2019-02-06)

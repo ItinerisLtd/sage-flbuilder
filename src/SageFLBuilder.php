@@ -87,6 +87,18 @@ final class SageFLBuilder
         return $this;
     }
 
+    public function getInitializables()
+    {
+        return $this->initializables;
+    }
+
+    public function setInitializables($initializables): self
+    {
+        $this->initializables = $initializables;
+
+        return $this;
+    }
+
     public function init(): void
     {
         sage()->instance(AbstractHelper::class, $this->helper);

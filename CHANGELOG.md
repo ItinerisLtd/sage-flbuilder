@@ -1,10 +1,19 @@
 # Change Log
 
+## [0.11.6](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.6) (2019-04-15)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.5...0.11.6)
+
+**Merged pull requests:**
+
+- Add getter and setter for initializables. Setter is more convienient … [\#102](https://github.com/ItinerisLtd/sage-flbuilder/pull/102) ([matthewgrzegorczyk](https://github.com/matthewgrzegorczyk))
+- Update installation instruction [\#101](https://github.com/ItinerisLtd/sage-flbuilder/pull/101) ([TangRufus](https://github.com/TangRufus))
+
 ## [0.11.5](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.5) (2019-02-13)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.4...0.11.5)
 
 **Merged pull requests:**
 
+- Version bump 0.11.5 [\#100](https://github.com/ItinerisLtd/sage-flbuilder/pull/100) ([codepuncher](https://github.com/codepuncher))
 - Fix broken PHP code when variables not set [\#99](https://github.com/ItinerisLtd/sage-flbuilder/pull/99) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.11.4](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.4) (2019-02-07)

@@ -47,18 +47,6 @@ You must ensure these 3 required plugins installed via Bedrock's composer.json.
 
 ## Installation
 
-Sage theme's composer.json:
-```json
-{
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "git@github.com:ItinerisLtd/sage-flbuilder.git"
-    }
-  ]
-}
-```
-
 ```bash
 ➜ composer require itineris/sage-flbuilder
 ```

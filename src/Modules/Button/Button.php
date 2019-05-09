@@ -39,7 +39,10 @@ class Button extends AbstractModule
                                 'type' => 'select',
                                 'label' => __('Link target', 'fabric'),
                                 'default' => '_self',
-                                'options' => $helper->linkTargets(),
+                                'options' => [
+                                    '_self' => __('Same window/tab', 'fabric'),
+                                    '_blank' => __('New window/tab', 'fabric'),
+                                ],
                             ],
                             'style' => [
                                 'type' => 'select',

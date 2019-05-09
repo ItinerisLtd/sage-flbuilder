@@ -17,7 +17,6 @@ use Itineris\SageFLBuilder\Modules\PageSlider\PageSlider;
 use Itineris\SageFLBuilder\Modules\SecondaryNav\SecondaryNav;
 use Itineris\SageFLBuilder\Modules\Table\Table;
 use Itineris\SageFLBuilder\Modules\Testimonial\Testimonial;
-use Itineris\SageFLBuilder\Modules\Video\Video;
 use Itineris\SageFLBuilder\Settings\Archives\EventsArchive;
 use Itineris\SageFLBuilder\Settings\PostGrid;
 use Itineris\SageFLBuilder\Settings\RichText;
@@ -52,7 +51,6 @@ final class SageFLBuilder
         Table::class,
         Testimonial::class,
         DefaultThemeLayout::class,
-        Video::class,
     ];
 
     /**

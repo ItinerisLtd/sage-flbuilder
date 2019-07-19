@@ -1,10 +1,18 @@
 # Change Log
 
+## [0.13.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.13.0) (2019-07-19)
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.12.0...0.13.0)
+
+**Merged pull requests:**
+
+- Set getSiteModuleGroup\(\) as default module group [\#107](https://github.com/ItinerisLtd/sage-flbuilder/pull/107) ([codepuncher](https://github.com/codepuncher))
+
 ## [0.12.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.12.0) (2019-05-09)
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.6...0.12.0)
 
 **Merged pull requests:**
 
+- Version bump 0.12.0 [\#106](https://github.com/ItinerisLtd/sage-flbuilder/pull/106) ([codepuncher](https://github.com/codepuncher))
 - Refactor and fix type issues [\#105](https://github.com/ItinerisLtd/sage-flbuilder/pull/105) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.11.6](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.6) (2019-04-15)

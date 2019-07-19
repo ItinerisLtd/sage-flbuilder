@@ -45,6 +45,13 @@ abstract class AbstractHelper
         return __('Itineris Standard Modules', 'fabric');
     }
 
+    /**
+     * Per project module group name
+     *
+     * @return string
+     */
+    abstract public function getSiteModuleGroup(): string;
+
     public function getModuleCategory(): string
     {
         return __('Custom Widgets', 'fabric');

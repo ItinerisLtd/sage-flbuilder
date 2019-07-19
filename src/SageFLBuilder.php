@@ -97,6 +97,52 @@ final class SageFLBuilder
         return $this;
     }
 
+    public static function setDefaultModuleGroup(array $data): array
+    {
+        /** @var AbstractHelper $helper */
+        $helper = sage(AbstractHelper::class);
+
+        // Get the name of the projects module group.
+        $group_name = $helper->getSiteModuleGroup();
+
+        // Get the key of the projects module group.
+        $group_key = sanitize_key($group_name);
+
+        if (! $group_key) {
+            return $data;
+        }
+
+        $module_views = collect($data['tabs']['modules']['views']);
+
+        // Get our project module group.
+        $project_modules = $module_views->first(function (array $group) use ($group_key): bool {
+            return isset($group['handle']) && $group_key === $group['handle'];
+        });
+
+        if (null === $project_modules) {
+            return $data;
+        }
+
+        // Remove our project module group.
+        $module_views = $module_views->reject(function (array $group) use ($group_key): bool {
+            return isset($group['handle']) && $group_key === $group['handle'];
+        });
+
+        if (null === $module_views) {
+            return $data;
+        }
+
+        // Add our project module group to the start.
+        $module_views->prepend($project_modules);
+        $data['tabs']['modules']['views'] = $module_views->toArray();
+        return $data;
+    }
+
+    public function addFilters(): void
+    {
+        add_filter('fl_builder_content_panel_data', [__CLASS__, 'setDefaultModuleGroup']);
+    }
+
     public function init(): void
     {
         sage()->instance(AbstractHelper::class, $this->helper);
@@ -105,5 +151,7 @@ final class SageFLBuilder
         foreach ($this->initializables as $initializable) {
             $initializable::init();
         }
+
+        $this->addFilters();
     }
 }

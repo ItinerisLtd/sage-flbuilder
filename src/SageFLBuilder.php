@@ -23,6 +23,7 @@ use Itineris\SageFLBuilder\Settings\RichText;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\ArchiveThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\DefaultThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\HomeThemeLayout;
+use Itineris\SageFLBuilder\Settings\ThemeLayouts\SingleThemeLayout;
 use function App\sage;
 
 /**
@@ -48,6 +49,7 @@ final class SageFLBuilder
         PostGrid::class,
         RichText::class,
         SecondaryNav::class,
+        SingleThemeLayout::class,
         Table::class,
         Testimonial::class,
         DefaultThemeLayout::class,

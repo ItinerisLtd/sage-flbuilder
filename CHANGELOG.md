@@ -1,13 +1,24 @@
-# Change Log
+# Changelog
+
+## [0.14.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.14.0) (2019-10-29)
+
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.13.0...0.14.0)
+
+**Merged pull requests:**
+
+- Single Abstract Layout [\#109](https://github.com/ItinerisLtd/sage-flbuilder/pull/109) ([JackAlexander1](https://github.com/JackAlexander1))
 
 ## [0.13.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.13.0) (2019-07-19)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.12.0...0.13.0)
 
 **Merged pull requests:**
 
+- Version 0.13.0 [\#108](https://github.com/ItinerisLtd/sage-flbuilder/pull/108) ([codepuncher](https://github.com/codepuncher))
 - Set getSiteModuleGroup\(\) as default module group [\#107](https://github.com/ItinerisLtd/sage-flbuilder/pull/107) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.12.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.12.0) (2019-05-09)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.6...0.12.0)
 
 **Merged pull requests:**
@@ -16,6 +27,7 @@
 - Refactor and fix type issues [\#105](https://github.com/ItinerisLtd/sage-flbuilder/pull/105) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.11.6](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.6) (2019-04-15)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.5...0.11.6)
 
 **Merged pull requests:**
@@ -25,6 +37,7 @@
 - Update installation instruction [\#101](https://github.com/ItinerisLtd/sage-flbuilder/pull/101) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.11.5](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.5) (2019-02-13)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.4...0.11.5)
 
 **Merged pull requests:**
@@ -33,6 +46,7 @@
 - Fix broken PHP code when variables not set [\#99](https://github.com/ItinerisLtd/sage-flbuilder/pull/99) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.11.4](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.4) (2019-02-07)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.3...0.11.4)
 
 **Merged pull requests:**
@@ -41,12 +55,15 @@
 - Refactor blade directives and make fix "Bold" tag used to format text" [\#97](https://github.com/ItinerisLtd/sage-flbuilder/pull/97) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.11.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.3) (2019-02-06)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.2...0.11.3)
 
 ## [0.11.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.2) (2019-02-06)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.1...0.11.2)
 
 ## [0.11.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.1) (2018-09-06)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.11.0...0.11.1)
 
 **Closed issues:**
@@ -59,6 +76,7 @@
 - Pass $settings to module blade templates [\#95](https://github.com/ItinerisLtd/sage-flbuilder/pull/95) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.11.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.11.0) (2018-08-24)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.10.1...0.11.0)
 
 **Merged pull requests:**
@@ -68,6 +86,7 @@
 - Apply code style [\#91](https://github.com/ItinerisLtd/sage-flbuilder/pull/91) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.10.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.10.1) (2018-06-27)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.10.0...0.10.1)
 
 **Merged pull requests:**
@@ -76,6 +95,7 @@
 - Fix: `ThemeLayout` checks template existence; Remove `getHelper\(\)` [\#89](https://github.com/ItinerisLtd/sage-flbuilder/pull/89) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.10.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.10.0) (2018-06-04)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.9.2...0.10.0)
 
 **Closed issues:**
@@ -90,6 +110,7 @@
 - Refactor `ThemeLayout` [\#85](https://github.com/ItinerisLtd/sage-flbuilder/pull/85) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.9.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.9.2) (2018-05-25)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.9.1...0.9.2)
 
 **Fixed bugs:**
@@ -102,6 +123,7 @@
 - \(fix\) flGetFilterCount doesn't recognise new prop `show\_search\_filter` [\#81](https://github.com/ItinerisLtd/sage-flbuilder/pull/81) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.9.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.9.1) (2018-05-24)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.9.0...0.9.1)
 
 **Fixed bugs:**
@@ -122,6 +144,7 @@
 - \(fix\) Refactor filter bar 'show\_drop\_down' to 'show\_cat\_filter' and fix output issue [\#74](https://github.com/ItinerisLtd/sage-flbuilder/pull/74) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.9.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.9.0) (2018-05-21)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.8.0...0.9.0)
 
 **Closed issues:**
@@ -134,6 +157,7 @@
 - Remove `EventsArchive::postGridJS` [\#71](https://github.com/ItinerisLtd/sage-flbuilder/pull/71) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.8.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.8.0) (2018-05-17)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.5...0.8.0)
 
 **Closed issues:**
@@ -147,6 +171,7 @@
 - \(fix\) Remove obsolete code [\#68](https://github.com/ItinerisLtd/sage-flbuilder/pull/68) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.7.5](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.5) (2018-05-16)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.4...0.7.5)
 
 **Fixed bugs:**
@@ -159,6 +184,7 @@
 - \(fix\) FilterBar $postType could default to null [\#64](https://github.com/ItinerisLtd/sage-flbuilder/pull/64) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.7.4](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.4) (2018-05-13)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.3...0.7.4)
 
 **Closed issues:**
@@ -171,6 +197,7 @@
 - God: Fix outdated module name, `fab\_filter\_bar` --\> `FilterBar` [\#62](https://github.com/ItinerisLtd/sage-flbuilder/pull/62) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.7.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.3) (2018-05-11)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.2...0.7.3)
 
 **Merged pull requests:**
@@ -179,6 +206,7 @@
 - \(fix\) Remove test code and hide children events [\#60](https://github.com/ItinerisLtd/sage-flbuilder/pull/60) ([codepuncher](https://github.com/codepuncher))
 
 ## [0.7.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.2) (2018-05-09)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.1...0.7.2)
 
 **Closed issues:**
@@ -191,6 +219,7 @@
 - `EventsArchive::eventDate` catch `TypeError` [\#57](https://github.com/ItinerisLtd/sage-flbuilder/pull/57) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.7.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.1) (2018-05-09)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.7.0...0.7.1)
 
 **Merged pull requests:**
@@ -198,6 +227,7 @@
 - Fix: Theme layout settings only works for `fl-theme-layout` post type [\#54](https://github.com/ItinerisLtd/sage-flbuilder/pull/54) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.7.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.7.0) (2018-05-09)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.6.0...0.7.0)
 
 **Merged pull requests:**
@@ -210,6 +240,7 @@
 - Readme: Fix broken links [\#47](https://github.com/ItinerisLtd/sage-flbuilder/pull/47) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.6.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.6.0) (2018-04-24)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.5.2...0.6.0)
 
 **Merged pull requests:**
@@ -220,6 +251,7 @@
 - Extract `God::loadPageBladeTemplate` into smaller classes [\#43](https://github.com/ItinerisLtd/sage-flbuilder/pull/43) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.5.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.5.2) (2018-04-24)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.5.1...0.5.2)
 
 **Merged pull requests:**
@@ -229,6 +261,7 @@
 - Readme: Concrete helper `::getPostGridTemplateDir` should not be abstract [\#40](https://github.com/ItinerisLtd/sage-flbuilder/pull/40) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.5.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.5.1) (2018-04-24)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.5.0...0.5.1)
 
 **Merged pull requests:**
@@ -237,6 +270,7 @@
 - Fix: 404 pages should use `fl-builder-archive` template [\#38](https://github.com/ItinerisLtd/sage-flbuilder/pull/38) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.5.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.5.0) (2018-04-23)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.4.2...0.5.0)
 
 **Closed issues:**
@@ -250,6 +284,7 @@
 - PostGrid: Add Blade support [\#35](https://github.com/ItinerisLtd/sage-flbuilder/pull/35) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.4.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.4.2) (2018-04-20)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.4.1...0.4.2)
 
 **Implemented enhancements:**
@@ -262,6 +297,7 @@
 - \(fix\) Missing 'tax\_exist' count check [\#32](https://github.com/ItinerisLtd/sage-flbuilder/pull/32) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.4.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.4.1) (2018-04-17)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.4.0...0.4.1)
 
 **Merged pull requests:**
@@ -270,6 +306,7 @@
 - Fix: Not to escape `GravityForm` blade output [\#28](https://github.com/ItinerisLtd/sage-flbuilder/pull/28) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.4.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.4.0) (2018-04-17)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.3...0.4.0)
 
 **Closed issues:**
@@ -282,6 +319,7 @@
 - Add `GravityForm` module [\#26](https://github.com/ItinerisLtd/sage-flbuilder/pull/26) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.3.3](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.3) (2018-04-10)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.2...0.3.3)
 
 **Merged pull requests:**
@@ -291,6 +329,7 @@
 - Change Log: Add v0.3.2 entries [\#22](https://github.com/ItinerisLtd/sage-flbuilder/pull/22) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.3.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.2) (2018-04-09)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.1...0.3.2)
 
 **Merged pull requests:**
@@ -298,6 +337,7 @@
 - Remove unused parameters from `fl\_builder\_posts\_module\_after\_posts` hook [\#21](https://github.com/ItinerisLtd/sage-flbuilder/pull/21) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.3.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.1) (2018-04-03)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.3.0...0.3.1)
 
 **Merged pull requests:**
@@ -308,6 +348,7 @@
 - Readme: Fix PHP minimum requirement [\#17](https://github.com/ItinerisLtd/sage-flbuilder/pull/17) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.3.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.3.0) (2018-04-03)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.2.0...0.3.0)
 
 **Merged pull requests:**
@@ -319,6 +360,7 @@
 - Composer: Require PHP 7.1 [\#12](https://github.com/ItinerisLtd/sage-flbuilder/pull/12) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.2.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.2.0) (2018-03-26)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.1.2...0.2.0)
 
 **Closed issues:**
@@ -332,9 +374,11 @@
 - Fix: Readme typo [\#9](https://github.com/ItinerisLtd/sage-flbuilder/pull/9) ([TangRufus](https://github.com/TangRufus))
 
 ## [0.1.2](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.1.2) (2018-03-12)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.1.1...0.1.2)
 
 ## [0.1.1](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.1.1) (2018-03-12)
+
 [Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/0.1.0...0.1.1)
 
 **Closed issues:**
@@ -344,10 +388,13 @@
 - `\App` functions might not be defined [\#1](https://github.com/ItinerisLtd/sage-flbuilder/issues/1)
 
 ## [0.1.0](https://github.com/ItinerisLtd/sage-flbuilder/tree/0.1.0) (2018-03-12)
+
+[Full Changelog](https://github.com/ItinerisLtd/sage-flbuilder/compare/ca0bbbd6a17766c72714b75eee8d90fe5599ebd4...0.1.0)
+
 **Closed issues:**
 
 - sage-flbuilder/src/Settings/post-grid/ are frontend files \(not settings\) [\#4](https://github.com/ItinerisLtd/sage-flbuilder/issues/4)
 
 
 
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*

@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\Button;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use function App\sage;
+use function Roots\app as sage;
 
 /**
  * Generic Bootstrap button widget

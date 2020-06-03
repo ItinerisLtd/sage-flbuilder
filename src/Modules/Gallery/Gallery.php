@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\Gallery;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractBladeModule;
 use Itineris\SageFLBuilder\AbstractHelper;
-use function App\sage;
+use function Roots\app as sage;
 
 /**
  * Class Gallery

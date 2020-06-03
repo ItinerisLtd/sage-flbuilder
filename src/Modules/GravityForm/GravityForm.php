@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\GravityForm;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractBladeModule;
 use Itineris\SageFLBuilder\AbstractHelper;
-use function App\sage;
+use function Roots\app as sage;
 
 class GravityForm extends AbstractBladeModule
 {

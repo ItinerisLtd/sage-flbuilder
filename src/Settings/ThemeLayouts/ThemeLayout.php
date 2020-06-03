@@ -6,7 +6,7 @@ namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
 use Closure;
 use Itineris\SageFLBuilder\AbstractHelper;
-use function App\sage;
+use function Roots\app as sage;
 
 final class ThemeLayout
 {

@@ -124,11 +124,4 @@ abstract class AbstractHelper
     abstract public function getSecondaryNav();
 
     abstract public function getGravityForms(): array;
-
-    /**
-     * Full path to PostGrid template directory.
-     *
-     * @return string
-     */
-    abstract public function getPostGridTemplateDir(): string;
 }

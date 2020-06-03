@@ -6,7 +6,7 @@
  */
 
 use Itineris\SageFLBuilder\AbstractHelper;
-use function App\sage;
+use function Roots\app as sage;
 
 /** @var AbstractHelper $helper */
 $helper = sage(AbstractHelper::class);

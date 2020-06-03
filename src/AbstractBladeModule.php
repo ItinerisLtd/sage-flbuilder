@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder;
 
 use FLBuilderModule;
-use Itineris\SageFLBuilder\SageFLBuilder;
+use function Roots\app as sage;
 
 /**
  * Add Laravel Blade support.
@@ -32,7 +32,7 @@ abstract class AbstractBladeModule extends AbstractModule
         }
 
         /** @var AbstractHelper $helper */
-        $helper = SageFLBuilder::container(AbstractHelper::class);
+        $helper = sage(AbstractHelper::class);
         $path = $helper->templatePath($module->dir . 'includes/frontend.blade.php');
 
         echo $helper->template($path, [

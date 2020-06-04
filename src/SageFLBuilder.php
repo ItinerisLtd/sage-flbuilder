@@ -17,7 +17,6 @@ use Itineris\SageFLBuilder\Modules\PageSlider\PageSlider;
 use Itineris\SageFLBuilder\Modules\SecondaryNav\SecondaryNav;
 use Itineris\SageFLBuilder\Modules\Table\Table;
 use Itineris\SageFLBuilder\Modules\Testimonial\Testimonial;
-use Itineris\SageFLBuilder\Settings\RichText;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\ArchiveThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\DefaultThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\HomeThemeLayout;
@@ -42,7 +41,6 @@ final class SageFLBuilder
         HomeThemeLayout::class,
         PageHeading::class,
         PageSlider::class,
-        RichText::class,
         SecondaryNav::class,
         SingleThemeLayout::class,
         Table::class,

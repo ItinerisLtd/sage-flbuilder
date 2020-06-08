@@ -21,7 +21,7 @@ use Itineris\SageFLBuilder\Settings\ThemeLayouts\ArchiveThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\DefaultThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\HomeThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\SingleThemeLayout;
-use function Roots\app as sage;
+use function Roots\app;
 
 /**
  * Beaver Builder extensions
@@ -95,7 +95,7 @@ final class SageFLBuilder
     public static function setDefaultModuleGroup(array $data): array
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         // Get the name of the projects module group.
         $group_name = $helper->getSiteModuleGroup();
@@ -140,7 +140,7 @@ final class SageFLBuilder
 
     public function init(): void
     {
-        sage()->instance(AbstractHelper::class, $this->helper);
+        app()->instance(AbstractHelper::class, $this->helper);
 
         foreach ($this->initializables as $initializable) {
             $initializable::init();

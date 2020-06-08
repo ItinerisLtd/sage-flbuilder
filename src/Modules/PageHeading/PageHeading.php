@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\PageHeading;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractBladeModule;
 use Itineris\SageFLBuilder\AbstractHelper;
-use function Roots\app as sage;;
+use function Roots\app;
 
 /**
  * @class PageHeading
@@ -61,7 +61,7 @@ class PageHeading extends AbstractBladeModule
     public function __construct()
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         parent::__construct([
             'name' => __('Page heading', 'fabric'),

@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\ContentImage;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractBladeModule;
 use Itineris\SageFLBuilder\AbstractHelper;
-use function Roots\app as sage;
+use function Roots\app;
 
 /**
  * Generic Bootstrap button widget
@@ -39,7 +39,7 @@ class ContentImage extends AbstractBladeModule
     public function __construct()
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         parent::__construct([
             'name' => __('Content image', 'fabric'),

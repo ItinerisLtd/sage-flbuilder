@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\PageSlider;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use function Roots\app as sage;
+use function Roots\app;
 
 /**
  * @class PageSlider
@@ -19,7 +19,7 @@ class PageSlider extends AbstractModule
     public static function register(): void
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         FLBuilder::register_module(__CLASS__, [
             'general' => [
@@ -207,7 +207,7 @@ class PageSlider extends AbstractModule
     public function __construct()
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         parent::__construct([
             'name' => __('Page Slider', 'fabric'),

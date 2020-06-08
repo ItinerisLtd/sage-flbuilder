@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\SecondaryNav;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use function Roots\app as sage;
+use function Roots\app;
 
 /**
  * Class SecondaryNav
@@ -28,7 +28,7 @@ class SecondaryNav extends AbstractModule
     public function __construct()
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         parent::__construct([
             'name' => __('Secondary nav', 'fabric'),

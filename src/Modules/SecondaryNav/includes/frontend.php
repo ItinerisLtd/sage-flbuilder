@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 use Itineris\SageFLBuilder\AbstractHelper;
-use function Roots\app as sage;
+use function Roots\app;
 
 /** @var AbstractHelper $helper */
-$helper = sage(AbstractHelper::class);
+$helper = app(AbstractHelper::class);
 
 ?>
 

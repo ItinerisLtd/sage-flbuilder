@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder;
 
+use function Roots\view;
+use function Roots\asset;
+
 abstract class AbstractHelper
 {
     /**
@@ -14,7 +17,7 @@ abstract class AbstractHelper
      */
     public function template($file, $data = []): string
     {
-        return \App\template($file, $data);
+        return view($file, $data);
     }
 
     /**
@@ -37,7 +40,7 @@ abstract class AbstractHelper
      */
     public function assetPath($asset): string
     {
-        return \App\asset_path($asset);
+        return asset($asset)->uri();
     }
 
     public function getModuleGroup(): string

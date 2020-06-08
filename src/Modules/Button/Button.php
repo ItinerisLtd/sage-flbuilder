@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\Button;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use function Roots\app as sage;
+use function Roots\app;
 
 /**
  * Generic Bootstrap button widget
@@ -19,7 +19,7 @@ class Button extends AbstractModule
     public static function register(): void
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         FLBuilder::register_module(__CLASS__, [
             'general' => [
@@ -66,7 +66,7 @@ class Button extends AbstractModule
     public function __construct()
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         parent::__construct([
             'name' => __('Button', 'fabric'),

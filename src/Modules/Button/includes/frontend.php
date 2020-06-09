@@ -14,6 +14,6 @@ $helper = app(AbstractHelper::class);
 ?>
 <?php if (! empty($settings->link) && ! empty($settings->text)) : ?>
     <a href="<?php echo esc_url($settings->link); ?>"
-       class="btn <?php echo $helper->sanitizeHtmlClasses($settings->style); ?>"
+       class="btn <?php echo esc_html($settings->style); ?>"
        target="<?php echo esc_attr($settings->target); ?>"><?php echo esc_html($settings->text); ?></a>
 <?php endif; ?>

@@ -79,52 +79,5 @@ abstract class AbstractHelper
      */
     abstract public function breadcrumbs();
 
-    /**
-     * Some times le wild <span class="blue hedgehog"> appears, which is when you need this function, to validate both
-     * blue and hedgehog because sanitize_html_class doesn't allow spaces.
-     *
-     * @param  mixed $classes  "blue hedgehog goes shopping" or array("blue", "hedgehog", "goes", "shopping").
-     * @param  mixed $fallback Anything you want returned in case of a failure.
-     *
-     * @return string
-     */
-    abstract public function sanitizeHtmlClasses($classes, $fallback = null): string;
-
-    /**
-     * @param string $videoUrl
-     * @param bool   $isElement
-     * @param int    $size
-     * @param string $altText
-     *
-     * @return string|null
-     */
-    abstract public function videoThumb($videoUrl, $isElement = false, $size = '0', string $altText = '');
-
-    /**
-     * @param string $videoUrl
-     * @param string $urlType
-     *
-     * @return string
-     */
-    abstract public function formatVideoUrl($videoUrl, $urlType = 'embed'): string;
-
-    /**
-     * Creates a responsive iframe and embeds a video player
-     * or an embed URL for the video
-     *
-     * @param  string  $videoUrl URL of the video.
-     * @param  boolean $isUrl    If true, returns the iframe URL, not the iframe.
-     * @param  int     $width    The width of the iframe.
-     * @param  int     $height   The height of the iframe.
-     *
-     * @return string|false Video embed URL or HTML for iframe embed
-     */
-    abstract public function videoEmbed($video_url, $width = null, $height = null);
-
-    /**
-     * Builds a navigation menu based on parent post, children and siblings
-     */
-    abstract public function getSecondaryNav();
-
     abstract public function getGravityForms(): array;
 }

@@ -30,7 +30,7 @@ abstract class AbstractHelper
      */
     public function templatePath($file, $data = []): string
     {
-        return \App\template_path($file, $data);
+        return view($file, $data)->getCompiled();
     }
 
     /**

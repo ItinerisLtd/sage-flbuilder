@@ -4,13 +4,9 @@
     "license": "proprietary",
     "require": {
         "php": "^7.1",
-        "illuminate/support": "^5.4",
         "roots/acorn": "^1.0.1"
     },
     "require-dev": {
-        "automattic/vipwpcs": "dev-master",
-        "beaver-builder/bb-plugin": "*",
-        "beaver-builder/bb-theme-builder": "*",
         "roave/security-advisories": "dev-master",
         "wp-coding-standards/wpcs": "^1.0"
     },
@@ -27,6 +23,7 @@
             "Itineris\\SageFLBuilder\\": "src/"
         }
     },
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "check-style": "phpcs --standard=ruleset.xml --colors -p -s",

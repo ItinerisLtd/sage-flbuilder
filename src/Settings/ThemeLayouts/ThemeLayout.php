@@ -6,6 +6,7 @@ namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
 use Closure;
 use Itineris\SageFLBuilder\AbstractHelper;
+
 use function Roots\app;
 
 final class ThemeLayout
@@ -41,6 +42,6 @@ final class ThemeLayout
             return $template;
         }
 
-        return $helper->templatePath($newTemplate);
+        return $helper->templatePath($this->template);
     }
 }

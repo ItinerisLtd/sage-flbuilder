@@ -3,6 +3,7 @@
 namespace Itineris\SageFLBuilder;
 
 use Roots\Acorn\ServiceProvider;
+
 use function Roots\base_path;
 
 class SageFLBuilderServiceProvider extends ServiceProvider
@@ -12,8 +13,11 @@ class SageFLBuilderServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        $this->loadViewsFrom(base_path('Plugins/FLBuilder/Modules'), 'ItinerisSageFLBuilder');
+        $this->loadViewsFrom(
+            base_path('app/Plugins/FLBuilder/Modules'),
+            'ItinerisSageFLBuilder'
+        );
     }
 }

@@ -21,6 +21,7 @@ use Itineris\SageFLBuilder\Settings\ThemeLayouts\ArchiveThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\DefaultThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\HomeThemeLayout;
 use Itineris\SageFLBuilder\Settings\ThemeLayouts\SingleThemeLayout;
+
 use function Roots\app;
 
 /**

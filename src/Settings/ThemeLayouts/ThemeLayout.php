@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
 use Closure;
-use Itineris\SageFLBuilder\AbstractHelper;
 
-use function Roots\app;
+use function Roots\view;
 
 final class ThemeLayout
 {
@@ -29,19 +28,12 @@ final class ThemeLayout
 
     public function locateTemplatePath(string $template): string
     {
-        if (! ($this->shouldInclude)()) {
+        if (!($this->shouldInclude)()) {
             return $template;
         }
 
-        /** @var AbstractHelper $helper */
-        $helper = app(AbstractHelper::class);
-
-        $newTemplate = $helper->locateTemplate($this->template);
-
-        if (empty($newTemplate)) {
-            return $template;
-        }
-
-        return $helper->templatePath($this->template);
+        return view()->exists($this->template)
+            ? view($this->template)->makeLoader()
+            : $template;
     }
 }

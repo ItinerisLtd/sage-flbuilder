@@ -21,7 +21,7 @@ class SageFLBuilderServiceProvider extends ServiceProvider
         );
 
         $this->loadViewsFrom(
-            __DIR__ . '/Views/',
+            __DIR__ . '/../resources/views/',
             'ItinerisSageFLBuilderViews'
         );
     }

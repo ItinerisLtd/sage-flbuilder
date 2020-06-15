@@ -33,7 +33,7 @@ abstract class AbstractBladeModule extends AbstractModule
 
         /** @var AbstractHelper $helper */
         $helper = app(AbstractHelper::class);
-        $path = $module->slug . '/includes/frontend';
+        $path = $module->slug . 'includes/frontend';
 
         echo $helper->template($path, [
             'module' => $module,

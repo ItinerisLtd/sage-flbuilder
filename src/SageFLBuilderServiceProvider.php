@@ -16,8 +16,13 @@ class SageFLBuilderServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadViewsFrom(
-            base_path('app/Plugins/FLBuilder/Modules'),
+            base_path('app/Plugins/FLBuilder/Modules/'),
             'ItinerisSageFLBuilder'
+        );
+
+        $this->loadViewsFrom(
+            __DIR__ . '/Views/',
+            'ItinerisSageFLBuilderViews'
         );
     }
 }

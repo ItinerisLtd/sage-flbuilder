@@ -28,12 +28,16 @@ final class ThemeLayout
 
     public function locateTemplatePath(string $template): string
     {
-        if (!($this->shouldInclude)()) {
+        if (! ($this->shouldInclude)()) {
             return $template;
         }
 
         return view()->exists($this->template)
             ? view($this->template)->makeLoader()
-            : $template;
+            : (
+                view()->exists("ItinerisSageFLBuilderViews::{$this->template}")
+                ? view("ItinerisSageFLBuilderViews::{$this->template}")->makeLoader()
+                : $template
+            );
     }
 }

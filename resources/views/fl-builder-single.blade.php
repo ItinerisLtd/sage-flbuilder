@@ -1,4 +1,4 @@
-@extends("ItinerisSageFLBuilderViews::layouts.archive")
+@extends('ItinerisSageFLBuilderViews::layouts.archive')
 
 @section('content')
     @php

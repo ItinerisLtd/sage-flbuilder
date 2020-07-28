@@ -17,8 +17,8 @@ abstract class AbstractHelper
      */
     public function template(string $file, array $data = []): string
     {
-        return view()->exists("ItinerisSageFLBuilder::{$file}")
-            ? view("ItinerisSageFLBuilder::{$file}", $data)->render()
+        return view()->exists("Theme::{$file}")
+            ? view("Theme::{$file}", $data)->render()
             : '';
     }
 

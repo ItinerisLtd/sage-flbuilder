@@ -21,7 +21,7 @@ class SageFLBuilderServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(
             base_path('app/Plugins/FLBuilder/Modules/'),
-            'Sage'
+            'Theme'
         );
 
         $this->loadViewsFrom(

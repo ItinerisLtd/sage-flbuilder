@@ -2,6 +2,8 @@
 
 namespace Itineris\SageFLBuilder;
 
+use Illuminate\Support\Facades\View;
+use Itineris\SageFLBuilder\View\Composers\FLBuilder;
 use Roots\Acorn\ServiceProvider;
 
 use function Roots\base_path;
@@ -17,12 +19,14 @@ class SageFLBuilderServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(
             base_path('app/Plugins/FLBuilder/Modules/'),
-            'ItinerisSageFLBuilder'
+            'Sage'
         );
 
         $this->loadViewsFrom(
             __DIR__ . '/../resources/views/',
-            'ItinerisSageFLBuilderViews'
+            'ItinerisSageFLBuilder'
         );
+
+        View::composer(FLBuilder::views(), FLBuilder::class);
     }
 }

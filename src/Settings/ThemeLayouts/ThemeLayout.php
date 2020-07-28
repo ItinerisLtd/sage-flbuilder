@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
 use Closure;
-use FLBuilderModel;
-use FLThemeBuilderLayoutData;
 
 use function Roots\view;
 
@@ -34,24 +32,12 @@ final class ThemeLayout
             return $template;
         }
 
-        $ids = FLThemeBuilderLayoutData::get_current_page_content_ids();
-
-        if ('fl-theme-layout' === get_post_type() && count($ids) > 1) {
-            $post_id = FLBuilderModel::get_post_id();
-        } else {
-            $post_id = $ids[0] ?? get_the_ID();
-        }
-
-        $data = [
-            'post_id' => $post_id,
-        ];
-
         if (view()->exists($this->template)) {
-            return view($this->template, $data)->makeLoader();
+            return view($this->template)->makeLoader();
         }
 
-        if (view()->exists("ItinerisSageFLBuilderViews::{$this->template}")) {
-            return view("ItinerisSageFLBuilderViews::{$this->template}", $data)->makeLoader();
+        if (view()->exists("ItinerisSageFLBuilder::{$this->template}")) {
+            return view("ItinerisSageFLBuilder::{$this->template}")->makeLoader();
         }
 
         return $template;

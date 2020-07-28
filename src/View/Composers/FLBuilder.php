@@ -24,10 +24,10 @@ class FLBuilder extends Composer
 
     protected function getPostId(): int
     {
-        $ids = FLThemeBuilderLayoutData::get_current_page_content_ids();
+        $ids = array_map('absint', FLThemeBuilderLayoutData::get_current_page_content_ids());
 
         if ('fl-theme-layout' === get_post_type() && count($ids) > 1) {
-            return $post_id = FLBuilderModel::get_post_id();
+            return FLBuilderModel::get_post_id();
         }
 
         return $ids[0] ?? get_the_ID();

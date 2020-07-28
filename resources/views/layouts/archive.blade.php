@@ -8,18 +8,14 @@
   </head>
 
   <body @php body_class(); @endphp>
-    @php
-      wp_body_open();
-      do_action('get_header');
-    @endphp
+    @php wp_body_open(); @endphp
+    @php do_action('get_header'); @endphp
 
-    <div id="app">
+    <div id="wrapper">
       @include('layouts.app')
     </div>
 
-    @php
-      do_action('get_footer');
-      wp_footer();
-    @endphp
+    @php do_action('get_footer'); @endphp
+    @php wp_footer(); @endphp
   </body>
 </html>

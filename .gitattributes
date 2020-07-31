@@ -6,6 +6,6 @@
 
 # Export white-listed production code only.
 /src            -export-ignore
-/resources
+/resources      -export-ignore
 /composer.json  -export-ignore
 /README.md      -export-ignore

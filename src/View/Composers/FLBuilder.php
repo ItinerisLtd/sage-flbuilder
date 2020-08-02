@@ -27,10 +27,12 @@ class FLBuilder extends Composer
         $ids = array_map('absint', FLThemeBuilderLayoutData::get_current_page_content_ids());
 
         if ('fl-theme-layout' === get_post_type() && count($ids) > 1) {
-            return FLBuilderModel::get_post_id();
+            $id = FLBuilderModel::get_post_id();
+        } else {
+            $id = $ids[0] ?? get_the_ID();
         }
 
-        return $ids[0] ?? get_the_ID();
+        return apply_filters('itineris/sage-flbuilder/themer-layout-id', absint($id));
     }
 
     /**

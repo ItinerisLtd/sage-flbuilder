@@ -15,7 +15,7 @@ class FLBuilder extends Composer
      *
      * @var array
      */
-    protected static $views = [
+    protected static array $views = [
         'fl-builder-archive',
         'fl-builder-single',
         'ItinerisSageFLBuilder::fl-builder-archive',

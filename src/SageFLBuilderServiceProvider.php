@@ -29,6 +29,11 @@ class SageFLBuilderServiceProvider extends ServiceProvider
             'ItinerisSageFLBuilder'
         );
 
+        $this->loadViewsFrom(
+            __DIR__ . '/Modules/',
+            'ItinerisSageFLBuilderModules'
+        );
+
         View::composer(FLBuilder::views(), FLBuilder::class);
     }
 }

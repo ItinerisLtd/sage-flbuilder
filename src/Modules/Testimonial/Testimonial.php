@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\Testimonial;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractBladeModule;
 use Itineris\SageFLBuilder\AbstractHelper;
-use function App\sage;
+use function Roots\app;
 
 /**
  * Generic Testimonial widget
@@ -66,7 +66,7 @@ class Testimonial extends AbstractBladeModule
     public function __construct()
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         parent::__construct([
             'name' => __('Testimonial', 'fabric'),

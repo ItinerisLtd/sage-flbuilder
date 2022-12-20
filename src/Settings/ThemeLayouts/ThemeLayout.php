@@ -5,25 +5,25 @@ declare(strict_types=1);
 namespace Itineris\SageFLBuilder\Settings\ThemeLayouts;
 
 use Closure;
-use Itineris\SageFLBuilder\AbstractHelper;
-use function App\sage;
+
+use function Roots\view;
 
 final class ThemeLayout
 {
     /**
      * @var Closure
      */
-    private $shouldInclude;
+    private Closure $shouldInclude;
 
     /**
      * @var string
      */
-    private $template;
+    private string $template;
 
     public function __construct(Closure $shouldInclude, string $template)
     {
         $this->shouldInclude = $shouldInclude;
-        $this->template = $template;
+        $this->template      = $template;
     }
 
     public function locateTemplatePath(string $template): string
@@ -32,15 +32,14 @@ final class ThemeLayout
             return $template;
         }
 
-        /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
-
-        $newTemplate = $helper->locateTemplate($this->template);
-
-        if (empty($newTemplate)) {
-            return $template;
+        if (view()->exists($this->template)) {
+            return view($this->template)->makeLoader();
         }
 
-        return $helper->templatePath($newTemplate);
+        if (view()->exists("ItinerisSageFLBuilder::{$this->template}")) {
+            return view("ItinerisSageFLBuilder::{$this->template}")->makeLoader();
+        }
+
+        return $template;
     }
 }

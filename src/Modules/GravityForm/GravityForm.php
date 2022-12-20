@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\GravityForm;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractBladeModule;
 use Itineris\SageFLBuilder\AbstractHelper;
-use function App\sage;
+use function Roots\app;
 
 class GravityForm extends AbstractBladeModule
 {
@@ -18,7 +18,7 @@ class GravityForm extends AbstractBladeModule
     public static function register(): void
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         FLBuilder::register_module(__CLASS__, [
             'items' => [
@@ -104,7 +104,7 @@ class GravityForm extends AbstractBladeModule
     public function __construct()
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         parent::__construct([
             'name' => __('Gravity Form', 'fabric'),

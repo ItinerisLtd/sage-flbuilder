@@ -3,16 +3,10 @@
     "description": "x",
     "license": "proprietary",
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^5.4",
-        "roots/sage-lib": "^9.0"
+        "php": "^8.1"
     },
     "require-dev": {
-        "automattic/vipwpcs": "dev-master",
-        "beaver-builder/bb-plugin": "*",
-        "beaver-builder/bb-theme-builder": "*",
         "roave/security-advisories": "dev-master",
-        "roots/sage": "*",
         "wp-coding-standards/wpcs": "^1.0"
     },
     "config": {
@@ -21,6 +15,9 @@
     "extra": {
         "branch-alias": {
             "dev-master": "0.11.x-dev"
+        },
+        "acorn": {
+            "providers": "Itineris\\SageFLBuilder\\SageFLBuilderServiceProvider"
         }
     },
     "autoload": {
@@ -28,32 +25,7 @@
             "Itineris\\SageFLBuilder\\": "src/"
         }
     },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "beaver-builder/bb-plugin",
-                "type": "wordpress-plugin",
-                "version": "999.999.999",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://updates.wpbeaverbuilder.com/?fl-api-method=composer_download&download=bb-plugin-pro.zip&license=78682e62702e6676657261766776407a7667"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "beaver-builder/bb-theme-builder",
-                "type": "wordpress-plugin",
-                "version": "999.999.999",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://updates.wpbeaverbuilder.com/?fl-api-method=composer_download&download=bb-theme-builder.zip&license=78682e62702e6676657261766776407a7667"
-                }
-            }
-        }
-    ],
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "check-style": "phpcs --standard=ruleset.xml --colors -p -s",

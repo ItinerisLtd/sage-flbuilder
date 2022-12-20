@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\FilterBar;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use function App\sage;
+use function Roots\app;
 
 /**
  * @class FilterBar
@@ -103,7 +103,7 @@ class FilterBar extends AbstractModule
     public function __construct()
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         parent::__construct([
             'name' => __('Filter bar', 'fabric'),

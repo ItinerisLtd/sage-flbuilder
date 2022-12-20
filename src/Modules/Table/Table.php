@@ -7,7 +7,7 @@ namespace Itineris\SageFLBuilder\Modules\Table;
 use FLBuilder;
 use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\AbstractModule;
-use function App\sage;
+use function Roots\app;
 
 /**
  * Generic Bootstrap table widget
@@ -89,7 +89,7 @@ class Table extends AbstractModule
     public function __construct()
     {
         /** @var AbstractHelper $helper */
-        $helper = sage(AbstractHelper::class);
+        $helper = app(AbstractHelper::class);
 
         parent::__construct([
             'name' => __('Table', 'fabric'),

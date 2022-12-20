@@ -3,20 +3,21 @@
     "description": "x",
     "license": "proprietary",
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^5.4",
-        "roots/sage-lib": "^9.0"
+        "php": "^8.1",
+        "illuminate/support": "~8.0",
+        "lunar-build/sage-lib": "^9.0.11"
     },
     "require-dev": {
-        "automattic/vipwpcs": "dev-master",
         "beaver-builder/bb-plugin": "*",
         "beaver-builder/bb-theme-builder": "*",
         "roave/security-advisories": "dev-master",
-        "roots/sage": "*",
-        "wp-coding-standards/wpcs": "^1.0"
+        "roots/sage": "*"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true
+        }
     },
     "extra": {
         "branch-alias": {

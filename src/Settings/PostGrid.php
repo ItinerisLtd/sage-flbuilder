@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Itineris\SageFLBuilder\Settings;
 
+use Illuminate\Support\Arr;
 use Itineris\SageFLBuilder\AbstractHelper;
 use Itineris\SageFLBuilder\InitializableInterface;
 use RuntimeException;
+
 use function App\sage;
 
 /**
@@ -159,7 +161,7 @@ class PostGrid implements InitializableInterface
             __DIR__ . "/../post-grid/$prefix.php",
         ];
 
-        $path = array_first($paths, function (string $path): bool {
+        $path = Arr::first($paths, function (string $path): bool {
             return file_exists($path);
         }, self::NOT_FOUND);
 
@@ -167,7 +169,7 @@ class PostGrid implements InitializableInterface
             throw new RuntimeException('Template not found in ' . implode(', ', $paths));
         }
 
-        if (ends_with($path, '.blade.php')) {
+        if (str_ends_with($path, '.blade.php')) {
             /** @var AbstractHelper $helper */
             $helper = sage(AbstractHelper::class);
             $path = $helper->templatePath($path);

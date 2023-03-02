@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.15.2](https://github.com/itinerisltd/sage-flbuilder/tree/0.15.2) (2023-03-02)
+
+[Full Changelog](https://github.com/itinerisltd/sage-flbuilder/compare/0.15.1...0.15.2)
+
+**Merged pull requests:**
+
+- fix: support post type as array [\#115](https://github.com/ItinerisLtd/sage-flbuilder/pull/115) ([codepuncher](https://github.com/codepuncher))
+
+## [0.15.1](https://github.com/itinerisltd/sage-flbuilder/tree/0.15.1) (2023-01-11)
+
+[Full Changelog](https://github.com/itinerisltd/sage-flbuilder/compare/0.15.0...0.15.1)
+
 ## [0.15.0](https://github.com/itinerisltd/sage-flbuilder/tree/0.15.0) (2022-12-20)
 
 [Full Changelog](https://github.com/itinerisltd/sage-flbuilder/compare/0.14.0...0.15.0)

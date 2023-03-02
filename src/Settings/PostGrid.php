@@ -189,15 +189,17 @@ class PostGrid implements InitializableInterface
         $show_filter = false;
         $tax_exists = false;
 
-        $postType = $settings->post_type ?? null;
+        $postTypes = (array) ($settings->post_type ?? ['post']);
         if ('main_query' === $settings->data_source) {
-            $postType = get_post_type();
+            $postTypes = [get_post_type()];
         }
-        if (empty($postType)) {
-            $postType = 'post';
+        if (empty($postTypes)) {
+            $postTypes = ['post'];
         }
 
-        if ($settings->show_filter) {
+        $postType = reset($postTypes);
+
+        if ($settings->show_filter && false !== $postType) {
             // Get the taxonomy name.
             if ('post' === $postType) {
                 $category = 'category';

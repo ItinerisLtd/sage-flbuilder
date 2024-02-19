@@ -15,7 +15,8 @@ $helper = sage(AbstractHelper::class);
 // Show the posts filter.
 $show_filter = false;
 $tax_exists = false;
-$post_type = 'main_query' === $settings->data_source ? (get_post_type() ?: 'post') : $settings->post_type;
+$post_type = (array) ('main_query' === $settings->data_source ? (get_post_type() ?: 'post') : $settings->post_type);
+$post_type = reset($post_type);
 if ($settings->show_filter) {
     // Get the taxonomy name.
     $category = ('post' === $post_type) ? 'category' : ('product' === $post_type ? 'product_cat' : $post_type . '_category');

@@ -67,19 +67,19 @@ class God implements InitializableInterface
     public static function flGetFilterCount($settings): int
     {
         $count = 0;
-        if (! $settings->show_filter) {
+        if (! ($settings->show_filter ?? false)) {
             return $count;
         }
-        if ($settings->show_search_filter) {
+        if ($settings->show_search_filter ?? false) {
             $count++;
         }
-        if (isset($settings->tax_exists) && $settings->tax_exists) {
+        if ($settings->tax_exists ?? false) {
             $count++;
         }
-        if ($settings->show_meta_filters) {
+        if ($settings->show_meta_filters ?? false) {
             $count++;
         }
-        if (isset($settings->show_role) && $settings->show_role) {
+        if ($settings->show_role ?? false) {
             $count++;
         }
 

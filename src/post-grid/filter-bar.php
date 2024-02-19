@@ -17,7 +17,7 @@ $show_filter = false;
 $tax_exists = false;
 $post_type = (array) ('main_query' === $settings->data_source ? (get_post_type() ?: 'post') : $settings->post_type);
 $post_type = reset($post_type);
-if ($settings->show_filter) {
+if ($settings->show_filter ?? false) {
     // Get the taxonomy name.
     $category = ('post' === $post_type) ? 'category' : ('product' === $post_type ? 'product_cat' : $post_type . '_category');
     // Check if the taxonomy exists.
@@ -60,10 +60,10 @@ $kw = get_query_var('kw');
 ?>
 <?php if ('theme' === $settings->layout && $show_filter) : ?>
     <section id="fab-search-block"
-             class="filter-form main-form<?php (! $settings->auto_filter) || ($settings->show_button) && print ' no-labels'; ?>"<?php $settings->auto_filter && print ' data-filter-auto="true"'; ?>>
+             class="filter-form main-form<?php (! ($settings->auto_filter ?? false)) || ($settings->show_button ?? false) && print ' no-labels'; ?>"<?php ($settings->auto_filter ?? false) && print ' data-filter-auto="true"'; ?>>
         <form action="<?php echo esc_url(get_pagenum_link()); ?>" method="get" id="searchform">
             <div class="row">
-                <?php if ($settings->show_search_filter) : ?>
+                <?php if ($settings->show_search_filter ?? false) : ?>
                     <div class="col-xs-12 col-sm-<?php echo sanitize_html_class($filter_col); ?>">
                         <div class="sfFormBox">
                             <div class="sfFieldWrap">
@@ -74,12 +74,12 @@ $kw = get_query_var('kw');
                         </div>
                     </div>
                 <?php endif; ?>
-                <?php if (isset($tax_exists) && $tax_exists) : ?>
+                <?php if ($tax_exists ?? false) : ?>
                     <div class="col-xs-12 col-sm-<?php echo sanitize_html_class($filter_col); ?>">
                         <?php $helper->taxonomyDropdown($category, 'Category', $post_type); ?>
                     </div>
                 <?php endif; ?>
-                <?php if ($settings->show_meta_filters) : ?>
+                <?php if ($settings->show_meta_filters ?? false) : ?>
                     <?php $locations = Itineris\SageFLBuilder\God::flGetLocations($post_type); ?>
                     <?php if (! empty($locations)) : ?>
                         <?php $current = get_query_var('location'); ?>
@@ -98,12 +98,12 @@ $kw = get_query_var('kw');
                     <?php endif; ?>
                 <?php endif; ?>
             </div>
-            <?php if ($settings->show_button) : ?>
+            <?php if ($settings->show_button ?? false) : ?>
                 <input type="submit" class="btn btn-primary" value="Search"/>
             <?php endif; ?>
         </form>
     </section>
-    <?php if ($settings->show_cat_desc) : ?>
+    <?php if ($settings->show_cat_desc ?? false) : ?>
         <div class="filter-description"><?php echo term_description($term_id, $category); ?></div>
     <?php endif; ?>
 <?php endif; ?>

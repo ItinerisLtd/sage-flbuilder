@@ -86,7 +86,7 @@ class GravityForm extends AbstractBladeModule
                                 'help' => 'If you have other forms on the page (i.e. Comments Form), specify a higher tabindex start value so that your Gravity Form does not end up with the same tabindices as your other forms. To disable the tabindex, enter 0 (zero).',
                                 'default' => '10',
                                 'slider'  => true,
-                                'units'   => array('value'),
+                                'units'   => ['value'],
                             ],
                         ],
                     ],

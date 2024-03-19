@@ -62,14 +62,6 @@ class GravityForm extends AbstractBladeModule
                                     '1' => __('Yes', 'fabric'),
                                 ],
                             ],
-                        ],
-                    ],
-                ],
-            ],
-            'advanced' => [
-                'sections' => [
-                    'general' => [
-                        'fields' => [
                             'enable_ajax' => [
                                 'type' => 'select',
                                 'label' => __('Enable Ajax', 'fabric'),
@@ -89,10 +81,12 @@ class GravityForm extends AbstractBladeModule
                                 ],
                             ],
                             'tab_index' => [
-                                'type' => 'number',
+                                'type' => 'unit',
                                 'label' => __('Tab index', 'fabric'),
                                 'help' => 'If you have other forms on the page (i.e. Comments Form), specify a higher tabindex start value so that your Gravity Form does not end up with the same tabindices as your other forms. To disable the tabindex, enter 0 (zero).',
-                                'default' => '1',
+                                'default' => '10',
+                                'slider'  => true,
+                                'units'   => ['value'],
                             ],
                         ],
                     ],

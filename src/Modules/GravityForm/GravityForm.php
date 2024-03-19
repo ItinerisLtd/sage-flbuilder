@@ -62,14 +62,6 @@ class GravityForm extends AbstractBladeModule
                                     '1' => __('Yes', 'fabric'),
                                 ],
                             ],
-                        ],
-                    ],
-                ],
-            ],
-            'advanced' => [
-                'sections' => [
-                    'general' => [
-                        'fields' => [
                             'enable_ajax' => [
                                 'type' => 'select',
                                 'label' => __('Enable Ajax', 'fabric'),
@@ -79,6 +71,14 @@ class GravityForm extends AbstractBladeModule
                                     '1' => __('Yes', 'fabric'),
                                 ],
                             ],
+                        ],
+                    ],
+                ],
+            ],
+            'advanced' => [
+                'sections' => [
+                    'general' => [
+                        'fields' => [
                             'disable_scripts' => [
                                 'type' => 'select',
                                 'label' => __('Disable script output', 'fabric'),

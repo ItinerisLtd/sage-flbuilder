@@ -193,6 +193,7 @@ class PostGrid implements InitializableInterface
         if ('main_query' === $settings->data_source) {
             $postTypes = [get_post_type()];
         }
+        $postTypes = array_filter($postTypes);
         if (empty($postTypes)) {
             $postTypes = ['post'];
         }

@@ -6,10 +6,12 @@
     $show_description = (bool) $settings->show_descr;
 @endphp
 
-@if(!empty($settings->form_id))
-    @if($settings->show_custom_title && ! empty($settings->title))
+@if (!empty($settings->form_id))
+    @if ($settings->show_custom_title && !empty($settings->title))
         <h3>{{ $settings->title }}</h3>
     @endif
 
-    {!! gravity_form($id, $show_title, $show_description, false, null, $ajax, $tabIndex, false) !!}
+    @if (function_exists('gravity_form'))
+        {!! gravity_form($id, $show_title, $show_description, false, null, $ajax, $tabIndex, false) !!}
+    @endif
 @endif

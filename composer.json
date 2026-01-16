@@ -1,38 +1,43 @@
 {
-    "name": "itineris/sage-flbuilder",
-    "description": "x",
-    "license": "proprietary",
-    "require": {
-        "php": "^8.1"
-    },
-    "require-dev": {
-        "roave/security-advisories": "dev-master",
-        "wp-coding-standards/wpcs": "^1.0"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.11.x-dev"
-        },
-        "acorn": {
-            "providers": "Itineris\\SageFLBuilder\\SageFLBuilderServiceProvider"
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "Itineris\\SageFLBuilder\\": "src/"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "check-style": "phpcs --standard=ruleset.xml --colors -p -s",
-        "pretag": [
-            "composer update",
-            "composer normalize",
-            "github_changelog_generator --no-verbose"
-        ]
+  "name": "itineris/sage-flbuilder",
+  "description": "x",
+  "license": "proprietary",
+  "require": {
+    "php": "^8.1"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "wp-coding-standards/wpcs": "^1.0"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
     }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.11.x-dev"
+    },
+    "acorn": {
+      "providers": [
+        "Itineris\\SageFLBuilder\\SageFLBuilderServiceProvider"
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Itineris\\SageFLBuilder\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "check-style": "phpcs --standard=ruleset.xml --colors -p -s",
+    "pretag": [
+      "composer update",
+      "composer normalize",
+      "github_changelog_generator --no-verbose"
+    ]
+  }
 }

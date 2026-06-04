@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Itineris\SageFLBuilder\View\Composers\FLBuilder;
 
-use function Rootsase_path;
+use function Roots\base_path;
 
 class SageFLBuilderServiceProvider extends ServiceProvider
 {

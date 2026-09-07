@@ -76,6 +76,10 @@ class Gallery extends AbstractBladeModule
 
     public function images()
     {
-        return get_field('gallery_images', $this->settings->photo_gallery);
+        if ('publish' !== get_post_status($this->settings->photo_gallery)) {
+            return [];
+        }
+
+        return array_filter((array) get_field('gallery_images', $this->settings->photo_gallery));
     }
 }
